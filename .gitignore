@@ -1,0 +1,17 @@
+# Dependencies (no subir: binarios Windows rompen build en Linux/Vercel)
+node_modules/
+
+# Local env
+.env
+.env.*
+!.env.example
+
+# Logs / OS
+*.log
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
