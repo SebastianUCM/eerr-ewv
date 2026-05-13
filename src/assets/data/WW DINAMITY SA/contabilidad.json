@@ -1,0 +1,254 @@
+[
+    {
+        "Tipo": "1",
+        "Codigo": "1101101",
+        "Nombre": "Caja M/N",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "1",
+        "Codigo": "1101201",
+        "Nombre": "Banco Santander",
+        "Saldo_Actual": 66729454.0
+    },
+    {
+        "Tipo": "1",
+        "Codigo": "1106001",
+        "Nombre": "Anticipo de Sueldo",
+        "Saldo_Actual": 1560000.0
+    },
+    {
+        "Tipo": "1",
+        "Codigo": "1108006",
+        "Nombre": "Otros Impuestos For Recuperar",
+        "Saldo_Actual": 4739846.0
+    },
+    {
+        "Tipo": "1",
+        "Codigo": "1201003",
+        "Nombre": "Maquinarias y Equipos",
+        "Saldo_Actual": 739393882.0
+    },
+    {
+        "Tipo": "1",
+        "Codigo": "1201006",
+        "Nombre": "Equipos de Oficina",
+        "Saldo_Actual": 9069819.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2102001",
+        "Nombre": "Proveedores Nacionales",
+        "Saldo_Actual": -188527557.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2102003",
+        "Nombre": "Mutuo por Pagar",
+        "Saldo_Actual": -463047700.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2102006",
+        "Nombre": "Honorarios por Pagar",
+        "Saldo_Actual": -1553660.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2103002",
+        "Nombre": "Retención 2ª Categoria",
+        "Saldo_Actual": -243135.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2103003",
+        "Nombre": "IVA Débito Fiscal",
+        "Saldo_Actual": -5782321.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2104001",
+        "Nombre": "Imposiciones por Pagar",
+        "Saldo_Actual": -4414217.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2104002",
+        "Nombre": "Impuestos Trabajadores",
+        "Saldo_Actual": -1531970.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2104005",
+        "Nombre": "Remuneraciones Por Pagar",
+        "Saldo_Actual": -9009694.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2105006",
+        "Nombre": "Provisión PPM",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2303001",
+        "Nombre": "Resultados Acumulados",
+        "Saldo_Actual": -206528615.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3101001",
+        "Nombre": "Gastos Electricidad y Agua",
+        "Saldo_Actual": 44591251.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3102001",
+        "Nombre": "Sueldos y Salarios",
+        "Saldo_Actual": 219738875.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3102002",
+        "Nombre": "Sobre Tiempo",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3102003",
+        "Nombre": "Colación",
+        "Saldo_Actual": 4824737.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3102004",
+        "Nombre": "Movilización",
+        "Saldo_Actual": 5282738.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3102005",
+        "Nombre": "Comisiones por Ventas",
+        "Saldo_Actual": 5536021.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3102006",
+        "Nombre": "Bonos",
+        "Saldo_Actual": 21627054.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3103002",
+        "Nombre": "Arriendos",
+        "Saldo_Actual": 67793283.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3103003",
+        "Nombre": "Honoraños Profesionales",
+        "Saldo_Actual": 24465753.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202006",
+        "Nombre": "Publicidad y Propaganda",
+        "Saldo_Actual": 1965840.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202007",
+        "Nombre": "Artículos de aseo",
+        "Saldo_Actual": 3121189.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202009",
+        "Nombre": "Artículos de Escritorio",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202011",
+        "Nombre": "Servicio Software",
+        "Saldo_Actual": 7295171.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202014",
+        "Nombre": "Gastos Bancarios",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202015",
+        "Nombre": "Valijas y encomiendas",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202018",
+        "Nombre": "Insumos Computacionales",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202023",
+        "Nombre": "Mantencion de Activos",
+        "Saldo_Actual": 9526854.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202024",
+        "Nombre": "Gastos Generales",
+        "Saldo_Actual": 8888554.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202029",
+        "Nombre": "Uniformes",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3202033",
+        "Nombre": "Control de Plagas",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3203001",
+        "Nombre": "Telefonia Nacional",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3204001",
+        "Nombre": "Combustible",
+        "Saldo_Actual": 0.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3204008",
+        "Nombre": "Mantención y Reparación",
+        "Saldo_Actual": 94035918.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3205006",
+        "Nombre": "Arriendo Vehículos",
+        "Saldo_Actual": 12844476.0
+    },
+    {
+        "Tipo": "4",
+        "Codigo": "4101001",
+        "Nombre": "Ingresos Exentos",
+        "Saldo_Actual": -18527950.0
+    },
+    {
+        "Tipo": "4",
+        "Codigo": "4101002",
+        "Nombre": "Ingresos Afectos",
+        "Saldo_Actual": -454170504.0
+    }
+]

@@ -1,0 +1,9 @@
+# Pipeline Python (extractores + prediccion)
+pandas>=2.0
+numpy>=1.24
+pyodbc
+statsmodels>=0.14
+scipy>=1.10
+
+# Opcional: analista_ia.py
+google-genai

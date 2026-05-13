@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "empresa": "WCORP1",
+    "generado": "2026-03-23T16:33:57",
+    "modelo": "ninguno",
+    "error": "serie insuficiente (<6 meses)"
+  },
+  "ventas": {
+    "historico": [],
+    "pronostico": []
+  },
+  "flujo_caja": {
+    "nota": "serie insuficiente (<6 meses)",
+    "historico": [],
+    "pronostico": []
+  }
+}

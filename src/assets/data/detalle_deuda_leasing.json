@@ -1,0 +1,1906 @@
+{
+  "meta": {
+    "moneda": "CLP",
+    "fuente": "mock",
+    "actualizado": "2026-04-20",
+    "nota": "Datos ficticios. Cada crédito incluye institución, número de cuotas totales y por periodo: cuotasPagadas (al corte), cortoPlazo y largo plazo."
+  },
+  "opcionesAcumulado": [
+    {
+      "periodo": "2026-04",
+      "etiqueta": "abr 2026"
+    },
+    {
+      "periodo": "2026-03",
+      "etiqueta": "mar 2026"
+    },
+    {
+      "periodo": "2026-02",
+      "etiqueta": "feb 2026"
+    },
+    {
+      "periodo": "2026-01",
+      "etiqueta": "ene 2026"
+    },
+    {
+      "periodo": "2025-12",
+      "etiqueta": "dic 2025"
+    },
+    {
+      "periodo": "2025-11",
+      "etiqueta": "nov 2025"
+    }
+  ],
+  "creditos": [
+    {
+      "id": "LEA-001",
+      "nombre": "Leasing flota liviana (2 camionetas) — Nave industrial — arrendamiento financiero",
+      "institucion": "Banco de Chile",
+      "numeroCuotas": 36,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 19440000,
+            "capitalAcumulado": 10200000,
+            "interesAcumulado": 9240000,
+            "saldoInsoluto": 45800000
+          },
+          "largoPlazo": {
+            "cuota": 28500000,
+            "pagadoAcumulado": 513000000,
+            "capitalAcumulado": 268000000,
+            "interesAcumulado": 245000000,
+            "saldoInsoluto": 2205850000
+          },
+          "cuotasPagadas": 18
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 16200000,
+            "capitalAcumulado": 8480000,
+            "interesAcumulado": 7720000,
+            "saldoInsoluto": 48860000
+          },
+          "largoPlazo": {
+            "cuota": 28500000,
+            "pagadoAcumulado": 484500000,
+            "capitalAcumulado": 252000000,
+            "interesAcumulado": 232500000,
+            "saldoInsoluto": 2230850000
+          },
+          "cuotasPagadas": 16
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 12960000,
+            "capitalAcumulado": 6710000,
+            "interesAcumulado": 6250000,
+            "saldoInsoluto": 51920000
+          },
+          "largoPlazo": {
+            "cuota": 28500000,
+            "pagadoAcumulado": 456000000,
+            "capitalAcumulado": 236000000,
+            "interesAcumulado": 220000000,
+            "saldoInsoluto": 2255850000
+          },
+          "cuotasPagadas": 13
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 9720000,
+            "capitalAcumulado": 5010000,
+            "interesAcumulado": 4710000,
+            "saldoInsoluto": 54980000
+          },
+          "largoPlazo": {
+            "cuota": 28500000,
+            "pagadoAcumulado": 427500000,
+            "capitalAcumulado": 221000000,
+            "interesAcumulado": 206500000,
+            "saldoInsoluto": 2280850000
+          },
+          "cuotasPagadas": 11
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 6480000,
+            "capitalAcumulado": 3310000,
+            "interesAcumulado": 3170000,
+            "saldoInsoluto": 58040000
+          },
+          "largoPlazo": {
+            "cuota": 28500000,
+            "pagadoAcumulado": 399000000,
+            "capitalAcumulado": 205000000,
+            "interesAcumulado": 194000000,
+            "saldoInsoluto": 2305850000
+          },
+          "cuotasPagadas": 8
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 3240000,
+            "capitalAcumulado": 1640000,
+            "interesAcumulado": 1600000,
+            "saldoInsoluto": 61100000
+          },
+          "largoPlazo": {
+            "cuota": 28500000,
+            "pagadoAcumulado": 370500000,
+            "capitalAcumulado": 189000000,
+            "interesAcumulado": 181500000,
+            "saldoInsoluto": 2330850000
+          },
+          "cuotasPagadas": 6
+        }
+      }
+    },
+    {
+      "id": "LEA-002",
+      "nombre": "Equipos de cómputo sede central — Línea maquinaria pesada",
+      "institucion": "Banco Estado",
+      "numeroCuotas": 43,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 11340000,
+            "capitalAcumulado": 5980000,
+            "interesAcumulado": 5360000,
+            "saldoInsoluto": 22400000
+          },
+          "largoPlazo": {
+            "cuota": 18200000,
+            "pagadoAcumulado": 436800000,
+            "capitalAcumulado": 228000000,
+            "interesAcumulado": 208800000,
+            "saldoInsoluto": 1412000000
+          },
+          "cuotasPagadas": 23
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 9450000,
+            "capitalAcumulado": 4960000,
+            "interesAcumulado": 4490000,
+            "saldoInsoluto": 23810000
+          },
+          "largoPlazo": {
+            "cuota": 18200000,
+            "pagadoAcumulado": 418600000,
+            "capitalAcumulado": 217000000,
+            "interesAcumulado": 201600000,
+            "saldoInsoluto": 1430200000
+          },
+          "cuotasPagadas": 20
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 7560000,
+            "capitalAcumulado": 3920000,
+            "interesAcumulado": 3640000,
+            "saldoInsoluto": 25220000
+          },
+          "largoPlazo": {
+            "cuota": 18200000,
+            "pagadoAcumulado": 400400000,
+            "capitalAcumulado": 206000000,
+            "interesAcumulado": 194400000,
+            "saldoInsoluto": 1448400000
+          },
+          "cuotasPagadas": 17
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 5670000,
+            "capitalAcumulado": 2910000,
+            "interesAcumulado": 2760000,
+            "saldoInsoluto": 26630000
+          },
+          "largoPlazo": {
+            "cuota": 18200000,
+            "pagadoAcumulado": 382200000,
+            "capitalAcumulado": 195000000,
+            "interesAcumulado": 187200000,
+            "saldoInsoluto": 1466600000
+          },
+          "cuotasPagadas": 14
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 3780000,
+            "capitalAcumulado": 1920000,
+            "interesAcumulado": 1860000,
+            "saldoInsoluto": 28040000
+          },
+          "largoPlazo": {
+            "cuota": 18200000,
+            "pagadoAcumulado": 364000000,
+            "capitalAcumulado": 184000000,
+            "interesAcumulado": 180000000,
+            "saldoInsoluto": 1484800000
+          },
+          "cuotasPagadas": 11
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 1890000,
+            "capitalAcumulado": 950000,
+            "interesAcumulado": 940000,
+            "saldoInsoluto": 29450000
+          },
+          "largoPlazo": {
+            "cuota": 18200000,
+            "pagadoAcumulado": 345800000,
+            "capitalAcumulado": 173000000,
+            "interesAcumulado": 172800000,
+            "saldoInsoluto": 1503000000
+          },
+          "cuotasPagadas": 8
+        }
+      }
+    },
+    {
+      "id": "LEA-003",
+      "nombre": "Maquinaria menor — mantención — Parque vehículos medianos (3 unidades)",
+      "institucion": "Banco Santander Chile",
+      "numeroCuotas": 50,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 20600000,
+            "capitalAcumulado": 10800000,
+            "interesAcumulado": 9800000,
+            "saldoInsoluto": 67200000
+          },
+          "largoPlazo": {
+            "cuota": 12400000,
+            "pagadoAcumulado": 297600000,
+            "capitalAcumulado": 155000000,
+            "interesAcumulado": 142600000,
+            "saldoInsoluto": 892000000
+          },
+          "cuotasPagadas": 28
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 16480000,
+            "capitalAcumulado": 8600000,
+            "interesAcumulado": 7880000,
+            "saldoInsoluto": 70240000
+          },
+          "largoPlazo": {
+            "cuota": 12400000,
+            "pagadoAcumulado": 285200000,
+            "capitalAcumulado": 148000000,
+            "interesAcumulado": 137200000,
+            "saldoInsoluto": 904400000
+          },
+          "cuotasPagadas": 25
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 12360000,
+            "capitalAcumulado": 6410000,
+            "interesAcumulado": 5950000,
+            "saldoInsoluto": 73280000
+          },
+          "largoPlazo": {
+            "cuota": 12400000,
+            "pagadoAcumulado": 272800000,
+            "capitalAcumulado": 141000000,
+            "interesAcumulado": 131800000,
+            "saldoInsoluto": 916800000
+          },
+          "cuotasPagadas": 21
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 8240000,
+            "capitalAcumulado": 4250000,
+            "interesAcumulado": 3990000,
+            "saldoInsoluto": 76320000
+          },
+          "largoPlazo": {
+            "cuota": 12400000,
+            "pagadoAcumulado": 260400000,
+            "capitalAcumulado": 134000000,
+            "interesAcumulado": 126400000,
+            "saldoInsoluto": 929200000
+          },
+          "cuotasPagadas": 17
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 4120000,
+            "capitalAcumulado": 2100000,
+            "interesAcumulado": 2020000,
+            "saldoInsoluto": 79360000
+          },
+          "largoPlazo": {
+            "cuota": 12400000,
+            "pagadoAcumulado": 248000000,
+            "capitalAcumulado": 127000000,
+            "interesAcumulado": 121000000,
+            "saldoInsoluto": 941600000
+          },
+          "cuotasPagadas": 14
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 0,
+            "capitalAcumulado": 0,
+            "interesAcumulado": 0,
+            "saldoInsoluto": 82400000
+          },
+          "largoPlazo": {
+            "cuota": 12400000,
+            "pagadoAcumulado": 235600000,
+            "capitalAcumulado": 120000000,
+            "interesAcumulado": 115600000,
+            "saldoInsoluto": 954000000
+          },
+          "cuotasPagadas": 11
+        }
+      }
+    },
+    {
+      "id": "LEA-004",
+      "nombre": "Mobiliario oficina zona sur — Sistema HVAC edificio corporativo",
+      "institucion": "Scotiabank Chile",
+      "numeroCuotas": 57,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 5880000,
+            "capitalAcumulado": 3100000,
+            "interesAcumulado": 2780000,
+            "saldoInsoluto": 12100000
+          },
+          "largoPlazo": {
+            "cuota": 6800000,
+            "pagadoAcumulado": 163200000,
+            "capitalAcumulado": 85000000,
+            "interesAcumulado": 78200000,
+            "saldoInsoluto": 318000000
+          },
+          "cuotasPagadas": 33
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 4900000,
+            "capitalAcumulado": 2570000,
+            "interesAcumulado": 2330000,
+            "saldoInsoluto": 12980000
+          },
+          "largoPlazo": {
+            "cuota": 6800000,
+            "pagadoAcumulado": 156400000,
+            "capitalAcumulado": 81200000,
+            "interesAcumulado": 75200000,
+            "saldoInsoluto": 324800000
+          },
+          "cuotasPagadas": 29
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 3920000,
+            "capitalAcumulado": 2030000,
+            "interesAcumulado": 1890000,
+            "saldoInsoluto": 13860000
+          },
+          "largoPlazo": {
+            "cuota": 6800000,
+            "pagadoAcumulado": 149600000,
+            "capitalAcumulado": 77400000,
+            "interesAcumulado": 72200000,
+            "saldoInsoluto": 331600000
+          },
+          "cuotasPagadas": 25
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 2940000,
+            "capitalAcumulado": 1500000,
+            "interesAcumulado": 1440000,
+            "saldoInsoluto": 14740000
+          },
+          "largoPlazo": {
+            "cuota": 6800000,
+            "pagadoAcumulado": 142800000,
+            "capitalAcumulado": 73600000,
+            "interesAcumulado": 69200000,
+            "saldoInsoluto": 338400000
+          },
+          "cuotasPagadas": 21
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 1960000,
+            "capitalAcumulado": 990000,
+            "interesAcumulado": 970000,
+            "saldoInsoluto": 15620000
+          },
+          "largoPlazo": {
+            "cuota": 6800000,
+            "pagadoAcumulado": 136000000,
+            "capitalAcumulado": 69800000,
+            "interesAcumulado": 66200000,
+            "saldoInsoluto": 345200000
+          },
+          "cuotasPagadas": 17
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 980000,
+            "capitalAcumulado": 490000,
+            "interesAcumulado": 490000,
+            "saldoInsoluto": 16500000
+          },
+          "largoPlazo": {
+            "cuota": 6800000,
+            "pagadoAcumulado": 129200000,
+            "capitalAcumulado": 66000000,
+            "interesAcumulado": 63200000,
+            "saldoInsoluto": 352000000
+          },
+          "cuotasPagadas": 13
+        }
+      }
+    },
+    {
+      "id": "LEA-005",
+      "nombre": "Vehículo reparto urbano — Ascensores y mantención integral",
+      "institucion": "Banco BCI",
+      "numeroCuotas": 64,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 38570000,
+            "capitalAcumulado": 20200000,
+            "interesAcumulado": 18370000,
+            "saldoInsoluto": 98500000
+          },
+          "largoPlazo": {
+            "cuota": 4100000,
+            "pagadoAcumulado": 98400000,
+            "capitalAcumulado": 51200000,
+            "interesAcumulado": 47200000,
+            "saldoInsoluto": 198000000
+          },
+          "cuotasPagadas": 38
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 33060000,
+            "capitalAcumulado": 17200000,
+            "interesAcumulado": 15860000,
+            "saldoInsoluto": 103960000
+          },
+          "largoPlazo": {
+            "cuota": 4100000,
+            "pagadoAcumulado": 94300000,
+            "capitalAcumulado": 48900000,
+            "interesAcumulado": 45400000,
+            "saldoInsoluto": 202100000
+          },
+          "cuotasPagadas": 33
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 27550000,
+            "capitalAcumulado": 14100000,
+            "interesAcumulado": 13450000,
+            "saldoInsoluto": 109420000
+          },
+          "largoPlazo": {
+            "cuota": 4100000,
+            "pagadoAcumulado": 90200000,
+            "capitalAcumulado": 46600000,
+            "interesAcumulado": 43600000,
+            "saldoInsoluto": 206200000
+          },
+          "cuotasPagadas": 29
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 22040000,
+            "capitalAcumulado": 11100000,
+            "interesAcumulado": 10940000,
+            "saldoInsoluto": 114880000
+          },
+          "largoPlazo": {
+            "cuota": 4100000,
+            "pagadoAcumulado": 86100000,
+            "capitalAcumulado": 44300000,
+            "interesAcumulado": 41800000,
+            "saldoInsoluto": 210300000
+          },
+          "cuotasPagadas": 24
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 16530000,
+            "capitalAcumulado": 8100000,
+            "interesAcumulado": 8430000,
+            "saldoInsoluto": 120340000
+          },
+          "largoPlazo": {
+            "cuota": 4100000,
+            "pagadoAcumulado": 82000000,
+            "capitalAcumulado": 42000000,
+            "interesAcumulado": 40000000,
+            "saldoInsoluto": 214400000
+          },
+          "cuotasPagadas": 20
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 11020000,
+            "capitalAcumulado": 5200000,
+            "interesAcumulado": 5820000,
+            "saldoInsoluto": 125800000
+          },
+          "largoPlazo": {
+            "cuota": 4100000,
+            "pagadoAcumulado": 77900000,
+            "capitalAcumulado": 39700000,
+            "interesAcumulado": 38200000,
+            "saldoInsoluto": 218500000
+          },
+          "cuotasPagadas": 15
+        }
+      }
+    },
+    {
+      "id": "LEA-006",
+      "nombre": "Equipamiento sala de reuniones — Software ERP — licenciamiento financiado",
+      "institucion": "Itaú Chile",
+      "numeroCuotas": 71,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 4320000,
+            "capitalAcumulado": 2280000,
+            "interesAcumulado": 2040000,
+            "saldoInsoluto": 8900000
+          },
+          "largoPlazo": {
+            "cuota": 2100000,
+            "pagadoAcumulado": 50400000,
+            "capitalAcumulado": 26200000,
+            "interesAcumulado": 24200000,
+            "saldoInsoluto": 45600000
+          },
+          "cuotasPagadas": 42
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 3600000,
+            "capitalAcumulado": 1880000,
+            "interesAcumulado": 1720000,
+            "saldoInsoluto": 9620000
+          },
+          "largoPlazo": {
+            "cuota": 2100000,
+            "pagadoAcumulado": 48300000,
+            "capitalAcumulado": 25000000,
+            "interesAcumulado": 23300000,
+            "saldoInsoluto": 47700000
+          },
+          "cuotasPagadas": 37
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 2880000,
+            "capitalAcumulado": 1480000,
+            "interesAcumulado": 1400000,
+            "saldoInsoluto": 10340000
+          },
+          "largoPlazo": {
+            "cuota": 2100000,
+            "pagadoAcumulado": 46200000,
+            "capitalAcumulado": 23800000,
+            "interesAcumulado": 22400000,
+            "saldoInsoluto": 49800000
+          },
+          "cuotasPagadas": 32
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 2160000,
+            "capitalAcumulado": 1090000,
+            "interesAcumulado": 1070000,
+            "saldoInsoluto": 11060000
+          },
+          "largoPlazo": {
+            "cuota": 2100000,
+            "pagadoAcumulado": 44100000,
+            "capitalAcumulado": 22600000,
+            "interesAcumulado": 21500000,
+            "saldoInsoluto": 51900000
+          },
+          "cuotasPagadas": 27
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 1440000,
+            "capitalAcumulado": 720000,
+            "interesAcumulado": 720000,
+            "saldoInsoluto": 11780000
+          },
+          "largoPlazo": {
+            "cuota": 2100000,
+            "pagadoAcumulado": 42000000,
+            "capitalAcumulado": 21400000,
+            "interesAcumulado": 20600000,
+            "saldoInsoluto": 54000000
+          },
+          "cuotasPagadas": 22
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 720000,
+            "capitalAcumulado": 360000,
+            "interesAcumulado": 360000,
+            "saldoInsoluto": 12500000
+          },
+          "largoPlazo": {
+            "cuota": 2100000,
+            "pagadoAcumulado": 39900000,
+            "capitalAcumulado": 20200000,
+            "interesAcumulado": 19700000,
+            "saldoInsoluto": 56100000
+          },
+          "cuotasPagadas": 17
+        }
+      }
+    },
+    {
+      "id": "LEA-007",
+      "nombre": "Transformadores y respaldo eléctrico",
+      "institucion": "Banco Security",
+      "numeroCuotas": 66,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 1061500,
+            "pagadoAcumulado": 23160000,
+            "capitalAcumulado": 12050000,
+            "interesAcumulado": 11110000,
+            "saldoInsoluto": 51200000
+          },
+          "largoPlazo": {
+            "cuota": 9650000,
+            "pagadoAcumulado": 231600000,
+            "capitalAcumulado": 120500000,
+            "interesAcumulado": 111100000,
+            "saldoInsoluto": 512000000
+          },
+          "cuotasPagadas": 34
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 1061500,
+            "pagadoAcumulado": 22195000,
+            "capitalAcumulado": 11500000,
+            "interesAcumulado": 10695000,
+            "saldoInsoluto": 52165000
+          },
+          "largoPlazo": {
+            "cuota": 9650000,
+            "pagadoAcumulado": 221950000,
+            "capitalAcumulado": 115000000,
+            "interesAcumulado": 106950000,
+            "saldoInsoluto": 521650000
+          },
+          "cuotasPagadas": 29
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 1061500,
+            "pagadoAcumulado": 21230000,
+            "capitalAcumulado": 10950000,
+            "interesAcumulado": 10280000,
+            "saldoInsoluto": 53130000
+          },
+          "largoPlazo": {
+            "cuota": 9650000,
+            "pagadoAcumulado": 212300000,
+            "capitalAcumulado": 109500000,
+            "interesAcumulado": 102800000,
+            "saldoInsoluto": 531300000
+          },
+          "cuotasPagadas": 24
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 1061500,
+            "pagadoAcumulado": 20265000,
+            "capitalAcumulado": 10400000,
+            "interesAcumulado": 9865000,
+            "saldoInsoluto": 54095000
+          },
+          "largoPlazo": {
+            "cuota": 9650000,
+            "pagadoAcumulado": 202650000,
+            "capitalAcumulado": 104000000,
+            "interesAcumulado": 98650000,
+            "saldoInsoluto": 540950000
+          },
+          "cuotasPagadas": 20
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 1061500,
+            "pagadoAcumulado": 19300000,
+            "capitalAcumulado": 9850000,
+            "interesAcumulado": 9450000,
+            "saldoInsoluto": 55060000
+          },
+          "largoPlazo": {
+            "cuota": 9650000,
+            "pagadoAcumulado": 193000000,
+            "capitalAcumulado": 98500000,
+            "interesAcumulado": 94500000,
+            "saldoInsoluto": 550600000
+          },
+          "cuotasPagadas": 15
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 1061500,
+            "pagadoAcumulado": 18335000,
+            "capitalAcumulado": 9300000,
+            "interesAcumulado": 9035000,
+            "saldoInsoluto": 56025000
+          },
+          "largoPlazo": {
+            "cuota": 9650000,
+            "pagadoAcumulado": 183350000,
+            "capitalAcumulado": 93000000,
+            "interesAcumulado": 90350000,
+            "saldoInsoluto": 560250000
+          },
+          "cuotasPagadas": 11
+        }
+      }
+    },
+    {
+      "id": "LEA-008",
+      "nombre": "Grúa horquilla y logística",
+      "institucion": "Banco Consorcio",
+      "numeroCuotas": 71,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 583000,
+            "pagadoAcumulado": 12720000,
+            "capitalAcumulado": 6620000,
+            "interesAcumulado": 6100000,
+            "saldoInsoluto": 16800000
+          },
+          "largoPlazo": {
+            "cuota": 5300000,
+            "pagadoAcumulado": 127200000,
+            "capitalAcumulado": 66200000,
+            "interesAcumulado": 61000000,
+            "saldoInsoluto": 168000000
+          },
+          "cuotasPagadas": 37
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 583000,
+            "pagadoAcumulado": 12190000,
+            "capitalAcumulado": 6320000,
+            "interesAcumulado": 5870000,
+            "saldoInsoluto": 17330000
+          },
+          "largoPlazo": {
+            "cuota": 5300000,
+            "pagadoAcumulado": 121900000,
+            "capitalAcumulado": 63200000,
+            "interesAcumulado": 58700000,
+            "saldoInsoluto": 173300000
+          },
+          "cuotasPagadas": 32
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 583000,
+            "pagadoAcumulado": 11660000,
+            "capitalAcumulado": 6020000,
+            "interesAcumulado": 5640000,
+            "saldoInsoluto": 17860000
+          },
+          "largoPlazo": {
+            "cuota": 5300000,
+            "pagadoAcumulado": 116600000,
+            "capitalAcumulado": 60200000,
+            "interesAcumulado": 56400000,
+            "saldoInsoluto": 178600000
+          },
+          "cuotasPagadas": 27
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 583000,
+            "pagadoAcumulado": 11130000,
+            "capitalAcumulado": 5720000,
+            "interesAcumulado": 5410000,
+            "saldoInsoluto": 18390000
+          },
+          "largoPlazo": {
+            "cuota": 5300000,
+            "pagadoAcumulado": 111300000,
+            "capitalAcumulado": 57200000,
+            "interesAcumulado": 54100000,
+            "saldoInsoluto": 183900000
+          },
+          "cuotasPagadas": 22
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 583000,
+            "pagadoAcumulado": 10600000,
+            "capitalAcumulado": 5420000,
+            "interesAcumulado": 5180000,
+            "saldoInsoluto": 18920000
+          },
+          "largoPlazo": {
+            "cuota": 5300000,
+            "pagadoAcumulado": 106000000,
+            "capitalAcumulado": 54200000,
+            "interesAcumulado": 51800000,
+            "saldoInsoluto": 189200000
+          },
+          "cuotasPagadas": 17
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 583000,
+            "pagadoAcumulado": 10070000,
+            "capitalAcumulado": 5120000,
+            "interesAcumulado": 4950000,
+            "saldoInsoluto": 19450000
+          },
+          "largoPlazo": {
+            "cuota": 5300000,
+            "pagadoAcumulado": 100700000,
+            "capitalAcumulado": 51200000,
+            "interesAcumulado": 49500000,
+            "saldoInsoluto": 194500000
+          },
+          "cuotasPagadas": 12
+        }
+      }
+    },
+    {
+      "id": "LEA-009",
+      "nombre": "Red de frío industrial",
+      "institucion": "HSBC Bank (Chile)",
+      "numeroCuotas": 40,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 814000,
+            "pagadoAcumulado": 17760000,
+            "capitalAcumulado": 9250000,
+            "interesAcumulado": 8510000,
+            "saldoInsoluto": 28900000
+          },
+          "largoPlazo": {
+            "cuota": 7400000,
+            "pagadoAcumulado": 177600000,
+            "capitalAcumulado": 92500000,
+            "interesAcumulado": 85100000,
+            "saldoInsoluto": 289000000
+          },
+          "cuotasPagadas": 22
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 814000,
+            "pagadoAcumulado": 17020000,
+            "capitalAcumulado": 8840000,
+            "interesAcumulado": 8180000,
+            "saldoInsoluto": 29640000
+          },
+          "largoPlazo": {
+            "cuota": 7400000,
+            "pagadoAcumulado": 170200000,
+            "capitalAcumulado": 88400000,
+            "interesAcumulado": 81800000,
+            "saldoInsoluto": 296400000
+          },
+          "cuotasPagadas": 19
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 814000,
+            "pagadoAcumulado": 16280000,
+            "capitalAcumulado": 8430000,
+            "interesAcumulado": 7850000,
+            "saldoInsoluto": 30380000
+          },
+          "largoPlazo": {
+            "cuota": 7400000,
+            "pagadoAcumulado": 162800000,
+            "capitalAcumulado": 84300000,
+            "interesAcumulado": 78500000,
+            "saldoInsoluto": 303800000
+          },
+          "cuotasPagadas": 16
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 814000,
+            "pagadoAcumulado": 15540000,
+            "capitalAcumulado": 8020000,
+            "interesAcumulado": 7520000,
+            "saldoInsoluto": 31120000
+          },
+          "largoPlazo": {
+            "cuota": 7400000,
+            "pagadoAcumulado": 155400000,
+            "capitalAcumulado": 80200000,
+            "interesAcumulado": 75200000,
+            "saldoInsoluto": 311200000
+          },
+          "cuotasPagadas": 13
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 814000,
+            "pagadoAcumulado": 14800000,
+            "capitalAcumulado": 7610000,
+            "interesAcumulado": 7190000,
+            "saldoInsoluto": 31860000
+          },
+          "largoPlazo": {
+            "cuota": 7400000,
+            "pagadoAcumulado": 148000000,
+            "capitalAcumulado": 76100000,
+            "interesAcumulado": 71900000,
+            "saldoInsoluto": 318600000
+          },
+          "cuotasPagadas": 10
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 814000,
+            "pagadoAcumulado": 14060000,
+            "capitalAcumulado": 7200000,
+            "interesAcumulado": 6860000,
+            "saldoInsoluto": 32600000
+          },
+          "largoPlazo": {
+            "cuota": 7400000,
+            "pagadoAcumulado": 140600000,
+            "capitalAcumulado": 72000000,
+            "interesAcumulado": 68600000,
+            "saldoInsoluto": 326000000
+          },
+          "cuotasPagadas": 8
+        }
+      }
+    },
+    {
+      "id": "LEA-010",
+      "nombre": "Proyecto solar techo (leasing verde)",
+      "institucion": "Banco Internacional",
+      "numeroCuotas": 45,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 1012000,
+            "pagadoAcumulado": 20240000,
+            "capitalAcumulado": 10500000,
+            "interesAcumulado": 9740000,
+            "saldoInsoluto": 44500000
+          },
+          "largoPlazo": {
+            "cuota": 9200000,
+            "pagadoAcumulado": 202400000,
+            "capitalAcumulado": 105000000,
+            "interesAcumulado": 97400000,
+            "saldoInsoluto": 445000000
+          },
+          "cuotasPagadas": 23
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 1012000,
+            "pagadoAcumulado": 19320000,
+            "capitalAcumulado": 10000000,
+            "interesAcumulado": 9320000,
+            "saldoInsoluto": 45420000
+          },
+          "largoPlazo": {
+            "cuota": 9200000,
+            "pagadoAcumulado": 193200000,
+            "capitalAcumulado": 100000000,
+            "interesAcumulado": 93200000,
+            "saldoInsoluto": 454200000
+          },
+          "cuotasPagadas": 20
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 1012000,
+            "pagadoAcumulado": 18400000,
+            "capitalAcumulado": 9500000,
+            "interesAcumulado": 8900000,
+            "saldoInsoluto": 46340000
+          },
+          "largoPlazo": {
+            "cuota": 9200000,
+            "pagadoAcumulado": 184000000,
+            "capitalAcumulado": 95000000,
+            "interesAcumulado": 89000000,
+            "saldoInsoluto": 463400000
+          },
+          "cuotasPagadas": 17
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 1012000,
+            "pagadoAcumulado": 17480000,
+            "capitalAcumulado": 9000000,
+            "interesAcumulado": 8480000,
+            "saldoInsoluto": 47260000
+          },
+          "largoPlazo": {
+            "cuota": 9200000,
+            "pagadoAcumulado": 174800000,
+            "capitalAcumulado": 90000000,
+            "interesAcumulado": 84800000,
+            "saldoInsoluto": 472600000
+          },
+          "cuotasPagadas": 14
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 1012000,
+            "pagadoAcumulado": 16560000,
+            "capitalAcumulado": 8500000,
+            "interesAcumulado": 8060000,
+            "saldoInsoluto": 48180000
+          },
+          "largoPlazo": {
+            "cuota": 9200000,
+            "pagadoAcumulado": 165600000,
+            "capitalAcumulado": 85000000,
+            "interesAcumulado": 80600000,
+            "saldoInsoluto": 481800000
+          },
+          "cuotasPagadas": 11
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 1012000,
+            "pagadoAcumulado": 15640000,
+            "capitalAcumulado": 8000000,
+            "interesAcumulado": 7640000,
+            "saldoInsoluto": 49100000
+          },
+          "largoPlazo": {
+            "cuota": 9200000,
+            "pagadoAcumulado": 156400000,
+            "capitalAcumulado": 80000000,
+            "interesAcumulado": 76400000,
+            "saldoInsoluto": 491000000
+          },
+          "cuotasPagadas": 8
+        }
+      }
+    },
+    {
+      "id": "LEA-011",
+      "nombre": "Remodelación integral local comercial",
+      "institucion": "Banco de Chile",
+      "numeroCuotas": 50,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 368500,
+            "pagadoAcumulado": 8040000,
+            "capitalAcumulado": 4180000,
+            "interesAcumulado": 3860000,
+            "saldoInsoluto": 9560000
+          },
+          "largoPlazo": {
+            "cuota": 3350000,
+            "pagadoAcumulado": 80400000,
+            "capitalAcumulado": 41800000,
+            "interesAcumulado": 38600000,
+            "saldoInsoluto": 95600000
+          },
+          "cuotasPagadas": 27
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 368500,
+            "pagadoAcumulado": 7705000,
+            "capitalAcumulado": 3990000,
+            "interesAcumulado": 3715000,
+            "saldoInsoluto": 9895000
+          },
+          "largoPlazo": {
+            "cuota": 3350000,
+            "pagadoAcumulado": 77050000,
+            "capitalAcumulado": 39900000,
+            "interesAcumulado": 37150000,
+            "saldoInsoluto": 98950000
+          },
+          "cuotasPagadas": 24
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 368500,
+            "pagadoAcumulado": 7370000,
+            "capitalAcumulado": 3800000,
+            "interesAcumulado": 3570000,
+            "saldoInsoluto": 10230000
+          },
+          "largoPlazo": {
+            "cuota": 3350000,
+            "pagadoAcumulado": 73700000,
+            "capitalAcumulado": 38000000,
+            "interesAcumulado": 35700000,
+            "saldoInsoluto": 102300000
+          },
+          "cuotasPagadas": 20
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 368500,
+            "pagadoAcumulado": 7035000,
+            "capitalAcumulado": 3610000,
+            "interesAcumulado": 3425000,
+            "saldoInsoluto": 10565000
+          },
+          "largoPlazo": {
+            "cuota": 3350000,
+            "pagadoAcumulado": 70350000,
+            "capitalAcumulado": 36100000,
+            "interesAcumulado": 34250000,
+            "saldoInsoluto": 105650000
+          },
+          "cuotasPagadas": 16
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 368500,
+            "pagadoAcumulado": 6700000,
+            "capitalAcumulado": 3420000,
+            "interesAcumulado": 3280000,
+            "saldoInsoluto": 10900000
+          },
+          "largoPlazo": {
+            "cuota": 3350000,
+            "pagadoAcumulado": 67000000,
+            "capitalAcumulado": 34200000,
+            "interesAcumulado": 32800000,
+            "saldoInsoluto": 109000000
+          },
+          "cuotasPagadas": 13
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 368500,
+            "pagadoAcumulado": 6365000,
+            "capitalAcumulado": 3230000,
+            "interesAcumulado": 3135000,
+            "saldoInsoluto": 11235000
+          },
+          "largoPlazo": {
+            "cuota": 3350000,
+            "pagadoAcumulado": 63650000,
+            "capitalAcumulado": 32300000,
+            "interesAcumulado": 31350000,
+            "saldoInsoluto": 112350000
+          },
+          "cuotasPagadas": 10
+        }
+      }
+    },
+    {
+      "id": "LEA-012",
+      "nombre": "Leasing flota liviana (2 camionetas) (contrato complementario)",
+      "institucion": "Scotiabank Chile",
+      "numeroCuotas": 18,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 19440000,
+            "capitalAcumulado": 10200000,
+            "interesAcumulado": 9240000,
+            "saldoInsoluto": 45800000
+          },
+          "largoPlazo": {
+            "cuota": 738000,
+            "pagadoAcumulado": 11808000,
+            "capitalAcumulado": 6144000,
+            "interesAcumulado": 5664000,
+            "saldoInsoluto": 23760000
+          },
+          "cuotasPagadas": 11
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 16200000,
+            "capitalAcumulado": 8480000,
+            "interesAcumulado": 7720000,
+            "saldoInsoluto": 48860000
+          },
+          "largoPlazo": {
+            "cuota": 738000,
+            "pagadoAcumulado": 11316000,
+            "capitalAcumulado": 5868000,
+            "interesAcumulado": 5448000,
+            "saldoInsoluto": 24252000
+          },
+          "cuotasPagadas": 9
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 12960000,
+            "capitalAcumulado": 6710000,
+            "interesAcumulado": 6250000,
+            "saldoInsoluto": 51920000
+          },
+          "largoPlazo": {
+            "cuota": 738000,
+            "pagadoAcumulado": 10824000,
+            "capitalAcumulado": 5592000,
+            "interesAcumulado": 5232000,
+            "saldoInsoluto": 24744000
+          },
+          "cuotasPagadas": 8
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 9720000,
+            "capitalAcumulado": 5010000,
+            "interesAcumulado": 4710000,
+            "saldoInsoluto": 54980000
+          },
+          "largoPlazo": {
+            "cuota": 738000,
+            "pagadoAcumulado": 10332000,
+            "capitalAcumulado": 5316000,
+            "interesAcumulado": 5016000,
+            "saldoInsoluto": 25236000
+          },
+          "cuotasPagadas": 7
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 6480000,
+            "capitalAcumulado": 3310000,
+            "interesAcumulado": 3170000,
+            "saldoInsoluto": 58040000
+          },
+          "largoPlazo": {
+            "cuota": 738000,
+            "pagadoAcumulado": 9840000,
+            "capitalAcumulado": 5040000,
+            "interesAcumulado": 4800000,
+            "saldoInsoluto": 25728000
+          },
+          "cuotasPagadas": 6
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 3240000,
+            "pagadoAcumulado": 3240000,
+            "capitalAcumulado": 1640000,
+            "interesAcumulado": 1600000,
+            "saldoInsoluto": 61100000
+          },
+          "largoPlazo": {
+            "cuota": 738000,
+            "pagadoAcumulado": 9348000,
+            "capitalAcumulado": 4764000,
+            "interesAcumulado": 4584000,
+            "saldoInsoluto": 26220000
+          },
+          "cuotasPagadas": 4
+        }
+      }
+    },
+    {
+      "id": "LEA-013",
+      "nombre": "Equipos de cómputo sede central (contrato complementario)",
+      "institucion": "Banco BCI",
+      "numeroCuotas": 22,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 11340000,
+            "capitalAcumulado": 5980000,
+            "interesAcumulado": 5360000,
+            "saldoInsoluto": 22400000
+          },
+          "largoPlazo": {
+            "cuota": 378000,
+            "pagadoAcumulado": 6048000,
+            "capitalAcumulado": 3144000,
+            "interesAcumulado": 2904000,
+            "saldoInsoluto": 5472000
+          },
+          "cuotasPagadas": 14
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 9450000,
+            "capitalAcumulado": 4960000,
+            "interesAcumulado": 4490000,
+            "saldoInsoluto": 23810000
+          },
+          "largoPlazo": {
+            "cuota": 378000,
+            "pagadoAcumulado": 5796000,
+            "capitalAcumulado": 3000000,
+            "interesAcumulado": 2796000,
+            "saldoInsoluto": 5724000
+          },
+          "cuotasPagadas": 12
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 7560000,
+            "capitalAcumulado": 3920000,
+            "interesAcumulado": 3640000,
+            "saldoInsoluto": 25220000
+          },
+          "largoPlazo": {
+            "cuota": 378000,
+            "pagadoAcumulado": 5544000,
+            "capitalAcumulado": 2856000,
+            "interesAcumulado": 2688000,
+            "saldoInsoluto": 5976000
+          },
+          "cuotasPagadas": 11
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 5670000,
+            "capitalAcumulado": 2910000,
+            "interesAcumulado": 2760000,
+            "saldoInsoluto": 26630000
+          },
+          "largoPlazo": {
+            "cuota": 378000,
+            "pagadoAcumulado": 5292000,
+            "capitalAcumulado": 2712000,
+            "interesAcumulado": 2580000,
+            "saldoInsoluto": 6228000
+          },
+          "cuotasPagadas": 9
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 3780000,
+            "capitalAcumulado": 1920000,
+            "interesAcumulado": 1860000,
+            "saldoInsoluto": 28040000
+          },
+          "largoPlazo": {
+            "cuota": 378000,
+            "pagadoAcumulado": 5040000,
+            "capitalAcumulado": 2568000,
+            "interesAcumulado": 2472000,
+            "saldoInsoluto": 6480000
+          },
+          "cuotasPagadas": 8
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 1890000,
+            "pagadoAcumulado": 1890000,
+            "capitalAcumulado": 950000,
+            "interesAcumulado": 940000,
+            "saldoInsoluto": 29450000
+          },
+          "largoPlazo": {
+            "cuota": 378000,
+            "pagadoAcumulado": 4788000,
+            "capitalAcumulado": 2424000,
+            "interesAcumulado": 2364000,
+            "saldoInsoluto": 6732000
+          },
+          "cuotasPagadas": 6
+        }
+      }
+    },
+    {
+      "id": "LEA-014",
+      "nombre": "Maquinaria menor — mantención (contrato complementario)",
+      "institucion": "Itaú Chile",
+      "numeroCuotas": 26,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 20600000,
+            "capitalAcumulado": 10800000,
+            "interesAcumulado": 9800000,
+            "saldoInsoluto": 67200000
+          },
+          "largoPlazo": {
+            "cuota": 1737000,
+            "pagadoAcumulado": 27792000,
+            "capitalAcumulado": 14460000,
+            "interesAcumulado": 13332000,
+            "saldoInsoluto": 61440000
+          },
+          "cuotasPagadas": 17
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 16480000,
+            "capitalAcumulado": 8600000,
+            "interesAcumulado": 7880000,
+            "saldoInsoluto": 70240000
+          },
+          "largoPlazo": {
+            "cuota": 1737000,
+            "pagadoAcumulado": 26634000,
+            "capitalAcumulado": 13800000,
+            "interesAcumulado": 12834000,
+            "saldoInsoluto": 62598000
+          },
+          "cuotasPagadas": 15
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 12360000,
+            "capitalAcumulado": 6410000,
+            "interesAcumulado": 5950000,
+            "saldoInsoluto": 73280000
+          },
+          "largoPlazo": {
+            "cuota": 1737000,
+            "pagadoAcumulado": 25476000,
+            "capitalAcumulado": 13140000,
+            "interesAcumulado": 12336000,
+            "saldoInsoluto": 63756000
+          },
+          "cuotasPagadas": 13
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 8240000,
+            "capitalAcumulado": 4250000,
+            "interesAcumulado": 3990000,
+            "saldoInsoluto": 76320000
+          },
+          "largoPlazo": {
+            "cuota": 1737000,
+            "pagadoAcumulado": 24318000,
+            "capitalAcumulado": 12480000,
+            "interesAcumulado": 11838000,
+            "saldoInsoluto": 64914000
+          },
+          "cuotasPagadas": 12
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 4120000,
+            "capitalAcumulado": 2100000,
+            "interesAcumulado": 2020000,
+            "saldoInsoluto": 79360000
+          },
+          "largoPlazo": {
+            "cuota": 1737000,
+            "pagadoAcumulado": 23160000,
+            "capitalAcumulado": 11820000,
+            "interesAcumulado": 11340000,
+            "saldoInsoluto": 66072000
+          },
+          "cuotasPagadas": 10
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 4120000,
+            "pagadoAcumulado": 0,
+            "capitalAcumulado": 0,
+            "interesAcumulado": 0,
+            "saldoInsoluto": 82400000
+          },
+          "largoPlazo": {
+            "cuota": 1737000,
+            "pagadoAcumulado": 22002000,
+            "capitalAcumulado": 11160000,
+            "interesAcumulado": 10842000,
+            "saldoInsoluto": 67230000
+          },
+          "cuotasPagadas": 8
+        }
+      }
+    },
+    {
+      "id": "LEA-015",
+      "nombre": "Mobiliario oficina zona sur (contrato complementario)",
+      "institucion": "Banco Security",
+      "numeroCuotas": 30,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 5880000,
+            "capitalAcumulado": 3100000,
+            "interesAcumulado": 2780000,
+            "saldoInsoluto": 12100000
+          },
+          "largoPlazo": {
+            "cuota": 954000,
+            "pagadoAcumulado": 15264000,
+            "capitalAcumulado": 7944000,
+            "interesAcumulado": 7320000,
+            "saldoInsoluto": 20160000
+          },
+          "cuotasPagadas": 20
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 4900000,
+            "capitalAcumulado": 2570000,
+            "interesAcumulado": 2330000,
+            "saldoInsoluto": 12980000
+          },
+          "largoPlazo": {
+            "cuota": 954000,
+            "pagadoAcumulado": 14628000,
+            "capitalAcumulado": 7584000,
+            "interesAcumulado": 7044000,
+            "saldoInsoluto": 20796000
+          },
+          "cuotasPagadas": 18
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 3920000,
+            "capitalAcumulado": 2030000,
+            "interesAcumulado": 1890000,
+            "saldoInsoluto": 13860000
+          },
+          "largoPlazo": {
+            "cuota": 954000,
+            "pagadoAcumulado": 13992000,
+            "capitalAcumulado": 7224000,
+            "interesAcumulado": 6768000,
+            "saldoInsoluto": 21432000
+          },
+          "cuotasPagadas": 16
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 2940000,
+            "capitalAcumulado": 1500000,
+            "interesAcumulado": 1440000,
+            "saldoInsoluto": 14740000
+          },
+          "largoPlazo": {
+            "cuota": 954000,
+            "pagadoAcumulado": 13356000,
+            "capitalAcumulado": 6864000,
+            "interesAcumulado": 6492000,
+            "saldoInsoluto": 22068000
+          },
+          "cuotasPagadas": 14
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 1960000,
+            "capitalAcumulado": 990000,
+            "interesAcumulado": 970000,
+            "saldoInsoluto": 15620000
+          },
+          "largoPlazo": {
+            "cuota": 954000,
+            "pagadoAcumulado": 12720000,
+            "capitalAcumulado": 6504000,
+            "interesAcumulado": 6216000,
+            "saldoInsoluto": 22704000
+          },
+          "cuotasPagadas": 12
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 980000,
+            "pagadoAcumulado": 980000,
+            "capitalAcumulado": 490000,
+            "interesAcumulado": 490000,
+            "saldoInsoluto": 16500000
+          },
+          "largoPlazo": {
+            "cuota": 954000,
+            "pagadoAcumulado": 12084000,
+            "capitalAcumulado": 6144000,
+            "interesAcumulado": 5940000,
+            "saldoInsoluto": 23340000
+          },
+          "cuotasPagadas": 10
+        }
+      }
+    },
+    {
+      "id": "LEA-016",
+      "nombre": "Vehículo reparto urbano (contrato complementario)",
+      "institucion": "Banco Consorcio",
+      "numeroCuotas": 34,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 38570000,
+            "capitalAcumulado": 20200000,
+            "interesAcumulado": 18370000,
+            "saldoInsoluto": 98500000
+          },
+          "largoPlazo": {
+            "cuota": 1332000,
+            "pagadoAcumulado": 21312000,
+            "capitalAcumulado": 11100000,
+            "interesAcumulado": 10212000,
+            "saldoInsoluto": 34680000
+          },
+          "cuotasPagadas": 16
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 33060000,
+            "capitalAcumulado": 17200000,
+            "interesAcumulado": 15860000,
+            "saldoInsoluto": 103960000
+          },
+          "largoPlazo": {
+            "cuota": 1332000,
+            "pagadoAcumulado": 20424000,
+            "capitalAcumulado": 10608000,
+            "interesAcumulado": 9816000,
+            "saldoInsoluto": 35568000
+          },
+          "cuotasPagadas": 14
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 27550000,
+            "capitalAcumulado": 14100000,
+            "interesAcumulado": 13450000,
+            "saldoInsoluto": 109420000
+          },
+          "largoPlazo": {
+            "cuota": 1332000,
+            "pagadoAcumulado": 19536000,
+            "capitalAcumulado": 10116000,
+            "interesAcumulado": 9420000,
+            "saldoInsoluto": 36456000
+          },
+          "cuotasPagadas": 12
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 22040000,
+            "capitalAcumulado": 11100000,
+            "interesAcumulado": 10940000,
+            "saldoInsoluto": 114880000
+          },
+          "largoPlazo": {
+            "cuota": 1332000,
+            "pagadoAcumulado": 18648000,
+            "capitalAcumulado": 9624000,
+            "interesAcumulado": 9024000,
+            "saldoInsoluto": 37344000
+          },
+          "cuotasPagadas": 9
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 16530000,
+            "capitalAcumulado": 8100000,
+            "interesAcumulado": 8430000,
+            "saldoInsoluto": 120340000
+          },
+          "largoPlazo": {
+            "cuota": 1332000,
+            "pagadoAcumulado": 17760000,
+            "capitalAcumulado": 9132000,
+            "interesAcumulado": 8628000,
+            "saldoInsoluto": 38232000
+          },
+          "cuotasPagadas": 7
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 5510000,
+            "pagadoAcumulado": 11020000,
+            "capitalAcumulado": 5200000,
+            "interesAcumulado": 5820000,
+            "saldoInsoluto": 125800000
+          },
+          "largoPlazo": {
+            "cuota": 1332000,
+            "pagadoAcumulado": 16872000,
+            "capitalAcumulado": 8640000,
+            "interesAcumulado": 8232000,
+            "saldoInsoluto": 39120000
+          },
+          "cuotasPagadas": 4
+        }
+      }
+    },
+    {
+      "id": "LEA-017",
+      "nombre": "Equipamiento sala de reuniones (contrato complementario)",
+      "institucion": "HSBC Bank (Chile)",
+      "numeroCuotas": 38,
+      "porPeriodo": {
+        "2026-04": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 4320000,
+            "capitalAcumulado": 2280000,
+            "interesAcumulado": 2040000,
+            "saldoInsoluto": 8900000
+          },
+          "largoPlazo": {
+            "cuota": 1656000,
+            "pagadoAcumulado": 24288000,
+            "capitalAcumulado": 12600000,
+            "interesAcumulado": 11688000,
+            "saldoInsoluto": 53400000
+          },
+          "cuotasPagadas": 20
+        },
+        "2026-03": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 3600000,
+            "capitalAcumulado": 1880000,
+            "interesAcumulado": 1720000,
+            "saldoInsoluto": 9620000
+          },
+          "largoPlazo": {
+            "cuota": 1656000,
+            "pagadoAcumulado": 23184000,
+            "capitalAcumulado": 12000000,
+            "interesAcumulado": 11184000,
+            "saldoInsoluto": 54504000
+          },
+          "cuotasPagadas": 17
+        },
+        "2026-02": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 2880000,
+            "capitalAcumulado": 1480000,
+            "interesAcumulado": 1400000,
+            "saldoInsoluto": 10340000
+          },
+          "largoPlazo": {
+            "cuota": 1656000,
+            "pagadoAcumulado": 22080000,
+            "capitalAcumulado": 11400000,
+            "interesAcumulado": 10680000,
+            "saldoInsoluto": 55608000
+          },
+          "cuotasPagadas": 14
+        },
+        "2026-01": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 2160000,
+            "capitalAcumulado": 1090000,
+            "interesAcumulado": 1070000,
+            "saldoInsoluto": 11060000
+          },
+          "largoPlazo": {
+            "cuota": 1656000,
+            "pagadoAcumulado": 20976000,
+            "capitalAcumulado": 10800000,
+            "interesAcumulado": 10176000,
+            "saldoInsoluto": 56712000
+          },
+          "cuotasPagadas": 12
+        },
+        "2025-12": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 1440000,
+            "capitalAcumulado": 720000,
+            "interesAcumulado": 720000,
+            "saldoInsoluto": 11780000
+          },
+          "largoPlazo": {
+            "cuota": 1656000,
+            "pagadoAcumulado": 19872000,
+            "capitalAcumulado": 10200000,
+            "interesAcumulado": 9672000,
+            "saldoInsoluto": 57816000
+          },
+          "cuotasPagadas": 9
+        },
+        "2025-11": {
+          "cortoPlazo": {
+            "cuota": 720000,
+            "pagadoAcumulado": 720000,
+            "capitalAcumulado": 360000,
+            "interesAcumulado": 360000,
+            "saldoInsoluto": 12500000
+          },
+          "largoPlazo": {
+            "cuota": 1656000,
+            "pagadoAcumulado": 18768000,
+            "capitalAcumulado": 9600000,
+            "interesAcumulado": 9168000,
+            "saldoInsoluto": 58920000
+          },
+          "cuotasPagadas": 6
+        }
+      }
+    }
+  ]
+}

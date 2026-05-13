@@ -1,0 +1,128 @@
+[
+    {
+        "Tipo": "1",
+        "Codigo": "1-2-01-04-002",
+        "Nombre": "BIENES RAICES (REÑACA NORTE Y DIEGO PORTALES)               ",
+        "Saldo_Actual": 28000000.0
+    },
+    {
+        "Tipo": "1",
+        "Codigo": "1-2-01-04-005",
+        "Nombre": "DEPARTAMENTOS MALBEC                                        ",
+        "Saldo_Actual": 1219959133.0
+    },
+    {
+        "Tipo": "1",
+        "Codigo": "1-2-02-05-022",
+        "Nombre": "DEP. ACUM. DPTO. MALBEC                                     ",
+        "Saldo_Actual": -70472923.0
+    },
+    {
+        "Tipo": "1",
+        "Codigo": "1-2-02-06-001",
+        "Nombre": "DEP. ACUM. BIENES RAICES                                    ",
+        "Saldo_Actual": -18954200.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2-1-03-01-001",
+        "Nombre": "GARANTIAS RECIBIDAS ARRENDATARIOS (UF)                      ",
+        "Saldo_Actual": -5550793.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2-1-06-01-100",
+        "Nombre": "CUENTAS POR PAGAR/COBRAR INVERSIONES SANTA FIDELMIRA LIMITAD",
+        "Saldo_Actual": -891119.0
+    },
+    {
+        "Tipo": "2",
+        "Codigo": "2-1-06-01-101",
+        "Nombre": "CUENTAS POR PAGAR/COBRAR INVER NUEVA SANTA FIDELMIRA LIMITAD",
+        "Saldo_Actual": 51910532.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3-1-01-01-001",
+        "Nombre": "CAPITAL SOCIAL",
+        "Saldo_Actual": -609921434.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3-1-03-01-001",
+        "Nombre": "REVALORIZACION CAPITAL",
+        "Saldo_Actual": -175500310.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3-2-01-01-002",
+        "Nombre": "RESULTADOS ACUMULADOS",
+        "Saldo_Actual": -380579820.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3-2-01-01-004",
+        "Nombre": "RESULTADO EJERCICIO 2023                                    ",
+        "Saldo_Actual": -14613281.0
+    },
+    {
+        "Tipo": "3",
+        "Codigo": "3-2-01-01-005",
+        "Nombre": "RESULTADO EJERCICIO 2024                                    ",
+        "Saldo_Actual": -23747577.0
+    },
+    {
+        "Tipo": "4",
+        "Codigo": "4-1-01-01-001",
+        "Nombre": "ARRIENDO FIJO",
+        "Saldo_Actual": -3870092.0
+    },
+    {
+        "Tipo": "5",
+        "Codigo": "5-1-01-02-002",
+        "Nombre": "INSUMOS BANOS",
+        "Saldo_Actual": 4400.0
+    },
+    {
+        "Tipo": "5",
+        "Codigo": "5-1-01-04-011",
+        "Nombre": "MANTENCION GENERAL                                          ",
+        "Saldo_Actual": 471976.0
+    },
+    {
+        "Tipo": "5",
+        "Codigo": "5-1-01-06-004",
+        "Nombre": "SERVICIOS INFORMATICOS DE SISTEMAS                          ",
+        "Saldo_Actual": 871719.0
+    },
+    {
+        "Tipo": "5",
+        "Codigo": "5-2-01-02-004",
+        "Nombre": "SERVICIOS DE ASEO",
+        "Saldo_Actual": 530973.0
+    },
+    {
+        "Tipo": "5",
+        "Codigo": "5-2-01-03-002",
+        "Nombre": "GASTOS NOTARIALES",
+        "Saldo_Actual": 15000.0
+    },
+    {
+        "Tipo": "5",
+        "Codigo": "5-2-01-06-001",
+        "Nombre": "ARRIENDOS                                                   ",
+        "Saldo_Actual": 1007265.0
+    },
+    {
+        "Tipo": "5",
+        "Codigo": "5-3-01-03-006",
+        "Nombre": "CORRECCION EN UF",
+        "Saldo_Actual": 8583.0
+    },
+    {
+        "Tipo": "5",
+        "Codigo": "5-3-01-05-001",
+        "Nombre": "DEPRECIACIONES",
+        "Saldo_Actual": 1321968.0
+    }
+]

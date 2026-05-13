@@ -1,0 +1,1492 @@
+{
+  "version": 1,
+  "categorias_validas": [
+    "ingreso_explotacion",
+    "ingreso_financiero",
+    "gasto_adm_ventas",
+    "otros_gastos_financieros"
+  ],
+  "empresas": {
+    "WCORP1": {
+      "cuentas": {
+        "4-1-01-01-001": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "arriendos",
+          "orden": 1,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-002": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "arriendos",
+          "orden": 2,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-005": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "consumos",
+          "orden": 3,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-006": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "consumos",
+          "orden": 4,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-007": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "consumos",
+          "orden": 5,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-008": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "gastos_comunes",
+          "orden": 6,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-013": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "varios",
+          "orden": 7,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-015": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "promocion",
+          "orden": 8,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-016": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "multas",
+          "orden": 9,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "4-1-01-01-011": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 100,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-003": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 101,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-004": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 101,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-005": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 103,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-006": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 104,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-010": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 105,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-011": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 106,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-012": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 107,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-013": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 108,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-02-008": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 109,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-02-009": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 110,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-018": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 111,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-2-01-01-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 201,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 202,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 203,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 204,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 205,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 206,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-008": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 207,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-009": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 208,
+          "eerr": ["contable"]
+        },
+
+        "5-1-01-01-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "seguridad",
+          "orden": 300,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-01-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "seguridad",
+          "orden": 301,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-1-01-02-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 400,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-02-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 401,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-02-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 402,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-02-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 403,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-05-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 404,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 405,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-1-01-06-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 500,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-06-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 501,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-06-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 502,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-05-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 503,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 504,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 505,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-1-01-03-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 600,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 601,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 602,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 602,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 603,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 604,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-007": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 605,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-008": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 606,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-010": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 607,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-011": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 608,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-013": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 609,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-014": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 610,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-015": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 611,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-017": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 612,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-018": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 613,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-019": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 614,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-020": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 615,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-021": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 616,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-01-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 617,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 618,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-009": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 619,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-016": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 620,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-03-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 621,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-03-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 622,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 700,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 701,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 702,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-011": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 703,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-03-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 704,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-06-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 705,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-10-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 706,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-2-01-07-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "impuestos_y_contribuciones",
+          "orden": 800,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-2-01-03-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "patentes",
+          "orden": 900,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-07-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "patentes",
+          "orden": 901,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-2-01-02-007": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "marketing",
+          "orden": 1000,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-010": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "marketing",
+          "orden": 1001,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-03-01-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "marketing",
+          "orden": 1002,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-03-01-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "marketing",
+          "orden": 1003,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-1-01-08-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "seguros",
+          "orden": 1100,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-3-01-02-014": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "incobrables",
+          "orden": 1200,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-021": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "incobrables",
+          "orden": 1201,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-022": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "incobrables",
+          "orden": 1202,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1300,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1301,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-06-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1302,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-022": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1303,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-009": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1304,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-05-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1305,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-03-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1306,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-013": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1307,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1308,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1309,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1310,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-03-01-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1311,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-03-01-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1312,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-11-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1313,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-11-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1314,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-04-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1315,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-11-030": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1316,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-020": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1317,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1318,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-3-01-01-001": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1400,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-01-002": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1401,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-01-003": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1402,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-01-004": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1403,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-01-005": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1404,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-004": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1405,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-007": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1406,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-009": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1407,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-012": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1408,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-04-003": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1409,
+          "eerr": ["financiero", "contable"]
+        }
+      },
+      "fallback": {
+        "categoria_por_prefijo": [
+          { "prefijo": "4-1-", "categoria": "ingreso_explotacion" },
+          { "prefijo": "4-2-", "categoria": "ingreso_financiero" },
+          { "prefijo": "5-", "categoria": "gasto_adm_ventas" }
+        ],
+        "categoria_default": "otros_resultados",
+        "subitem_default": "sin_subitem"
+      }
+    },
+    "WCORP2": {
+      "cuentas": {
+        "4-1-01-01-001": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "arriendos",
+          "orden": 1,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-002": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "arriendos",
+          "orden": 2,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-005": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "consumos",
+          "orden": 3,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-006": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "consumos",
+          "orden": 4,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-007": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "consumos",
+          "orden": 5,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-008": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "gastos_comunes",
+          "orden": 6,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-013": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "varios",
+          "orden": 7,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-015": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "promocion",
+          "orden": 8,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-1-01-01-016": {
+          "categoria": "ingreso_explotacion",
+          "subitem": "multas",
+          "orden": 9,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "4-1-01-01-011": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 100,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-003": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 101,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-004": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 101,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-005": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 103,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-006": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 104,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-010": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 105,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-011": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 106,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-012": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 107,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-013": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 108,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-02-008": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 109,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-02-009": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 110,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-018": {
+          "categoria": "ingreso_financiero",
+          "subitem": "dividendos",
+          "orden": 111,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-2-01-01-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 201,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 202,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 203,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 204,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 205,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 206,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-008": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 207,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-01-009": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 208,
+          "eerr": ["contable"]
+        },
+
+        "5-1-01-01-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "seguridad",
+          "orden": 300,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-01-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "seguridad",
+          "orden": 301,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-1-01-02-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 400,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-02-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 401,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-02-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 402,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-02-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 403,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-05-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 404,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "aseo",
+          "orden": 405,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-1-01-06-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 500,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-06-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 501,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-06-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 502,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-05-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 503,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 504,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "servicios_basicos",
+          "orden": 505,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-1-01-03-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 600,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 601,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 602,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 602,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 603,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 604,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-007": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 605,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-008": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 606,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-010": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 607,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-011": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 608,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-013": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 609,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-014": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 610,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-015": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 611,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-017": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 612,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-018": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 613,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-019": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 614,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-020": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 615,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-021": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 616,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-01-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 617,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 618,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-009": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 619,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-016": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 620,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-03-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 621,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-03-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "mantencion",
+          "orden": 622,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 700,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 701,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 702,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-011": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 703,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-03-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 704,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-06-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 705,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-10-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "asesoria",
+          "orden": 706,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-2-01-07-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "impuestos_y_contribuciones",
+          "orden": 800,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-2-01-03-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "patentes",
+          "orden": 900,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-07-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "patentes",
+          "orden": 901,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-2-01-02-007": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "marketing",
+          "orden": 1000,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-010": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "marketing",
+          "orden": 1001,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-03-01-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "marketing",
+          "orden": 1002,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-03-01-004": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "marketing",
+          "orden": 1003,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-1-01-08-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "seguros",
+          "orden": 1100,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-3-01-02-014": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "incobrables",
+          "orden": 1200,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-021": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "incobrables",
+          "orden": 1201,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-022": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "incobrables",
+          "orden": 1202,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1300,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1301,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-06-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1302,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-04-022": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1303,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-009": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1304,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-05-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1305,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-03-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1306,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-013": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1307,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-003": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1308,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1309,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-07-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1310,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-03-01-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1311,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-03-01-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1312,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-11-001": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1313,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-11-002": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1314,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-04-006": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1315,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-1-01-11-030": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1316,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-020": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1317,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-2-01-02-005": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "otros_gastos_de_administracion_y_ventas",
+          "orden": 1318,
+          "eerr": ["financiero", "contable"]
+        },
+
+        "5-3-01-01-001": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1400,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-01-002": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1401,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-01-003": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1402,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-01-004": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1403,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-01-005": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1404,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-004": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1405,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-007": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1406,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-009": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1407,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-012": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1408,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-04-003": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "otros_gastos_financieros",
+          "orden": 1409,
+          "eerr": ["financiero", "contable"]
+        }
+      },
+      "fallback": {
+        "categoria_por_prefijo": [
+          { "prefijo": "4-1-", "categoria": "ingreso_explotacion" },
+          { "prefijo": "4-2-", "categoria": "ingreso_financiero" },
+          { "prefijo": "5-", "categoria": "gasto_adm_ventas" }
+        ],
+        "categoria_default": "otros_resultados",
+        "subitem_default": "sin_subitem"
+      }
+    },
+    "WW DINAMITY SA": {
+  "cuentas": {
+    "1101101": { "categoria": "otros_resultados", "subitem": "balance_activo", "orden": 1, "eerr": ["financiero", "contable"] },
+    "1101201": { "categoria": "otros_resultados", "subitem": "balance_activo", "orden": 2, "eerr": ["financiero", "contable"] },
+    "1106001": { "categoria": "otros_resultados", "subitem": "balance_activo", "orden": 3, "eerr": ["financiero", "contable"] },
+    "1108006": { "categoria": "otros_resultados", "subitem": "balance_activo", "orden": 4, "eerr": ["financiero", "contable"] },
+    "1201003": { "categoria": "otros_resultados", "subitem": "balance_activo", "orden": 5, "eerr": ["financiero", "contable"] },
+    "1201006": { "categoria": "otros_resultados", "subitem": "balance_activo", "orden": 6, "eerr": ["financiero", "contable"] },
+
+    "2102001": { "categoria": "otros_resultados", "subitem": "balance_pasivo", "orden": 7, "eerr": ["financiero", "contable"] },
+    "2102003": { "categoria": "otros_resultados", "subitem": "balance_pasivo", "orden": 8, "eerr": ["financiero", "contable"] },
+    "2102006": { "categoria": "otros_resultados", "subitem": "balance_pasivo", "orden": 9, "eerr": ["financiero", "contable"] },
+    "2103002": { "categoria": "otros_resultados", "subitem": "balance_pasivo", "orden": 10, "eerr": ["financiero", "contable"] },
+    "2103003": { "categoria": "otros_resultados", "subitem": "balance_pasivo", "orden": 11, "eerr": ["financiero", "contable"] },
+    "2104001": { "categoria": "otros_resultados", "subitem": "balance_pasivo", "orden": 12, "eerr": ["financiero", "contable"] },
+    "2104002": { "categoria": "otros_resultados", "subitem": "balance_pasivo", "orden": 13, "eerr": ["financiero", "contable"] },
+    "2104005": { "categoria": "otros_resultados", "subitem": "balance_pasivo", "orden": 14, "eerr": ["financiero", "contable"] },
+    "2105006": { "categoria": "otros_resultados", "subitem": "balance_pasivo", "orden": 15, "eerr": ["financiero", "contable"] },
+    "2303001": { "categoria": "otros_resultados", "subitem": "patrimonio", "orden": 16, "eerr": ["financiero", "contable"] },
+
+    "3101001": { "categoria": "gasto_adm_ventas", "subitem": "servicios_basicos", "orden": 100, "eerr": ["financiero", "contable"] },
+    "3102001": { "categoria": "gasto_adm_ventas", "subitem": "remuneraciones", "orden": 101, "eerr": ["financiero", "contable"] },
+    "3102002": { "categoria": "gasto_adm_ventas", "subitem": "remuneraciones", "orden": 102, "eerr": ["financiero", "contable"] },
+    "3102003": { "categoria": "gasto_adm_ventas", "subitem": "remuneraciones", "orden": 103, "eerr": ["financiero", "contable"] },
+    "3102004": { "categoria": "gasto_adm_ventas", "subitem": "remuneraciones", "orden": 104, "eerr": ["financiero", "contable"] },
+    "3102005": { "categoria": "gasto_adm_ventas", "subitem": "remuneraciones", "orden": 105, "eerr": ["financiero", "contable"] },
+    "3102006": { "categoria": "gasto_adm_ventas", "subitem": "remuneraciones", "orden": 106, "eerr": ["financiero", "contable"] },
+    "3103002": { "categoria": "gasto_adm_ventas", "subitem": "arriendos", "orden": 107, "eerr": ["financiero", "contable"] },
+    "3103003": { "categoria": "gasto_adm_ventas", "subitem": "honorarios", "orden": 108, "eerr": ["financiero", "contable"] },
+
+    "3202006": { "categoria": "gasto_adm_ventas", "subitem": "publicidad", "orden": 109, "eerr": ["financiero", "contable"] },
+    "3202007": { "categoria": "gasto_adm_ventas", "subitem": "insumos", "orden": 110, "eerr": ["financiero", "contable"] },
+    "3202009": { "categoria": "gasto_adm_ventas", "subitem": "insumos", "orden": 111, "eerr": ["financiero", "contable"] },
+    "3202011": { "categoria": "gasto_adm_ventas", "subitem": "servicios_software", "orden": 112, "eerr": ["financiero", "contable"] },
+    "3202014": { "categoria": "otros_gastos_financieros", "subitem": "gastos_bancarios", "orden": 113, "eerr": ["financiero", "contable"] },
+    "3202015": { "categoria": "gasto_adm_ventas", "subitem": "logistica", "orden": 114, "eerr": ["financiero", "contable"] },
+    "3202018": { "categoria": "gasto_adm_ventas", "subitem": "insumos_computacionales", "orden": 115, "eerr": ["financiero", "contable"] },
+    "3202023": { "categoria": "gasto_adm_ventas", "subitem": "mantencion_activos", "orden": 116, "eerr": ["financiero", "contable"] },
+    "3202024": { "categoria": "gasto_adm_ventas", "subitem": "gastos_generales", "orden": 117, "eerr": ["financiero", "contable"] },
+    "3202029": { "categoria": "gasto_adm_ventas", "subitem": "uniformes", "orden": 118, "eerr": ["financiero", "contable"] },
+    "3202033": { "categoria": "gasto_adm_ventas", "subitem": "servicios_generales", "orden": 119, "eerr": ["financiero", "contable"] },
+    "3203001": { "categoria": "gasto_adm_ventas", "subitem": "telefonia", "orden": 120, "eerr": ["financiero", "contable"] },
+    "3204001": { "categoria": "gasto_adm_ventas", "subitem": "combustible", "orden": 121, "eerr": ["financiero", "contable"] },
+    "3204008": { "categoria": "gasto_adm_ventas", "subitem": "mantencion_reparacion", "orden": 122, "eerr": ["financiero", "contable"] },
+    "3205006": { "categoria": "gasto_adm_ventas", "subitem": "arriendo_vehiculos", "orden": 123, "eerr": ["financiero", "contable"] },
+
+    "4101001": { "categoria": "ingreso_explotacion", "subitem": "ingresos_exentos", "orden": 200, "eerr": ["financiero", "contable"] },
+    "4101002": { "categoria": "ingreso_explotacion", "subitem": "ingresos_afectos", "orden": 201, "eerr": ["financiero", "contable"] }
+  },
+  "fallback": {
+    "categoria_por_prefijo": [
+      { "prefijo": "41", "categoria": "ingreso_explotacion" },
+      { "prefijo": "42", "categoria": "ingreso_financiero" },
+      { "prefijo": "31", "categoria": "gasto_adm_ventas" },
+      { "prefijo": "32", "categoria": "gasto_adm_ventas" },
+      { "prefijo": "1", "categoria": "otros_resultados" },
+      { "prefijo": "2", "categoria": "otros_resultados" },
+      { "prefijo": "3", "categoria": "otros_resultados" }
+    ],
+    "categoria_default": "otros_resultados",
+    "subitem_default": "sin_subitem"
+  }
+}
+  }
+}
