@@ -1,0 +1,668 @@
+{
+  "version": 3,
+  "filas": [
+    {
+      "key": "ingresos_no_operacionales",
+      "label": "INGRESOS NO OPERACIONALES",
+      "tipo": "rango_mapeado_subitems",
+      "modo_valor": "rango",
+      "expandible": true,
+      "subitems": []
+    },
+    {
+      "key": "gastos_comunes_servicios",
+      "label": "GASTOS COMUNES Y SERVICIOS",
+      "tipo": "rango_mapeado_subitems",
+      "modo_valor": "rango",
+      "expandible": true,
+      "subitems": ["consumos","servicios_activos", "gastos_comunes", "mantencion", "seguridad"],
+      "subfilas": [
+        {
+          "key": "consumos",
+          "label": "CONSUMOS",
+          "expandible": true,
+          "subfilas": [
+            {
+              "key": "consumo_agua",
+              "label": "CONSUMO AGUA",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-1-01-06-001",
+                  "centro": "039",
+                  "nombre_centro": "PROYECTO GIMNASIO LINARES",
+                  "nota": "opcional"
+                },
+                {
+                  "cuenta": "5-1-01-06-001",
+                  "centro": "050",
+                  "nombre_centro": "PROYECTO MULCHEN",
+                  "nota": "opcional"
+                },
+                {
+                  "cuenta": "5-1-01-06-001",
+                  "centro": "080",
+                  "nombre_centro": "PROYECTO CHACABUCO 781",
+                  "nota": "opcional"
+                }
+
+              ]
+            },
+            {
+              "key": "consumo_energia",
+              "label": "CONSUMO ENERGIA",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-1-01-06-002",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": "opcional"
+                },
+                {
+                  "cuenta": "5-1-01-06-002",
+                  "centro": "039",
+                  "nombre_centro": "PROYECTO GIMNASIO LINARES",
+                  "nota": "opcional"
+                },
+                {
+                  "cuenta": "5-1-01-06-002",
+                  "centro": "050",
+                  "nombre_centro": "PROYECTO MULCHEN",
+                  "nota": "opcional"
+                },
+                {
+                  "cuenta": "5-1-01-06-002",
+                  "centro": "080",
+                  "nombre_centro": "PROYECTO CHACABUCO 781",
+                  "nota": "opcional"
+                }
+
+              ]
+            },
+            {
+              "key": "consumo_gas",
+              "label": "CONSUMO GAS",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-1-01-05-006",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": "opcional"
+                }
+              ]
+            },
+            {
+              "key": "servicio_informatico",
+              "label": "SERVICIO INFORMATICO DE SISTEMAS",
+              "tipo": "rango_mapeado_filtrado",
+              "patrones_nombre": ["SERVICIOS INFORMATICOS", "INFORMATICO DE SISTEMAS", "INFORMATICA"]
+            },
+            {
+              "key": "consumo_telefonia",
+              "label": "CONSUMO TELEFONIA",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-1-01-07-001",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": ""
+                },
+                {
+                  "cuenta": "5-1-01-07-001",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": ""
+                }
+              ]
+            },
+            {
+              "key": "consumo_internet",
+              "label": "CONSUMO INTERNET",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-1-01-07-002",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": ""
+                },
+                {
+                  "cuenta": "5-1-01-07-002",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "servicios_activos",
+          "label": "SERVICIOS ACTIVOS",
+          "expandible": true,
+          "subfilas": [
+            {
+              "key": "servicio_aseo",
+              "label": "SERVICIO ASEO",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-2-01-02-004",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": "opcional"
+                }
+              ]
+            },
+            {
+              "key": "servicio_control_plagas",
+              "label": "SERVICIO CONTROL PLAGAS",
+              "tipo": "rango_mapeado_filtrado",
+              "patrones_nombre": ["CONTROL DE PLAGAS", "CONTROL PLAGAS"]
+            },
+            {
+              "key": "servicio_higiene",
+              "label": "SERVICIO HIGIENE",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-1-01-02-002",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": "opcional"
+                }
+              ]
+            },
+            {
+              "key": "servicio_jardines",
+              "label": "SERVICIO JARDINES",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [{}]
+            }
+          ]
+        },
+        {
+          "key": "servicios_comunes",
+          "label": "SERVICIOS COMUNES",
+          "expandible": true,
+          "subfilas": [
+            {
+              "key": "comisiones_arriendo",
+              "label": "COMISIONES ARRIENDO",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-2-01-06-001",
+                  "centro": "003",
+                  "nombre_centro": "TALAGANTE",
+                  "nota": "opcional"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "servicio_mantencion",
+          "label": "SERVICIO MANTENCION",
+          "expandible": true,
+          "subfilas": [
+            {
+              "key": "mantencion",
+              "label": "MANTENCION",
+              "tipo": "rango_mapeado_filtrado",
+              "subitems": ["mantencion"],
+              "patrones_nombre": ["MANTENCION", "GASTOS DE MANTENCION"],
+              "excluir_patrones_nombre": [
+                "ALCANTARILLADOS",
+                "CCTV",
+                "GENERAL",
+                "CLIMA",
+                "ELECTRICA CORRECTIVA"
+              ]
+            },
+            {
+              "key": "mantencion_alcantarillados",
+              "label": "MANTENCION ALCANTARILLADOS",
+              "tipo": "rango_mapeado_filtrado",
+              "subitems": ["mantencion"],
+              "patrones_nombre": ["MANTENCION ALCANTARILLADOS", "ALCANTARILLADOS"]
+            },
+            {
+              "key": "mantencion_cctv",
+              "label": "MANTENCION CCTV",
+              "tipo": "rango_mapeado_filtrado",
+              "subitems": ["mantencion"],
+              "patrones_nombre": ["MANTENCION CCTV"]
+            },
+            {
+              "key": "mantencion_general",
+              "label": "MANTENCION GENERAL (CAMBIOS Y REPOSICIONES)",
+              "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-1-01-04-011",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": "opcional"
+                }
+              ]
+            },
+            {
+              "key": "mantencion_clima",
+              "label": "MANTENCION CLIMA",
+              "tipo": "rango_mapeado_filtrado",
+              "subitems": ["mantencion"],
+              "patrones_nombre": ["MANTENCION CLIMA"]
+            },
+            {
+              "key": "mantencion_electrica_correctiva",
+              "label": "MANTENCION ELECTRICA CORRECTIVA",
+              "tipo": "rango_mapeado_filtrado",
+              "subitems": ["mantencion"],
+              "patrones_nombre": ["MANTENCION ELECTRICA CORRECTIVA", "ELECTRICA CORRECTIVA"]
+            }
+          ]
+        },
+        {
+          "key": "servicio_habilitacion",
+          "label": "SERVICIO HABILITACION",
+          "tipo": "rango_cuentas",
+          "patrones_nombre": ["HABILITACION"],
+          "expandible": true,
+          "total_independiente": true,
+          "subfilas": [
+            {
+              "key": "habilitaciones",
+              "label": "HABILITACIONES",
+              "tipo": "rango_cuentas",
+              "patrones_nombre": ["HABILITACIONES", "HABILITACIONES GENERALES"]
+            }
+          ]
+        },
+        {
+          "key": "servicio_seguridad",
+          "label": "SERVICIO SEGURIDAD",
+          "tipo": "rango_mapeado_subitems",
+          "subitems": ["seguridad"],
+          "expandible": true,
+          "total_independiente": true,
+          "subfilas": [
+            {
+              "key": "servicio_guardias",
+              "label": "SERVICIO GUARDIAS",
+              "tipo": "rango_mapeado_filtrado",
+              "subitems": ["seguridad"],
+              "patrones_nombre": ["SERVICIO GUARDIAS", "SERVICIOS DE GUARDIAS", "GUARDIAS"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gastos_adm_ventas",
+      "label": "GASTOS ADM. Y VENTAS",
+      "tipo": "rango_mapeado_categoria",
+      "modo_valor": "rango",
+      "expandible": true,
+      "total_independiente": true,
+      "categoria": "gasto_adm_ventas",
+      "subfilas": [
+        {
+          "key": "remuneraciones_eric",
+          "label": "REMUNERACIONES ERIC WAGHORN VITAR",
+          "tipo": "cuenta_centro",
+          "modo_valor": "rango",
+          "asignaciones": [
+            {
+              "cuenta": "5-3-01-02-020",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": ""
+            }
+          ]
+        },
+        {
+          "key": "remuneraciones_admin",
+          "label": "REMUNERACIONES ADMINISTRACION (28.435)",
+          "tipo": "cuenta_centro",
+          "modo_valor": "rango",
+          "asignaciones": [
+            {
+              "cuenta": "5-3-01-02-023",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": ""
+            }
+          ]
+        },
+        {
+          "key": "cuentas_servicios",
+          "label": "CUENTAS SERVICIOS",
+          "tipo": "cuenta_centro",
+          "modo_valor": "rango",
+          "asignaciones": [{}]
+         },
+        {
+          "key": "patentes_comerciales",
+          "label": "PATENTES COMERCIALES",
+          "tipo": "rango_mapeado_subitems",
+          "subitems": ["patentes"]
+        },
+        {
+          "key": "contribuciones",
+          "label": "CONTRIBUCIONES",
+          "tipo": "rango_mapeado_filtrado",
+          "subitems": ["impuestos_y_contribuciones"],
+          "excluir_patrones_nombre": ["IMPUESTO A LA RENTA"]
+        },
+        {
+          "key": "sobretasa",
+          "label": "SOBRETASA",
+          "tipo": "rango_cuentas",
+          "patrones_nombre": ["SOBRETASA"]
+        },
+        {
+          "key": "gastos_administracion",
+          "label": "GASTOS ADMINISTRACION",
+          "tipo": "cuenta_centro",
+              "modo_valor": "rango",
+              "asignaciones": [
+                {
+                  "cuenta": "5-1-01-07-005",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": ""
+                },
+                {
+                  "cuenta": "5-1-01-07-005",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": ""
+                },
+                {
+                  "cuenta": "5-2-01-02-003",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": ""
+                },
+                {
+                  "cuenta": "5-2-01-01-008",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": ""
+                },          
+                {
+                  "cuenta": "5-2-01-02-004",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": ""
+                },
+                {
+                  "cuenta": "5-1-01-07-002",
+                  "centro": "100",
+                  "nombre_centro": "LOS MAITENES",
+                  "nota": "INTERNET"
+                },      
+                {
+                  "cuenta": "5-1-01-07-001",
+                  "centro": "100",
+                  "nombre_centro": "LOS MAITENES",
+                  "nota": "TELEFONO"
+                },
+                {
+                  "cuenta": "5-2-01-02-001",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": ""
+                },
+
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "112",
+                  "nombre_centro": "MALBEC 115",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "113",
+                  "nombre_centro": "MALBEC 203",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "114",
+                  "nombre_centro": "MALBEC 607",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                
+                {
+                  "cuenta": "5-1-01-03-001",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": ""
+                },
+                {
+                  "cuenta": "5-1-01-06-003",
+                  "centro": "100",
+                  "nombre_centro": "LOS MAITENES",
+                  "nota": "GASTO COMUN PROPIO"
+                },
+                {
+                  "cuenta": "5-1-01-06-003",
+                  "centro": "111",
+                  "nombre_centro": "DIEGO PORTALES 403",
+                  "nota": "GASTO COMUN PROPIO"
+                },
+                {
+                  "cuenta": "5-1-01-06-003",
+                  "centro": "112",
+                  "nombre_centro": "MALBEC 115",
+                  "nota": "GASTO COMUN PROPIO"
+                },
+                {
+                  "cuenta": "5-1-01-06-003",
+                  "centro": "113",
+                  "nombre_centro": "MALBEC 203",
+                  "nota": "GASTO COMUN PROPIO"
+                },
+                {
+                  "cuenta": "5-1-01-06-003",
+                  "centro": "114",
+                  "nombre_centro": "MALBEC 607",
+                  "nota": "GASTO COMUN PROPIO"
+                },
+                {
+                  "cuenta": "5-1-01-06-003",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "GASTO COMUN PROPIO"
+                },
+                {
+                  "cuenta": "5-2-01-03-006",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": ""
+                },
+                {
+                  "cuenta": "5-2-01-03-006",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": ""
+                }
+          
+            ]
+          },
+        {
+          "key": "gastos_activos",
+          "label": "GASTOS ACTIVOS",
+          "tipo": "rango_mapeado_subitems",
+          "subitems": ["mantencion_activos", "mantencion_reparacion", "mantencion"]
+        },
+        {
+          "key": "seguros",
+          "label": "SEGUROS",
+          "tipo": "rango_mapeado_subitems",
+          "subitems": ["seguros"]
+        },
+        {
+          "key": "cuenta_luz_maitenes",
+          "label": "CUENTA LUZ LOS MAITENES",
+          "tipo": "cuenta_centro",
+          "modo_valor": "rango"
+        },
+        {
+          "key": "gastos_abogados_division",
+          "label": "GASTOS ABOGADOS DIVISION",
+          "tipo": "rango_mapeado_filtrado",
+          "subitems": ["honorarios", "asesoria"],
+          "patrones_nombre": ["ABOGAD", "DIVISION"]
+        }
+      ]
+    },
+    {
+      "key": "resultado_antes_impuestos",
+      "label": "RESULTADO (Antes de Impuestos)",
+      "tipo": "resultado_antes_impuestos",
+      "modo_valor": "rango",
+      "expandible": true,
+      "total_independiente": true,
+      "excluir_subitems": ["impuestos_y_contribuciones", "patentes"],
+      "subfilas": [
+        {
+          "key": "impuesto_renta",
+          "label": "Impuesto a la Renta",
+          "tipo": "rango_mapeado_filtrado",
+          "subitems": ["impuestos_y_contribuciones"],
+          "patrones_nombre": ["IMPUESTO A LA RENTA", "IMPUESTO RENTA"]
+        },
+        {
+          "key": "utilidad_ejercicio",
+          "label": "Utilidad Ejercicio",
+          "tipo": "resultado_eerr_total"
+        }
+      ]
+    },
+    {
+      "key": "retiros_mutuos",
+      "label": "RETIROS Y/O MUTUOS",
+      "tipo": "rango_cuentas",
+      "modo_valor": "rango",
+      "expandible": true,
+      "total_independiente": true,
+      "prefijos_cuenta": ["2-1-05-", "3-1-02-"],
+      "patrones_nombre": ["MUTUO", "RETIRO SOCIO", "RETIRO DE UTILIDADES", "DIVIDENDO SOCIO"],
+      "excluir_patrones_nombre": [
+        "RETIRO BASURA",
+        "PROYECTO RETIRO",
+        "EL RETIRO PARRAL",
+        "GASTOS CONSTRUCCION RETIRO",
+        "VENTA RETIRO",
+        "DEP. ACUM. PREDIO EL RETIRO",
+        "FONDO MUTUO",
+        "FONDOS MUTUOS"
+      ],
+      "subfilas": [
+        {
+          "key": "flujo_caja",
+          "label": "Flujo de Caja",
+          "tipo": "regla_padre",
+          "modo_valor": "rango"
+        },
+        {
+          "key": "flujo_caja_acumulado",
+          "label": "Flujo de Caja Acumulado",
+          "tipo": "regla_padre",
+          "modo_valor": "corte"
+        }
+      ]
+    },
+    {
+      "key": "banco_caja_ewv",
+      "label": "BANCO / CAJA \"SOCIEDAD EWV\"",
+      "tipo": "corte_cuentas",
+      "modo_valor": "corte"
+    },
+    {
+      "key": "fi_btg_pactual",
+      "label": "FI BTG PACTUAL RENTA COMERCIAL",
+      "tipo": "corte_cuentas",
+      "modo_valor": "corte"
+    }
+  ],
+  "asignaciones_por_fila": {
+    "cuenta_luz_maitenes": [
+      {
+        "cuenta": "5-1-01-06-002",
+        "centro": "100",
+        "nombre_centro": "LOS MAITENES",
+        "nota": ""
+      }
+    ]
+  },
+  "columnas_cuentas": [
+    {
+      "key": "4-2-01-01-003",
+      "label": "4-2-01-01-003",
+      "codigo": "4-2-01-01-003",
+      "fila": "ingresos_no_operacionales"
+    },
+    {
+      "key": "4-2-01-01-010",
+      "label": "4-2-01-01-010",
+      "codigo": "4-2-01-01-010",
+      "fila": "ingresos_no_operacionales"
+    },
+    {
+      "key": "4-1-01-01-008",
+      "label": "4-1-01-01-008",
+      "codigo": "4-1-01-01-008",
+      "fila": "gastos_comunes_servicios"
+    },
+    {
+      "key": "1-1-10-02-009",
+      "label": "1-1-10-02-009",
+      "codigo": "1-1-10-02-009",
+      "fila": "banco_caja_ewv",
+      "tipo_valor": "corte"
+    },
+    {
+      "key": "1-1-20-04-004",
+      "label": "1-1-20-04-004",
+      "codigo": "1-1-20-04-004",
+      "fila": "fi_btg_pactual",
+      "tipo_valor": "corte"
+    }
+  ],
+  "empresas": {
+    "FIDELMIRA": {
+      "1-1-10-02-009": {
+        "codigo": "1-1-10-02-009"
+      }
+    }
+  }
+}

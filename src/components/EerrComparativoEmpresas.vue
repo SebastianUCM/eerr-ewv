@@ -219,6 +219,100 @@
         </table>
       </div>
     </div>
+
+    <div v-if="empresasSeleccionadas.length" class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-6">
+      <div class="px-5 py-4 border-b border-slate-100 bg-indigo-50/60">
+        <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide">
+          Resumen gerencial comparativo
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Una fila por concepto gerencial. Columnas: empresas en comparación y acumulado entre ellas.
+          Filas de saldo (banco/BTG): posición al mes «Hasta».
+        </p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-[720px] w-full text-xs border-collapse">
+          <thead class="bg-slate-100">
+            <tr class="border-b border-slate-300 text-slate-700">
+              <th
+                class="px-4 py-3 text-left font-bold min-w-[14rem] sticky left-0 z-10 bg-slate-100 border-r border-slate-200"
+              >
+                Concepto
+              </th>
+              <th
+                v-for="emp in matrizGerencial.empresas"
+                :key="'rg-h-' + emp"
+                class="px-3 py-3 text-right font-bold min-w-[8.5rem] whitespace-normal"
+              >
+                {{ emp }}
+              </th>
+              <th
+                class="px-4 py-3 text-right font-bold min-w-[8.5rem] bg-slate-200/70 border-l border-slate-300"
+              >
+                Acumulado
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <template v-for="fila in matrizGerencial.filas" :key="'rg-' + fila.key">
+              <tr
+                class="border-b border-slate-200 transition-colors"
+                :class="fila.expandible || fila.tieneCuentas ? 'cursor-pointer hover:bg-slate-50/80' : 'hover:bg-slate-50/80'"
+                @click="onGerencialRowClick(fila)"
+              >
+                <td
+                  class="px-4 py-2.5 font-semibold text-slate-800 sticky left-0 z-[5] bg-white border-r border-slate-100 leading-snug"
+                >
+                  <span v-if="fila.expandible || fila.tieneCuentas" class="inline-flex items-center gap-2">
+                    <span class="text-indigo-500 text-lg leading-none w-4">{{
+                      filaGerencialAbierta(fila) ? "▾" : "▸"
+                    }}</span>
+                    <span>{{ fila.label }}</span>
+                  </span>
+                  <span v-else>{{ fila.label }}</span>
+                </td>
+                <td
+                  v-for="emp in matrizGerencial.empresas"
+                  :key="'rg-' + fila.key + emp"
+                  class="px-3 py-2.5 text-right font-mono font-medium"
+                  :class="(fila.valoresPorEmpresa[emp] || 0) < 0 ? 'text-rose-600' : 'text-slate-700'"
+                >
+                  {{ formatCLPContable(fila.valoresPorEmpresa[emp]) }}
+                </td>
+                <td
+                  class="px-4 py-2.5 text-right font-mono font-bold bg-slate-50/50 border-l border-slate-100"
+                  :class="(fila.acumulado || 0) < 0 ? 'text-rose-700' : 'text-slate-900'"
+                >
+                  {{ formatCLPContable(fila.acumulado) }}
+                </td>
+              </tr>
+
+              <GerencialSubfilasRows
+                v-if="fila.expandible && filasAbiertasGerencial[fila.key]"
+                :subfilas="fila.subfilas"
+                :empresas="matrizGerencial.empresas"
+                :path-prefix="`${fila.key}/`"
+                :abiertas="filasAbiertasGerencial"
+                :format-c-l-p-contable="formatCLPContable"
+                @toggle="toggleGerencial"
+              />
+
+              <GerencialCuentasRows
+                v-if="fila.tieneCuentas && filasAbiertasGerencial[claveCuentasGerencial(fila)]"
+                :cuentas="fila.cuentas"
+                :empresas="matrizGerencial.empresas"
+                :depth="0"
+                :path-prefix="`${claveCuentasGerencial(fila)}/`"
+                :abiertas="filasAbiertasGerencial"
+                :format-c-l-p-contable="formatCLPContable"
+                @toggle="toggleGerencial"
+              />
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -227,12 +321,16 @@ import { ref, computed, watch, onMounted } from "vue";
 import * as XLSX from "xlsx";
 import eerrDataRaw from "../assets/datos_vue.json";
 import mapeoCuentas from "../assets/config/mapeo_cuentas.json";
+import comparativoGerencial from "../assets/config/comparativo_gerencial.json";
 import { normAnio, mapearDatosAnioEerr, filtrarFilasPorRangoMes } from "../utils/kpiEerr.js";
 import {
   construirMatrizContableEerr,
   mergeEstructuraMatrices,
   totalesPlanosPorNivel,
 } from "../utils/eerrMatriz.js";
+import { calcularMatrizResumenGerencial } from "../utils/eerrResumenGerencial.js";
+import GerencialSubfilasRows from "./GerencialSubfilasRows.vue";
+import GerencialCuentasRows from "./GerencialCuentasRows.vue";
 
 const props = defineProps({
   empresasDisponibles: { type: Array, required: true },
@@ -248,11 +346,43 @@ const mesNombre = (m) =>
     Number(m) - 1
   ] || "";
 const filasAbiertas = ref({});
+const filasAbiertasGerencial = ref({});
 const empresasSeleccionadas = ref([]);
 
 const toggleFila = (key) => {
   filasAbiertas.value[key] = !filasAbiertas.value[key];
 };
+
+const toggleGerencial = (key) => {
+  filasAbiertasGerencial.value[key] = !filasAbiertasGerencial.value[key];
+};
+
+function claveCuentasGerencial(fila) {
+  return `${fila.key}|cuentas`;
+}
+
+function filaGerencialAbierta(fila) {
+  if (fila.expandible) return filasAbiertasGerencial.value[fila.key];
+  if (fila.tieneCuentas) return filasAbiertasGerencial.value[claveCuentasGerencial(fila)];
+  return false;
+}
+
+function onGerencialRowClick(fila) {
+  if (fila.expandible) toggleGerencial(fila.key);
+  else if (fila.tieneCuentas) toggleGerencial(claveCuentasGerencial(fila));
+}
+
+function agregarSubfilasExcel(lista, subfilas, empresas, nivel) {
+  for (const sub of subfilas || []) {
+    const row = { Concepto: `${"  ".repeat(nivel)}${sub.label}` };
+    empresas.forEach((emp) => {
+      row[emp] = sub.valoresPorEmpresa[emp] ?? 0;
+    });
+    row.Acumulado = sub.acumulado ?? 0;
+    lista.push(row);
+    agregarSubfilasExcel(lista, sub.subfilas, empresas, nivel + 1);
+  }
+}
 
 function filasPorEmpresa(emp) {
   return eerrDataRaw.filter((d) => String(d.Empresa).trim() === String(emp).trim());
@@ -329,6 +459,25 @@ const matrizMerged = computed(() => {
   if (!empresasSeleccionadas.value.length) return [];
   const mats = empresasSeleccionadas.value.map((e) => matricesPorEmpresa.value[e] || []);
   return mergeEstructuraMatrices(mats, empresaOrdenRef.value);
+});
+
+const matrizGerencial = computed(() => {
+  if (!empresasSeleccionadas.value.length) {
+    return { filas: [], empresas: [] };
+  }
+  const datosPorEmpresa = {};
+  for (const emp of empresasSeleccionadas.value) {
+    datosPorEmpresa[emp] = filasPorEmpresa(emp);
+  }
+  return calcularMatrizResumenGerencial(empresasSeleccionadas.value, {
+    anio: filtroAnio.value,
+    mesDesde: mesDesde.value,
+    mesHasta: mesHasta.value,
+    tipoEerr: tipoEerr.value,
+    datosPorEmpresa,
+    mapeoCuentas,
+    config: comparativoGerencial,
+  });
 });
 
 function plano(emp) {
@@ -414,6 +563,22 @@ function descargarExcel() {
   const worksheet = XLSX.utils.json_to_sheet(filas);
   const workbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(workbook, worksheet, "Comparativo");
+
+  if (matrizGerencial.value.filas.length) {
+    const filasGerencial = [];
+    for (const fila of matrizGerencial.value.filas) {
+      const row = { Concepto: fila.label };
+      matrizGerencial.value.empresas.forEach((emp) => {
+        row[emp] = fila.valoresPorEmpresa[emp] ?? 0;
+      });
+      row.Acumulado = fila.acumulado ?? 0;
+      filasGerencial.push(row);
+
+      agregarSubfilasExcel(filasGerencial, fila.subfilas, matrizGerencial.value.empresas, 1);
+    }
+    XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(filasGerencial), "Resumen gerencial");
+  }
+
   const nombreArchivo = `eerr_comparativo_${filtroAnio.value}_${mesDesde.value}-${mesHasta.value}_${tipoEerr.value}.xlsx`;
   XLSX.writeFile(workbook, nombreArchivo);
 }

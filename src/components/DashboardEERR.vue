@@ -19,24 +19,90 @@
         </p>
       </div>
 
-      <div class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm flex items-center gap-3">
-        <label class="text-xs font-semibold uppercase text-slate-500">Año Operativo:</label>
-        <select
-          v-model.number="filtroAnio"
-          class="border border-slate-300 rounded-md px-3 py-1.5 text-sm bg-white font-medium focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
-        >
-          <option v-for="a in aniosDisponibles" :key="a" :value="a">
-            {{ a }}
-          </option>
-        </select>
-        <label class="text-xs font-semibold uppercase text-slate-500">Tipo EERR:</label>
-        <select
-          v-model="tipoEerr"
-          class="border border-slate-300 rounded-md px-3 py-1.5 text-sm bg-white font-medium focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
-        >
-          <option value="financiero">Financiero</option>
-          <option value="contable">Contable</option>
-        </select>
+      <div class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm flex flex-wrap items-end gap-3 max-w-2xl">
+        <div class="flex items-center gap-2">
+          <label class="text-xs font-semibold uppercase text-slate-500 whitespace-nowrap">Año Operativo:</label>
+          <select
+            v-model.number="filtroAnio"
+            class="border border-slate-300 rounded-md px-3 py-1.5 text-sm bg-white font-medium focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
+          >
+            <option v-for="a in aniosDisponibles" :key="a" :value="a">
+              {{ a }}
+            </option>
+          </select>
+        </div>
+        <div class="flex items-center gap-2">
+          <label class="text-xs font-semibold uppercase text-slate-500 whitespace-nowrap">Tipo EERR:</label>
+          <select
+            v-model="tipoEerr"
+            class="border border-slate-300 rounded-md px-3 py-1.5 text-sm bg-white font-medium focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
+          >
+            <option value="financiero">Financiero</option>
+            <option value="contable">Contable</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-1 min-w-[16rem] flex-1">
+          <label class="text-xs font-semibold uppercase text-slate-500">Centros de costo</label>
+          <div class="flex items-stretch gap-2">
+            <div ref="centrosDropdownRef" class="relative flex-1 min-w-0">
+              <button
+                id="eerr-centros-costo"
+                type="button"
+                class="w-full flex items-center justify-between gap-2 border border-slate-300 rounded-md px-3 py-1.5 text-sm bg-white font-medium text-left focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
+                @click.stop="centrosDropdownAbierto = !centrosDropdownAbierto"
+              >
+                <span class="truncate" :class="centrosSeleccionados.length ? 'text-slate-800' : 'text-slate-500'">
+                  {{ textoResumenCentros }}
+                </span>
+                <span class="text-slate-400 text-xs shrink-0">{{ centrosDropdownAbierto ? "▴" : "▾" }}</span>
+              </button>
+
+              <div
+                v-if="centrosDropdownAbierto"
+                class="absolute z-40 mt-1 w-full min-w-[18rem] max-h-64 overflow-y-auto rounded-lg border border-slate-200 bg-white shadow-lg py-1"
+                @click.stop
+              >
+                <label
+                  v-for="cc in centrosDisponibles"
+                  :key="cc.codigo"
+                  class="flex items-start gap-2 px-3 py-2 text-xs hover:bg-indigo-50/60 cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    class="mt-0.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                    :checked="centrosSeleccionados.includes(cc.codigo)"
+                    @change="toggleCentro(cc.codigo)"
+                  />
+                  <span class="leading-snug">
+                    <span class="font-mono text-indigo-700">{{ cc.codigo }}</span>
+                    <span class="text-slate-600"> — {{ cc.nombre }}</span>
+                  </span>
+                </label>
+                <p
+                  v-if="!centrosDisponibles.length"
+                  class="px-3 py-2 text-xs text-slate-400 italic"
+                >
+                  Sin centros de costo en este año.
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="shrink-0 rounded-md border border-slate-300 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-800 transition disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
+              :disabled="!centrosSeleccionados.length"
+              @click.stop="limpiarCentrosSeleccionados"
+            >
+              Limpiar todos
+            </button>
+          </div>
+          <p class="text-[10px] text-slate-400 leading-snug">
+            Sin selección = todos los centros.
+            <span v-if="centrosSeleccionados.length" class="text-indigo-600 font-medium">
+              · {{ centrosSeleccionados.length }} seleccionado(s)
+            </span>
+          </p>
+        </div>
       </div>
     </header>
 
@@ -138,7 +204,12 @@
     <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-6">
       <div class="px-5 py-4 border-b border-slate-100 bg-slate-50 flex flex-wrap items-center justify-between gap-3">
         <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide">
-          Matriz {{ tipoEerr === "financiero" ? "Financiera" : "Contable" }} {{ filtroAnio }}
+          Matriz {{ tipoEerr === "financiero" ? "Financiera" : "Contable" }} {{ filtroAnio }}<span
+            v-if="centrosSeleccionados.length"
+            class="normal-case font-medium text-indigo-600"
+          >
+            · {{ centrosSeleccionados.length }} centro(s) de costo
+          </span>
         </h2>
         <div class="flex flex-col items-end gap-2">
           <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded font-semibold">
@@ -403,7 +474,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from "vue";
+import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import VueApexCharts from "vue3-apexcharts";
 import * as XLSX from "xlsx";
 import eerrDataRaw from "../assets/datos_vue.json";
@@ -413,7 +484,9 @@ import {
   calcularKpisDesdeRows,
   normAnio,
   normMes,
+  normCodigoCentro,
   mapearDatosAnioEerr,
+  filtrarFilasPorCentros,
 } from "../utils/kpiEerr.js";
 import { BLOQUES_FINANCIEROS, construirMatrizContableEerr } from "../utils/eerrMatriz.js";
 
@@ -432,7 +505,40 @@ const tituloPrincipal = computed(() =>
 
 const filtroAnio = ref(new Date().getFullYear());
 const tipoEerr = ref("financiero");
+const centrosSeleccionados = ref([]);
+const centrosDropdownAbierto = ref(false);
+const centrosDropdownRef = ref(null);
 const filasAbiertas = ref({});
+
+const textoResumenCentros = computed(() => {
+  if (!centrosSeleccionados.value.length) return "Todos los centros de costo";
+  if (centrosSeleccionados.value.length === 1) {
+    const cc = centrosDisponibles.value.find((c) => c.codigo === centrosSeleccionados.value[0]);
+    if (!cc) return "1 centro seleccionado";
+    return cc.codigo === "000" ? "000 — Sin centro de costo" : `${cc.codigo} — ${cc.nombre}`;
+  }
+  return `${centrosSeleccionados.value.length} centros seleccionados`;
+});
+
+function toggleCentro(codigo) {
+  const idx = centrosSeleccionados.value.indexOf(codigo);
+  if (idx >= 0) {
+    centrosSeleccionados.value = centrosSeleccionados.value.filter((c) => c !== codigo);
+  } else {
+    centrosSeleccionados.value = [...centrosSeleccionados.value, codigo];
+  }
+}
+
+function limpiarCentrosSeleccionados() {
+  centrosSeleccionados.value = [];
+  centrosDropdownAbierto.value = false;
+}
+
+function onClickFueraCentrosDropdown(event) {
+  if (!centrosDropdownRef.value?.contains(event.target)) {
+    centrosDropdownAbierto.value = false;
+  }
+}
 
 const toggleFila = (key) => {
   filasAbiertas.value[key] = !filasAbiertas.value[key];
@@ -454,13 +560,45 @@ const aniosDisponibles = computed(() => {
   return arr.length ? arr : [new Date().getFullYear()];
 });
 
+const centrosDisponibles = computed(() => {
+  const map = new Map();
+  for (const d of datosEmpresa.value) {
+    if (normAnio(d.Anio) !== Number(filtroAnio.value)) continue;
+    const codigo = normCodigoCentro(d.CodigoCentroCosto);
+    const nombre = String(d.CentroCosto || "").trim() || "Sin Centro de Costo";
+    if (!map.has(codigo)) {
+      map.set(codigo, { codigo, nombre: codigo === "000" ? "Sin Centro de Costo" : nombre });
+    }
+  }
+  return Array.from(map.values()).sort((a, b) =>
+    a.codigo.localeCompare(b.codigo, "es", { numeric: true })
+  );
+});
+
+function filtrarMapeadosPorCentros(rows) {
+  return filtrarFilasPorCentros(rows, centrosSeleccionados.value);
+}
+
 watch(() => props.empresa, () => {
   filtroAnio.value = aniosDisponibles.value[0];
+  centrosSeleccionados.value = [];
+  centrosDropdownAbierto.value = false;
   filasAbiertas.value = {};
+});
+
+watch(filtroAnio, () => {
+  centrosSeleccionados.value = centrosSeleccionados.value.filter((c) =>
+    centrosDisponibles.value.some((cc) => cc.codigo === c)
+  );
 });
 
 onMounted(() => {
   if (aniosDisponibles.value.length) filtroAnio.value = aniosDisponibles.value[0];
+  document.addEventListener("click", onClickFueraCentrosDropdown);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", onClickFueraCentrosDropdown);
 });
 
 const ipcMensualMap = computed(() => {
@@ -512,21 +650,25 @@ function claseVariacionRealMensual(categoria, actual, anterior, anio, mes) {
 
 // Mapeo Inteligente
 const datosAnioMapeados = computed(() =>
-  mapearDatosAnioEerr(
-    props.empresa,
-    filtroAnio.value,
-    tipoEerr.value,
-    datosEmpresa.value,
-    mapeoCuentas
+  filtrarMapeadosPorCentros(
+    mapearDatosAnioEerr(
+      props.empresa,
+      filtroAnio.value,
+      tipoEerr.value,
+      datosEmpresa.value,
+      mapeoCuentas
+    )
   )
 );
 const datosAnioAnteriorMapeados = computed(() =>
-  mapearDatosAnioEerr(
-    props.empresa,
-    Number(filtroAnio.value) - 1,
-    tipoEerr.value,
-    datosEmpresa.value,
-    mapeoCuentas
+  filtrarMapeadosPorCentros(
+    mapearDatosAnioEerr(
+      props.empresa,
+      Number(filtroAnio.value) - 1,
+      tipoEerr.value,
+      datosEmpresa.value,
+      mapeoCuentas
+    )
   )
 );
 const datosAnioNoClasificados45 = computed(() => {

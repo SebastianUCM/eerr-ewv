@@ -52,6 +52,18 @@ export function filtrarFilasPorRangoMes(rows, mesDesde, mesHasta) {
   return rows.filter((d) => d.Mes >= a && d.Mes <= b);
 }
 
+/** Filtra por códigos de centro de costo. Vacío = sin filtro (todos). */
+export function filtrarFilasPorCentros(rows, codigosCentro) {
+  if (!codigosCentro?.length) return rows;
+  const set = new Set(codigosCentro.map((c) => String(c ?? "").trim()));
+  return rows.filter((d) => set.has(String(d.CodigoCentroCosto ?? "000").trim()));
+}
+
+export function normCodigoCentro(v) {
+  const c = String(v ?? "").trim();
+  return c || "000";
+}
+
 export function calcularKpisDesdeRows(rows) {
   let ingresos = 0;
   let gastos = 0;
