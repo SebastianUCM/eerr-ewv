@@ -41,6 +41,7 @@
 
         <!-- Navegación -->
         <nav
+          v-if="tabItems.length > 1"
           class="flex min-h-0 min-w-0 flex-1 flex-col justify-center lg:py-3"
           aria-label="Vistas del dashboard"
         >
@@ -71,6 +72,7 @@
 
         <!-- Contexto: empresa -->
         <div
+          v-if="appUi.showEmpresaSelector"
           class="flex shrink-0 items-center justify-between gap-3 border-t border-slate-100 pt-4 lg:justify-end lg:border-t-0 lg:border-l lg:border-slate-200/90 lg:pl-6 lg:pt-0 dark:border-slate-800 dark:lg:border-slate-700/90"
         >
           <div class="hidden h-8 w-px bg-slate-200 dark:bg-slate-700 sm:block lg:hidden" aria-hidden="true" />
@@ -227,7 +229,7 @@
     </div>
 
     <button 
-      v-if="!isChatOpen" 
+      v-if="appUi.showChatbot && !isChatOpen" 
       @click="isChatOpen = true"
       class="fixed bottom-6 right-6 w-14 h-14 bg-indigo-600 text-white rounded-full shadow-2xl hover:bg-indigo-700 transition-transform hover:scale-105 flex items-center justify-center z-50 focus:outline-none dark:bg-indigo-500 dark:hover:bg-indigo-600"
       title="Abrir Asistente IA"
@@ -237,7 +239,7 @@
       </svg>
     </button>
 
-    <ChatFinanciero v-if="isChatOpen" @close="isChatOpen = false" :empresa="empresa" />
+    <ChatFinanciero v-if="appUi.showChatbot && isChatOpen" @close="isChatOpen = false" :empresa="empresa" />
 
   </div>
 </template>
@@ -259,8 +261,21 @@ import VistaDetalleDeudaLeasing from "./components/DetalleDeudaLeasing.vue";
 
 import { EMPRESAS } from "./utils/empresas.js";
 import { useTheme } from "./composables/useTheme.js";
+import appUi from "./assets/config/app_ui.json";
 
-const tab = ref("dash");
+const tabItems = computed(() =>
+  Object.entries(appUi.tabs || {})
+    .filter(([, cfg]) => cfg.enabled)
+    .map(([id, cfg]) => ({ id, label: cfg.label }))
+);
+
+function tabInicial() {
+  const ids = tabItems.value.map((t) => t.id);
+  if (ids.includes(appUi.defaultTab)) return appUi.defaultTab;
+  return ids[0] || "eerr_comparativo";
+}
+
+const tab = ref(tabInicial());
 const isChatOpen = ref(false);
 const themeMenuOpen = ref(false);
 const { theme, setTheme } = useTheme();
@@ -288,21 +303,10 @@ onMounted(() => {
   if (!empresasDisponibles.value.includes(empresa.value)) {
     empresa.value = empresasDisponibles.value[0] || "FIDELMIRA";
   }
+  if (!tabItems.value.some((t) => t.id === tab.value)) {
+    tab.value = tabInicial();
+  }
 });
-
-/** @type {{ id: string, label: string }[]} */
-const tabItems = [
-  //{ id: "dash", label: "Dashboard ejecutivo" },
-  //{ id: "eeff_eerr", label: "Estado de resultados (EERR)" },
-  { id: "flujo_caja", label: "Flujo de caja" },
-  { id: "eerr_comparativo", label: "EERR comparativo" },
-  //{ id: "eerr_indicadores", label: "Indicadores EERR anual" },
-  //{ id: "balance_trib", label: "Balance tributario" },
-  //{ id: "balance_ifrs", label: "Balance IFRS" },
-  //{ id: "inmobiliario", label: "Inmobiliario" },
-  //{ id: "informes", label: "Informes" },
-  //{ id: "deuda_leasing", label: "Detalle deuda (leasing)" },
-];
 
 const tabActive =
   "shrink-0 whitespace-nowrap rounded-xl px-3.5 py-2 text-left text-sm font-semibold text-white shadow-md shadow-indigo-600/25 ring-1 ring-indigo-500/30 transition-colors duration-150 bg-gradient-to-b from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-700 dark:from-indigo-500 dark:to-indigo-600 dark:shadow-indigo-900/40 dark:ring-indigo-400/25";
