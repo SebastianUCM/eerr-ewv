@@ -322,6 +322,7 @@ import * as XLSX from "xlsx";
 import eerrDataRaw from "../assets/datos_vue.json";
 import mapeoCuentas from "../assets/config/mapeo_cuentas.json";
 import comparativoGerencial from "../assets/config/comparativo_gerencial.json";
+import appUi from "../assets/config/app_ui.json";
 import { normAnio, mapearDatosAnioEerr, filtrarFilasPorRangoMes } from "../utils/kpiEerr.js";
 import {
   construirMatrizContableEerr,
@@ -455,10 +456,14 @@ const planosPorEmpresa = computed(() => {
   return acc;
 });
 
+const categoriasOcultasComparativo = new Set(appUi.comparativoMatriz?.excluirCategorias || []);
+
 const matrizMerged = computed(() => {
   if (!empresasSeleccionadas.value.length) return [];
   const mats = empresasSeleccionadas.value.map((e) => matricesPorEmpresa.value[e] || []);
-  return mergeEstructuraMatrices(mats, empresaOrdenRef.value);
+  return mergeEstructuraMatrices(mats, empresaOrdenRef.value).filter(
+    (g) => !categoriasOcultasComparativo.has(g.key)
+  );
 });
 
 const matrizGerencial = computed(() => {

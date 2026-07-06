@@ -2,6 +2,9 @@
   "defaultTab": "eerr_comparativo",
   "showEmpresaSelector": false,
   "showChatbot": false,
+  "comparativoMatriz": {
+    "excluirCategorias": ["gasto_adm_ventas", "otros_gastos_financieros"]
+  },
   "tabs": {
     "dash": { "enabled": false, "label": "Dashboard ejecutivo" },
     "eeff": { "enabled": false, "label": "EEFF acercamiento" },
