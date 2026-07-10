@@ -40,6 +40,7 @@
             {{ hayAlgoAbierto ? 'Contraer todo' : 'Expandir todo' }}
           </button>
           <button type="button" :class="btnExcel" @click="descargarExcel">Descargar Excel</button>
+          <button type="button" :class="btnPdf" @click="descargarPdf">Descargar PDF</button>
         </div>
 
         <div v-if="modo === 'empresa'" class="flex flex-wrap items-center gap-1.5">
@@ -166,6 +167,7 @@ import comparativoGerencial from "../assets/config/comparativo_gerencial.json";
 import appUi from "../assets/config/app_ui.json";
 import { normAnio, mapearDatosAnioEerr, filtrarFilasPorRangoMes } from "../utils/kpiEerr.js";
 import { calcularMatrizResumenGerencial } from "../utils/eerrResumenGerencial.js";
+import { descargarInformeEerrPdf } from "../utils/informeEerrPdf.js";
 
 const props = defineProps({
   empresasDisponibles: { type: Array, required: true },
@@ -179,6 +181,8 @@ const btnGhost =
   "rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700";
 const btnExcel =
   "rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300";
+const btnPdf =
+  "rounded-lg border border-rose-200 bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-700 hover:bg-rose-100 dark:border-rose-800 dark:bg-rose-900/30 dark:text-rose-300";
 const chipOn = "rounded-full bg-indigo-600 px-2.5 py-1 text-[11px] font-semibold text-white";
 const chipOff =
   "rounded-full border border-slate-300 px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:border-indigo-400 dark:border-slate-600 dark:text-slate-300";
@@ -667,5 +671,23 @@ function descargarExcel() {
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(filas), "Informe EERR");
   XLSX.writeFile(wb, `informe_eerr_${filtroAnio.value}_${mesDesde.value}-${mesHasta.value}_${tipoEerr.value}.xlsx`);
+}
+
+function descargarPdf() {
+  const hoy = new Date();
+  const fecha = `${String(hoy.getDate()).padStart(2, "0")}-${String(hoy.getMonth() + 1).padStart(2, "0")}-${hoy.getFullYear()}`;
+  const empresasPdf = empresasActivas.value.filter((e) => e !== "WW DINAMITY SA");
+  descargarInformeEerrPdf({
+    secciones: secciones.value,
+    empresas: empresasPdf,
+    meta: {
+      empresa: 'Sociedad EWV',
+      periodoLabel: `Cierre ${mesNombre(mesHasta.value)} ${filtroAnio.value}` + (mesDesde.value !== mesHasta.value ? ` · desde ${mesNombre(mesDesde.value)}` : ""),
+      participacion: participacion.value,
+      caja: { banco: cajaBanco.value, btg: cajaBtg.value, total: cajaBanco.value + cajaBtg.value },
+      fecha,
+      fileBaseName: `informe_eerr_${filtroAnio.value}_${mesDesde.value}-${mesHasta.value}`,
+    },
+  });
 }
 </script>
