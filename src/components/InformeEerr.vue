@@ -515,6 +515,13 @@ function nodoDesdeGerencial(fila, depth) {
   };
 }
 
+// Resultado del informe = suma de las secciones mostradas arriba (no rollup global del motor gerencial).
+function resultadoDesdeSeccionesSuperiores(nodo, seccionesPrevias, emps) {
+  const valores = nodoVacio(emps);
+  for (const sec of seccionesPrevias) sumaValores(valores, sec.valores, emps);
+  return { ...nodo, valores, acumulado: acumular(valores, emps) };
+}
+
 // Aplica Impuesto a la renta = Resultado × tasa, y Utilidad = Resultado − Impuesto.
 function aplicarImpuesto(nodo, emps, tasa) {
   if (nodo.key !== "resultado_antes_impuestos") return nodo;
@@ -545,7 +552,10 @@ const secciones = computed(() => {
   for (const fila of matrizGerencial.value.filas) {
     if (SECCIONES_CAJA.has(fila.key)) continue;
     let nodo = nodoDesdeGerencial(fila, 0);
-    if (fila.key === "resultado_antes_impuestos") nodo = aplicarImpuesto(nodo, emps, tasaImpuesto.value);
+    if (fila.key === "resultado_antes_impuestos") {
+      nodo = resultadoDesdeSeccionesSuperiores(nodo, out, emps);
+      nodo = aplicarImpuesto(nodo, emps, tasaImpuesto.value);
+    }
     out.push(nodo);
   }
   return out;
