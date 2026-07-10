@@ -188,7 +188,14 @@
               "label": "SERVICIO JARDINES",
               "tipo": "cuenta_centro",
               "modo_valor": "rango",
-              "asignaciones": [{}]
+              "asignaciones": [
+                {
+                  "cuenta": "5-1-01-03-001",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": "opcional"
+                }
+              ]
             }
           ]
         },
@@ -428,7 +435,42 @@
                   "nombre_centro": "Administracion EWV",
                   "nota": ""
                 },
-
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "003",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "010",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "029",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "039",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "050",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "080",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "GASTOS DE REPRESENTACION"
+                },
                 {
                   "cuenta": "5-2-01-05-001",
                   "centro": "300",
@@ -458,13 +500,6 @@
                   "centro": "001",
                   "nombre_centro": "VICENTE VALDES",
                   "nota": "GASTOS DE REPRESENTACION"
-                },
-                
-                {
-                  "cuenta": "5-1-01-03-001",
-                  "centro": "001",
-                  "nombre_centro": "VICENTE VALDES",
-                  "nota": ""
                 },
                 {
                   "cuenta": "5-1-01-06-003",
@@ -520,8 +555,22 @@
         {
           "key": "gastos_activos",
           "label": "GASTOS ACTIVOS",
-          "tipo": "rango_mapeado_subitems",
-          "subitems": ["mantencion_activos", "mantencion_reparacion", "mantencion"]
+          "tipo": "cuenta_centro",
+          "modo_valor": "rango",
+          "asignaciones": [
+            {
+              "cuenta": "5-1-01-03-001",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": ""
+            },
+            {
+              "cuenta": "5-1-01-04-011",
+              "centro": "114",
+              "nombre_centro": "MALBEC 607",
+              "nota": ""
+            }
+          ]
         },
         {
           "key": "seguros",
