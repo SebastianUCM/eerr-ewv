@@ -317,7 +317,7 @@
       "tipo": "rango_mapeado_categoria",
       "modo_valor": "rango",
       "expandible": true,
-      "total_independiente": true,
+      "total_independiente": false,
       "categoria": "gasto_adm_ventas",
       "subfilas": [
         {

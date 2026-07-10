@@ -1,11 +1,21 @@
 {
-  "defaultTab": "eerr_comparativo",
+  "defaultTab": "informe_eerr",
   "showEmpresaSelector": false,
   "showChatbot": false,
   "comparativoMatriz": {
     "excluirCategorias": ["gasto_adm_ventas", "otros_gastos_financieros"]
   },
+  "informeEerr": {
+    "participacion": 28.43,
+    "tasaImpuesto": 0.27,
+    "caja": {
+      "porPeriodo": {
+        "2026-05": { "banco": 580168028, "btg": 447188000 }
+      }
+    }
+  },
   "tabs": {
+    "informe_eerr": { "enabled": true, "label": "Informe EERR" },
     "dash": { "enabled": false, "label": "Dashboard ejecutivo" },
     "eeff": { "enabled": false, "label": "EEFF acercamiento" },
     "eeff_excel": { "enabled": false, "label": "EEFF Excel proyección" },

@@ -139,6 +139,7 @@
     <VistaCmfProyeccion v-else-if="tab === 'cmf'" :empresa="empresa" />
     <VistaEerr v-else-if="tab === 'eeff_eerr'" :empresa="empresa" />
     <VistaEerr v-else-if="tab === 'flujo_caja'" :empresa="empresa" variant="flujo_caja" />
+    <VistaInformeEerr v-else-if="tab === 'informe_eerr'" :empresas-disponibles="empresasDisponibles" />
     <VistaEerrComparativo v-else-if="tab === 'eerr_comparativo'" :empresas-disponibles="empresasDisponibles" />
     <VistaEerrIndicadores v-else-if="tab === 'eerr_indicadores'" :empresa="empresa" />
     <VistaBalance v-else-if="tab === 'balance_trib'" :empresa="empresa" norma="Trib" />
@@ -253,6 +254,7 @@ import VistaCmfProyeccion from "./components/VistaCmfProyeccion.vue";
 import VistaEerr from "./components/DashboardEERR.vue";
 import VistaEerrIndicadores from "./components/IndicadoresEERRAnual.vue";
 import VistaEerrComparativo from "./components/EerrComparativoEmpresas.vue";
+import VistaInformeEerr from "./components/InformeEerr.vue";
 import ChatFinanciero from "./components/ChatFinanciero.vue";
 import VistaBalance from "./components/BalanceTributario.vue"; 
 import VistaInmobiliaria from "./components/DashboardInmobiliario.vue";
