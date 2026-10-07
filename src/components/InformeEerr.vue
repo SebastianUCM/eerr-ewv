@@ -168,6 +168,7 @@ import appUi from "../assets/config/app_ui.json";
 import { normAnio, mapearDatosAnioEerr, filtrarFilasPorRangoMes } from "../utils/kpiEerr.js";
 import { calcularMatrizResumenGerencial } from "../utils/eerrResumenGerencial.js";
 import { descargarInformeEerrPdf } from "../utils/informeEerrPdf.js";
+import { CUENTA_CONTRIBUCIONES, esGlosaSobretasa, sobretasaPorClave, separarSobretasaEnFilas } from "../utils/sobretasa.js";
 
 const props = defineProps({
   empresasDisponibles: { type: Array, required: true },
@@ -268,8 +269,15 @@ const SUBITEM_LABEL = {
 const formatNombre = (t) => String(t || "").replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 const labelSubitem = (s) => SUBITEM_LABEL[s] || formatNombre(s);
 
+// La sobretasa viene dentro de la cuenta de contribuciones: se separa por glosa
+// (detalle de Softland) para que la fila SOBRETASA del informe tenga su monto.
+const sobretasaMapa = sobretasaPorClave(detalleRaw);
+
 function filasPorEmpresa(emp) {
-  return eerrDataRaw.filter((d) => String(d.Empresa).trim() === String(emp).trim());
+  return separarSobretasaEnFilas(
+    eerrDataRaw.filter((d) => String(d.Empresa).trim() === String(emp).trim()),
+    sobretasaMapa
+  );
 }
 
 const aniosDisponibles = computed(() => {
@@ -363,10 +371,15 @@ const detalleIndex = computed(() => {
 });
 
 // Nodos hoja de facturas para un par (cuenta, centro).
-function nodosFactura(cuentaCod, centroCod, depth) {
+function nodosFactura(cuentaCod, centroCod, depth, filaKey = "") {
   const emps = empresasActivas.value;
   const k = String(cuentaCod) + "||" + String(centroCod);
-  const lineas = detalleIndex.value.get(k) || [];
+  let lineas = detalleIndex.value.get(k) || [];
+  // Cuenta de contribuciones: la fila SOBRETASA muestra solo esos pagos y CONTRIBUCIONES el resto.
+  if (String(cuentaCod).trim() === CUENTA_CONTRIBUCIONES) {
+    const esSobretasa = filaKey === "sobretasa";
+    lineas = lineas.filter((ln) => esGlosaSobretasa(ln.Glosa) === esSobretasa);
+  }
   return lineas
     .slice()
     .sort((a, b) => String(a.Fecha).localeCompare(String(b.Fecha)))
@@ -489,7 +502,7 @@ function nodoDesdeGerencial(fila, depth) {
           kind: "centro",
           valores: cc.valoresPorEmpresa,
           acumulado: cc.acumulado,
-          children: nodosFactura(c.codigo, cod, depth + 3),
+          children: nodosFactura(c.codigo, cod, depth + 3, fila.key),
         };
       });
       children.push({
@@ -529,7 +542,8 @@ function aplicarImpuesto(nodo, emps, tasa) {
   const util = {};
   emps.forEach((e) => {
     const r = Number(nodo.valores[e]) || 0;
-    imp[e] = -(r * tasa);
+    // Sin impuesto cuando la sociedad tiene pérdida en el periodo (no hay impuesto negativo).
+    imp[e] = r > 0 ? -(r * tasa) : 0;
     util[e] = r + imp[e];
   });
   const impAcum = acumular(imp, emps);
@@ -556,10 +570,33 @@ const secciones = computed(() => {
       nodo = resultadoDesdeSeccionesSuperiores(nodo, out, emps);
       nodo = aplicarImpuesto(nodo, emps, tasaImpuesto.value);
     }
+    if (fila.key === "retiros_mutuos") nodo = aplicarFlujoCaja(nodo, out, emps);
     out.push(nodo);
   }
   return out;
 });
+
+// Flujo de caja = Utilidad del ejercicio + Retiros y/o mutuos (los retiros vienen con
+// signo negativo desde Softland). El acumulado parte en enero: solo se calcula cuando
+// el rango empieza en enero; con otro "Desde" queda en blanco.
+function aplicarFlujoCaja(nodo, seccionesPrevias, emps) {
+  const resultado = seccionesPrevias.find((s) => s.key === "resultado_antes_impuestos");
+  const utilidad = resultado?.children?.find((ch) => /utilidad/i.test(ch.key));
+  if (!utilidad) return nodo;
+  const flujo = nodoVacio(emps);
+  emps.forEach((e) => (flujo[e] = (Number(utilidad.valores[e]) || 0) + (Number(nodo.valores[e]) || 0)));
+  const flujoAcum = acumular(flujo, emps);
+  const children = (nodo.children || []).map((ch) => {
+    if (ch.key === "flujo_caja") return { ...ch, valores: flujo, acumulado: flujoAcum, children: [] };
+    if (ch.key === "flujo_caja_acumulado") {
+      return mesDesde.value === 1
+        ? { ...ch, valores: { ...flujo }, acumulado: flujoAcum, children: [] }
+        : { ...ch, valores: nodoVacio(emps), acumulado: 0, children: [] };
+    }
+    return ch;
+  });
+  return { ...nodo, children };
+}
 
 const columnas = computed(() => {
   const cols = [];

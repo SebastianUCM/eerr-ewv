@@ -215,6 +215,12 @@
                   "centro": "003",
                   "nombre_centro": "TALAGANTE",
                   "nota": "opcional"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": "honorarios de comercialización"
                 }
               ]
             }
@@ -373,7 +379,7 @@
           "label": "CONTRIBUCIONES",
           "tipo": "rango_mapeado_filtrado",
           "subitems": ["impuestos_y_contribuciones"],
-          "excluir_patrones_nombre": ["IMPUESTO A LA RENTA"]
+          "excluir_patrones_nombre": ["IMPUESTO A LA RENTA", "SOBRETASA"]
         },
         {
           "key": "sobretasa",
@@ -548,6 +554,54 @@
                   "centro": "300",
                   "nombre_centro": "Administracion EWV",
                   "nota": ""
+                },
+                {
+                  "cuenta": "5-2-01-02-002",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "honorarios servicios legales"
+                },
+                {
+                  "cuenta": "5-2-01-02-002",
+                  "centro": "001",
+                  "nombre_centro": "VICENTE VALDES",
+                  "nota": "honorarios servicios legales"
+                },
+                {
+                  "cuenta": "5-2-01-02-002",
+                  "centro": "010",
+                  "nombre_centro": "RENCA",
+                  "nota": "honorarios servicios legales"
+                },
+                {
+                  "cuenta": "5-2-01-06-001",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "arriendos (bodegas)"
+                },
+                {
+                  "cuenta": "5-2-01-03-002",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "gastos notariales"
+                },
+                {
+                  "cuenta": "5-1-01-05-006",
+                  "centro": "300",
+                  "nombre_centro": "Administracion EWV",
+                  "nota": "combustible"
+                },
+                {
+                  "cuenta": "5-2-01-03-006",
+                  "centro": "301",
+                  "nombre_centro": "OFICINA INV CORP 1",
+                  "nota": "gastos generales"
+                },
+                {
+                  "cuenta": "5-2-01-05-001",
+                  "centro": "301",
+                  "nombre_centro": "OFICINA INV CORP 1",
+                  "nota": "gastos de representación"
                 }
           
             ]
@@ -569,6 +623,54 @@
               "centro": "114",
               "nombre_centro": "MALBEC 607",
               "nota": ""
+            },
+            {
+              "cuenta": "5-1-01-04-011",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "mantención general"
+            },
+            {
+              "cuenta": "5-1-01-05-006",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "combustible"
+            },
+            {
+              "cuenta": "5-1-01-04-011",
+              "centro": "112",
+              "nombre_centro": "MALBEC 115",
+              "nota": "mantención general"
+            },
+            {
+              "cuenta": "5-2-01-06-001",
+              "centro": "114",
+              "nombre_centro": "MALBEC 607",
+              "nota": "arriendos"
+            },
+            {
+              "cuenta": "5-2-01-02-004",
+              "centro": "114",
+              "nombre_centro": "MALBEC 607",
+              "nota": "aseo"
+            },
+            {
+              "cuenta": "5-1-01-02-002",
+              "centro": "114",
+              "nombre_centro": "MALBEC 607",
+              "nota": "insumos baño"
+            },
+            {
+              "cuenta": "5-2-01-03-002",
+              "centro": "114",
+              "nombre_centro": "MALBEC 607",
+              "nota": "gastos notariales"
+            },
+            {
+              "cuenta": "5-2-01-03-006",
+              "centro": "114",
+              "nombre_centro": "MALBEC 607",
+              "nota": "gastos generales"
             }
           ]
         },
@@ -624,6 +726,9 @@
       "expandible": true,
       "total_independiente": true,
       "prefijos_cuenta": ["2-1-05-", "3-1-02-"],
+      "cuentas_default": ["3-1-01-01-002", "1-1-50-01-006", "1-1-40-01-019"],
+      "excluir_periodos": ["2026-01"],
+      "nota": "3-1-01-01-002 distribución de dividendos; 1-1-50-01-006 cta. por cobrar Dinamity (mutuos, incluye intereses devengados); 1-1-40-01-019 cta. por cobrar Eric Waghorn Vitar. Se excluye 2026-01: en WCORP ese mes solo tiene el asiento de apertura.",
       "patrones_nombre": ["MUTUO", "RETIRO SOCIO", "RETIRO DE UTILIDADES", "DIVIDENDO SOCIO"],
       "excluir_patrones_nombre": [
         "RETIRO BASURA",

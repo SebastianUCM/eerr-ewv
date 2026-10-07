@@ -523,6 +523,116 @@
       </div>
     </div>
 
+    <!-- CONCILIACIÓN CON INFORME EERR: lee el motor del Informe EERR sin modificarlo -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-6">
+      <div class="px-5 py-4 border-b border-slate-100 bg-slate-50 flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide">
+          Conciliación con Informe EERR {{ filtroAnio }}
+        </h2>
+        <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded font-semibold">
+          Mismas empresas y tipo EERR · todos los centros
+        </span>
+      </div>
+      <p v-if="centrosSeleccionados.length" class="px-5 py-2 text-[11px] text-amber-800 bg-amber-50 border-b border-amber-100">
+        El Informe EERR no filtra por centro de costo: la conciliación usa todos los centros aunque haya un filtro aplicado arriba.
+      </p>
+      <div class="overflow-x-auto px-5 pt-4">
+        <table class="min-w-[1100px] w-full text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-slate-300 text-slate-700 bg-slate-100">
+              <th class="w-6 pl-3 pr-0 py-2 text-center font-bold" aria-label="Signo"></th>
+              <th class="px-3 py-2 text-left font-bold min-w-[18rem]">Concepto</th>
+              <th class="px-3 py-2 text-right font-bold min-w-[7rem] bg-slate-200/60">TOTAL</th>
+              <th v-for="m in 12" :key="'ci-h-' + m" class="px-2 py-2 text-right font-bold min-w-[5.5rem]">{{ mesNombreAbrev(m) }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="fila in conciliacionInforme.filas" :key="'ci-' + fila.label" class="border-b border-slate-100" :class="claseFilaResumen(fila.tipo)">
+              <td class="w-6 pl-3 pr-0 py-1.5 text-center font-mono font-bold text-slate-500">{{ fila.signo }}</td>
+              <td class="px-3 py-1.5">{{ fila.label }}</td>
+              <td class="px-3 py-1.5 text-right font-mono font-bold bg-slate-50/60" :class="fila.total < 0 ? 'text-rose-700' : ''">{{ formatCLPContable(fila.total) }}</td>
+              <td v-for="m in 12" :key="'ci-' + fila.label + '-' + m" class="px-2 py-1.5 text-right font-mono" :class="Number(fila.mensual[m]) < 0 ? 'text-rose-600' : ''">
+                {{ formatCLPContable(fila.mensual[m]) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="px-5 py-3 mt-4 border-t border-slate-100 bg-slate-50/70 grid gap-2">
+        <p class="text-[10px] text-slate-500">
+          El Informe EERR del dueño no incluye ingresos ni gastos financieros. "Diferencias de configuración" son montos de Softland que el Informe EERR no asigna a ninguna fila (o asigna distinto). Para que ambos módulos calcen, esas cuentas deben agregarse a la configuración del Informe EERR.
+        </p>
+        <details v-if="conciliacionInforme.sinFila.length" class="text-[11px] text-slate-600">
+          <summary class="cursor-pointer font-semibold text-slate-700">
+            {{ conciliacionInforme.sinFila.length }} combinaciones cuenta + centro sin fila en el Informe EERR ({{ formatCLPContable(conciliacionInforme.totalSinFila) }})
+          </summary>
+          <div class="overflow-x-auto mt-2">
+            <table class="w-full text-[11px] border-collapse">
+              <thead>
+                <tr class="text-slate-500 border-b border-slate-200">
+                  <th class="text-left py-1 pr-3">Cuenta</th><th class="text-left py-1 pr-3">Centro</th><th class="text-left py-1 pr-3">Subítem</th><th class="text-right py-1">Total año</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="x in conciliacionInforme.sinFila" :key="x.key" class="border-b border-slate-100">
+                  <td class="py-1 pr-3"><span class="font-mono text-indigo-600">{{ x.cuenta }}</span> {{ x.nombre }}</td>
+                  <td class="py-1 pr-3"><span class="font-mono">{{ x.centro }}</span> {{ x.nombreCentro }}</td>
+                  <td class="py-1 pr-3">{{ formatearNombre(x.subitem) }}</td>
+                  <td class="py-1 text-right font-mono" :class="x.total < 0 ? 'text-rose-600' : ''">{{ formatCLPContable(x.total) }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- ALERTAS DE CALIDAD DE DATOS SOFTLAND -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-6">
+      <div class="px-5 py-4 border-b border-slate-100 bg-slate-50 flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide">
+          Alertas de datos Softland {{ filtroAnio }}
+        </h2>
+        <div class="flex flex-wrap gap-1.5">
+          <button
+            v-for="r in REGLAS_ALERTA"
+            :key="r.key"
+            type="button"
+            class="rounded-full px-2.5 py-1 text-[11px] font-semibold border"
+            :class="filtroAlerta === r.key ? 'bg-amber-600 text-white border-amber-600' : (conteoAlertas[r.key] ? 'bg-amber-50 text-amber-800 border-amber-200' : 'bg-white text-slate-400 border-slate-200')"
+            :aria-pressed="filtroAlerta === r.key"
+            @click="filtroAlerta = filtroAlerta === r.key ? null : r.key"
+          >
+            {{ r.label }} · {{ conteoAlertas[r.key] || 0 }}
+          </button>
+        </div>
+      </div>
+      <p class="px-5 pt-3 text-[11px] text-slate-500">
+        Revisión automática de los movimientos de resultado (cuentas 4 y 5) de las empresas seleccionadas. Son avisos para contabilidad: Softland sigue siendo la fuente de verdad y aquí no se corrige nada.
+      </p>
+      <div v-if="alertasVisibles.length" class="overflow-x-auto px-5 py-3">
+        <table class="min-w-[900px] w-full text-[11px] border-collapse">
+          <thead>
+            <tr class="text-slate-500 border-b border-slate-200 text-left">
+              <th class="py-1 pr-3">Aviso</th><th class="py-1 pr-3">Empresa</th><th class="py-1 pr-3">Mes</th><th class="py-1 pr-3">Cuenta</th><th class="py-1 pr-3">Centro</th><th class="py-1 pr-3">Documento / glosa</th><th class="py-1 text-right">Monto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="a in alertasVisibles" :key="a.key" class="border-b border-slate-100 align-top">
+              <td class="py-1 pr-3 font-semibold text-amber-800">{{ a.etiqueta }}<span class="block font-normal text-slate-500">{{ a.motivo }}</span></td>
+              <td class="py-1 pr-3">{{ a.empresa }}</td>
+              <td class="py-1 pr-3">{{ mesNombreAbrev(a.mes) }}</td>
+              <td class="py-1 pr-3 font-mono">{{ a.cuenta }}</td>
+              <td class="py-1 pr-3 font-mono">{{ a.centro }}</td>
+              <td class="py-1 pr-3"><span v-if="a.doc" class="font-mono text-indigo-600">{{ a.doc }} </span>{{ a.glosa }}</td>
+              <td class="py-1 text-right font-mono" :class="a.monto < 0 ? 'text-rose-600' : ''">{{ formatCLPContable(a.monto) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p v-else class="px-5 py-4 text-xs text-slate-500">Sin avisos para este año y estas empresas.</p>
+    </div>
+
     <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-6">
       <div class="px-5 py-4 border-b border-slate-100 bg-slate-50 flex items-center justify-between gap-3">
         <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide">
@@ -678,6 +788,9 @@ import {
 import { BLOQUES_FINANCIEROS, construirMatrizContableEerr } from "../utils/eerrMatriz.js";
 import { EMPRESAS } from "../utils/empresas.js";
 import { descargarPeriodosPdf, descargarPeriodosExcel } from "../utils/periodoEerrDescargas.js";
+import comparativoGerencial from "../assets/config/comparativo_gerencial.json";
+import { calcularMatrizResumenGerencial } from "../utils/eerrResumenGerencial.js";
+import { sobretasaPorClave as sobretasaPorClaveDetalle, separarSobretasaEnFilas } from "../utils/sobretasa.js";
 
 const props = defineProps({
   empresa: { type: String, required: true },
@@ -1349,6 +1462,191 @@ const avisoMeses = computed(() => {
   if (mesParcial.value) partes.push(`${mesNombre(mesParcial.value)} es el mes en curso: datos parciales.`);
   return partes.join(" ");
 });
+
+// ── CONCILIACIÓN CON INFORME EERR ─────────────────────────────────────────
+// Usa el mismo motor y configuración del módulo Informe EERR (solo lectura) para
+// explicar mes a mes la diferencia: el Informe no incluye ingresos ni gastos
+// financieros, y lo que su configuración no asigna a ninguna fila queda como
+// "diferencias de configuración". Siempre todos los centros: el Informe no filtra.
+const SECCIONES_FUERA_RESULTADO = new Set(["resultado_antes_impuestos", "retiros_mutuos", "banco_caja_ewv", "fi_btg_pactual"]);
+
+const conciliacionInforme = computed(() => {
+  const emps = empresasSel.value;
+  // Mismos datos que ve el Informe EERR (con la sobretasa separada por glosa).
+  const mapaSobretasa = sobretasaPorClaveDetalle(detalleMovimientos);
+  const datosPorEmp = Object.fromEntries(
+    [...datosPorEmpresa.value].map(([emp, filas]) => [emp, separarSobretasaEnFilas(filas, mapaSobretasa)])
+  );
+  const anio = Number(filtroAnio.value);
+  const eerr = mesesCeroPeriodo();
+  const ingFin = mesesCeroPeriodo();
+  const ogf = mesesCeroPeriodo();
+  const informe = mesesCeroPeriodo();
+  const filasEerr = [];
+  for (const emp of emps) filasEerr.push(...mapearDatosAnioEerr(emp, anio, tipoEerr.value, datosPorEmp[emp] || [], mapeoCuentas));
+  for (const d of filasEerr) {
+    if (!BLOQUES_FINANCIEROS.some((b) => b.key === d.Categoria)) continue;
+    eerr[d.Mes] += d.SaldoNeto;
+    if (d.Categoria === "ingreso_financiero") ingFin[d.Mes] += d.SaldoNeto;
+    if (d.Categoria === CATEGORIA_EXCLUIDA_EBITDA) ogf[d.Mes] += d.SaldoNeto;
+    if (d.Categoria === "ingreso_explotacion") informe[d.Mes] += d.SaldoNeto;
+  }
+  const opciones = (m1, m2) => ({ anio, mesDesde: m1, mesHasta: m2, tipoEerr: tipoEerr.value, datosPorEmpresa: datosPorEmp, mapeoCuentas, config: comparativoGerencial });
+  for (let m = 1; m <= 12; m++) {
+    if (!eerr[m] && !mesesConMovimiento.value.has(m)) continue;
+    const mg = calcularMatrizResumenGerencial(emps, opciones(m, m));
+    for (const f of mg.filas) if (!SECCIONES_FUERA_RESULTADO.has(f.key)) informe[m] += Number(f.acumulado) || 0;
+  }
+  const config = mesesCeroPeriodo();
+  for (let m = 1; m <= 12; m++) config[m] = informe[m] - (eerr[m] - ingFin[m] - ogf[m]);
+
+  // Cuentas de gasto de la matriz que no aparecen en ninguna fila del Informe (año completo).
+  const enInforme = new Set();
+  const anual = calcularMatrizResumenGerencial(emps, opciones(1, 12));
+  const recorrer = (f) => {
+    (f.subfilas || []).forEach(recorrer);
+    for (const c of f.cuentas || []) for (const cc of c.centros || []) enInforme.add(`${c.codigo}||${normCodigoCentro(cc.codigo)}`);
+  };
+  anual.filas.filter((f) => !SECCIONES_FUERA_RESULTADO.has(f.key)).forEach(recorrer);
+  const sinFilaMap = new Map();
+  for (const d of filasEerr) {
+    if (d.Categoria !== "gasto_adm_ventas") continue;
+    const centro = normCodigoCentro(d.CodigoCentroCosto);
+    const key = `${String(d.CodigoCuenta).trim()}||${centro}`;
+    if (enInforme.has(key)) continue;
+    if (!sinFilaMap.has(key)) {
+      sinFilaMap.set(key, { key, cuenta: String(d.CodigoCuenta).trim(), nombre: String(d.NombreCuenta || "").trim(), centro, nombreCentro: d.CentroCosto || "", subitem: d.Subitem, total: 0 });
+    }
+    sinFilaMap.get(key).total += Number(d.SaldoNeto) || 0;
+  }
+  const sinFila = [...sinFilaMap.values()].filter((x) => Math.round(x.total)).sort((a, b) => a.total - b.total);
+
+  const fila = (label, signo, mensual, tipo) => ({ label, signo, mensual, total: sumaMeses(mensual), tipo });
+  const negar = (o) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, -v]));
+  return {
+    filas: [
+      fila("RESULTADO ESTADO DE RESULTADOS", "", eerr, "subtotal"),
+      fila("Ingresos financieros (no están en el Informe)", "−", negar(ingFin), "categoria"),
+      fila("Otros gastos financieros (no están en el Informe)", "−", negar(ogf), "categoria"),
+      fila("Diferencias de configuración del Informe EERR", "+", config, "categoria"),
+      fila("RESULTADO INFORME EERR", "=", informe, "resultado"),
+    ],
+    sinFila,
+    totalSinFila: sinFila.reduce((s, x) => s + x.total, 0),
+  };
+});
+
+// ── ALERTAS DE DATOS SOFTLAND ─────────────────────────────────────────────
+// Reglas simples sobre el detalle de movimientos (cuentas 4 y 5) para que los
+// posibles errores de imputación aparezcan solos al actualizar los datos.
+const REGLAS_ALERTA = [
+  { key: "prueba", label: "Documentos de prueba" },
+  { key: "duplicado", label: "Posibles duplicados" },
+  { key: "periodo", label: "Glosa de otro mes" },
+  { key: "centro", label: "Centro distinto al habitual" },
+  { key: "sinFolio", label: "Sin folio" },
+];
+const filtroAlerta = ref(null);
+const MESES_GLOSA = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
+const sinTildes = (t) => String(t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+
+/** Folio efectivo: el campo Doc, o el folio al inicio de la glosa cuando Doc trae
+ * solo el tipo (desde julio Softland deja "F2" en Doc y "F2/1788 …" en la glosa). */
+function folioEfectivo(r) {
+  const doc = String(r.Doc || "").trim();
+  if (/\d{3,}/.test(doc)) return doc;
+  const m = String(r.Glosa || "").trim().match(/^([A-Z]{1,3}\d?\s*\/\s*[\w.-]*\d{2,}[\w.-]*)/i);
+  return m ? m[1].replace(/\s+/g, "") : "";
+}
+
+const alertasSoftland = computed(() => {
+  const anio = Number(filtroAnio.value);
+  const emps = new Set(empresasSel.value);
+  const filas = detalleMovimientos.filter(
+    (r) => emps.has(r.Empresa) && Number(r.Anio) === anio && /^[45]/.test(String(r.CodigoCuenta))
+  );
+  const out = [];
+  const agregar = (r, regla, etiqueta, motivo) =>
+    out.push({
+      key: `${regla}|${r.Empresa}|${r.Mes}|${r.CodigoCuenta}|${r.CodigoCentroCosto}|${r.Doc}|${r.Fecha}|${r.SaldoNeto}|${out.length}`,
+      regla, etiqueta, motivo,
+      empresa: r.Empresa, mes: Number(r.Mes), cuenta: r.CodigoCuenta, centro: normCodigoCentro(r.CodigoCentroCosto),
+      doc: String(r.Glosa || "").trim().startsWith(String(r.Doc || "").trim()) ? "" : String(r.Doc || "").trim(),
+      glosa: String(r.Glosa || "").trim(), monto: Number(r.SaldoNeto) || 0,
+    });
+
+  // 1) Documentos de prueba
+  for (const r of filas) if (/PRUEBA/.test(sinTildes(`${r.Glosa} ${r.Entidad}`))) agregar(r, "prueba", "Documento de prueba", "La glosa dice PRUEBA");
+
+  // 2) Mismo documento, cuenta y monto más de una vez (solo documentos con folio)
+  const porDoc = new Map();
+  for (const r of filas) {
+    const doc = folioEfectivo(r);
+    if (!doc) continue;
+    const k = `${r.Empresa}|${r.CodigoCuenta}|${doc}|${Math.round(r.SaldoNeto)}`;
+    if (!porDoc.has(k)) porDoc.set(k, []);
+    porDoc.get(k).push(r);
+  }
+  for (const grupo of porDoc.values()) {
+    if (grupo.length < 2) continue;
+    for (const r of grupo) agregar(r, "duplicado", "Posible duplicado", `Mismo folio y monto ${grupo.length} veces`);
+  }
+
+  // 3) La glosa nombra un mes que no es el contable ni el anterior
+  for (const r of filas) {
+    const g = sinTildes(r.Glosa);
+    const meses = MESES_GLOSA.map((n, i) => (new RegExp(`\\b${n}\\b`).test(g) ? i + 1 : 0)).filter(Boolean);
+    const mes = Number(r.Mes);
+    if (meses.length && !meses.includes(mes) && !meses.includes(mes - 1)) {
+      agregar(r, "periodo", "Glosa de otro mes", `Glosa: ${meses.map((m) => mesNombre(m)).join(", ")}`);
+    }
+  }
+
+  // 4) Ingresos: cliente cuyo centro de costo cambia respecto del habitual
+  const porCliente = new Map();
+  for (const r of filas) {
+    if (!String(r.CodigoCuenta).startsWith("4-1")) continue;
+    const cliente = String(r.Entidad || "").split(" / ")[0].trim();
+    if (!cliente || !String(r.Rut || "").trim()) continue;
+    if (!porCliente.has(cliente)) porCliente.set(cliente, []);
+    porCliente.get(cliente).push(r);
+  }
+  for (const [cliente, rs] of porCliente) {
+    const mesesPorCentro = new Map();
+    for (const r of rs) {
+      const c = normCodigoCentro(r.CodigoCentroCosto);
+      if (!mesesPorCentro.has(c)) mesesPorCentro.set(c, new Set());
+      mesesPorCentro.get(c).add(Number(r.Mes));
+    }
+    if (mesesPorCentro.size < 2) continue;
+    const [habitual, mesesHabitual] = [...mesesPorCentro.entries()].sort((a, b) => b[1].size - a[1].size)[0];
+    if (mesesHabitual.size < 3) continue;
+    for (const r of rs) {
+      const c = normCodigoCentro(r.CodigoCentroCosto);
+      if (c !== habitual && mesesPorCentro.get(c).size === 1) {
+        agregar(r, "centro", "Centro distinto al habitual", `${cliente}: habitual ${habitual}`);
+      }
+    }
+  }
+
+  // 5) Documento de tipo tributario (p. ej. "F2", "H3") sin folio ni en Doc ni en la glosa
+  for (const r of filas) {
+    if (/^[A-Z]{1,3}\d?$/i.test(String(r.Doc || "").trim()) && !folioEfectivo(r)) {
+      agregar(r, "sinFolio", "Sin folio", `Documento "${String(r.Doc).trim()}" sin número`);
+    }
+  }
+
+  return out.sort((a, b) => a.mes - b.mes);
+});
+
+const conteoAlertas = computed(() => {
+  const c = {};
+  for (const a of alertasSoftland.value) c[a.regla] = (c[a.regla] || 0) + 1;
+  return c;
+});
+const alertasVisibles = computed(() =>
+  filtroAlerta.value ? alertasSoftland.value.filter((a) => a.regla === filtroAlerta.value) : alertasSoftland.value
+);
 
 function descargarPeriodos(formato) {
   const tipo = tipoEerr.value === "financiero" ? "EERR Financiero" : "EERR Contable";

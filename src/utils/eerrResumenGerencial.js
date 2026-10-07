@@ -214,12 +214,20 @@ function cuentaCoincideRegla(row, regla, override) {
   return false;
 }
 
+/** Periodos "YYYY-MM" que la regla ignora (p. ej. un asiento de apertura). */
+function periodoExcluido(row, regla) {
+  const lista = regla.excluir_periodos;
+  if (!lista?.length) return false;
+  return lista.includes(`${normAnio(row.Anio)}-${String(normMes(row.Mes)).padStart(2, "0")}`);
+}
+
 function sumarReglaRaw(datosEmpresa, anio, mesDesde, mesHasta, regla, override) {
   let total = 0;
   for (const row of datosEmpresa) {
     if (normAnio(row.Anio) !== Number(anio)) continue;
     const mes = normMes(row.Mes);
     if (mes < mesDesde || mes > mesHasta) continue;
+    if (periodoExcluido(row, regla)) continue;
     if (!cuentaCoincideRegla(row, regla, override)) continue;
     total += Number(row.SaldoNeto ?? 0);
   }
@@ -279,6 +287,7 @@ function obtenerFilasDetalleEmpresa(regla, empresa, mappedRows, datosEmpresa, an
       return (datosEmpresa || [])
         .filter((row) => {
           if (!filaCoincideRangoMes(row, anio, mesDesde, mesHasta, regla)) return false;
+          if (periodoExcluido(row, regla)) return false;
           return cuentaCoincideRegla(row, regla, override);
         })
         .map(normalizarFilaDetalle);
