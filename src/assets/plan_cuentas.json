@@ -2528,6 +2528,22 @@
         "Empresa": "WCORP1"
     },
     {
+        "CodigoCuenta": "1-2-01-22-000",
+        "NombreCuenta": "PROTECTO ALVI TERMINAL                                      ",
+        "NivelCuenta": 4,
+        "LongitudCodigo": 9,
+        "TipoCuenta": "A",
+        "Empresa": "WCORP1"
+    },
+    {
+        "CodigoCuenta": "1-2-01-22-001",
+        "NombreCuenta": "PROYECTO ALVI TERMINAL                                      ",
+        "NivelCuenta": 5,
+        "LongitudCodigo": 13,
+        "TipoCuenta": "A",
+        "Empresa": "WCORP1"
+    },
+    {
         "CodigoCuenta": "1-2-02-00-000",
         "NombreCuenta": "DEPRECIACION ACUMULADA",
         "NivelCuenta": 3,
@@ -2858,6 +2874,14 @@
     {
         "CodigoCuenta": "1-2-02-05-603",
         "NombreCuenta": "DEP ACUMU EL TREBOL LINARES                                 ",
+        "NivelCuenta": 5,
+        "LongitudCodigo": 13,
+        "TipoCuenta": "A",
+        "Empresa": "WCORP1"
+    },
+    {
+        "CodigoCuenta": "1-2-02-05-604",
+        "NombreCuenta": "DEP. ACUM. ALVI TERMINAL                                    ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "A",
@@ -3874,6 +3898,22 @@
     {
         "CodigoCuenta": "2-1-06-01-101",
         "NombreCuenta": "CUENTAS POR PAGAR/COBRAR INVER NUEVA SANTA FIDELMIRA LIMITAD",
+        "NivelCuenta": 5,
+        "LongitudCodigo": 13,
+        "TipoCuenta": "P",
+        "Empresa": "WCORP1"
+    },
+    {
+        "CodigoCuenta": "2-1-06-01-200",
+        "NombreCuenta": "CUENTAS POR PAGAR/COBRAR CAFETERIA FRANCHESCA CARRASCO      ",
+        "NivelCuenta": 5,
+        "LongitudCodigo": 13,
+        "TipoCuenta": "P",
+        "Empresa": "WCORP1"
+    },
+    {
+        "CodigoCuenta": "2-1-06-01-300",
+        "NombreCuenta": "CUENTA POR PAGAR/COBRAR CORP 2                              ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "P",
@@ -6009,7 +6049,7 @@
     },
     {
         "CodigoCuenta": "5-3-01-02-020",
-        "NombreCuenta": "REMUNERACIONES(SOCIO) COSTO MANDATO INVER. SANTA FIDELM     ",
+        "NombreCuenta": "REMUNERACIONES(SOCIO) COSTO EMPRESA                         ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "G",
@@ -6033,7 +6073,7 @@
     },
     {
         "CodigoCuenta": "5-3-01-02-023",
-        "NombreCuenta": "REMUNERACIONES(ADMINISTRA) COSTO MANDATO INVER. SANTA FIDELM",
+        "NombreCuenta": "REMUNERACIONES(ADMINISTRA) COSTO EMPRESA                    ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "G",
@@ -9762,6 +9802,14 @@
     {
         "CodigoCuenta": "2-1-06-01-101",
         "NombreCuenta": "CUENTAS POR PAGAR/COBRAR INVER NUEVA SANTA FIDELMIRA LIMITAD",
+        "NivelCuenta": 5,
+        "LongitudCodigo": 13,
+        "TipoCuenta": "P",
+        "Empresa": "WCORP2"
+    },
+    {
+        "CodigoCuenta": "2-1-06-01-300",
+        "NombreCuenta": "CUENTA POR PAGAR/COBRAR CORP 1                              ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "P",

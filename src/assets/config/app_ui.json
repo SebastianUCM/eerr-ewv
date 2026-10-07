@@ -20,7 +20,7 @@
     "eeff": { "enabled": false, "label": "EEFF acercamiento" },
     "eeff_excel": { "enabled": false, "label": "EEFF Excel proyección" },
     "cmf": { "enabled": false, "label": "CMF proyección" },
-    "eeff_eerr": { "enabled": false, "label": "Estado de resultados (EERR)" },
+    "eeff_eerr": { "enabled": true, "label": "Estado de resultados (EERR)" },
     "flujo_caja": { "enabled": false, "label": "Flujo de caja" },
     "eerr_comparativo": { "enabled": true, "label": "EERR comparativo" },
     "eerr_indicadores": { "enabled": false, "label": "Indicadores EERR anual" },
