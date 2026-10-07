@@ -7,11 +7,42 @@
   },
   "informeEerr": {
     "participacion": 28.43,
+    "nombresPropiedad": {
+      "001": "STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
+      "050": "SUPERMERCADO - EL TREBOL | PROYECTO MULCHEN | MULCHEN",
+      "003": "TALAGANTE",
+      "010": "RENCA",
+      "029": "ALVI - TALCA",
+      "080": "TERRENO - PROYECTO CHACABUCO 781 | LINARES",
+      "039": "DINAMITY - PROYECTO GIMNASIO | LINARES",
+      "112": "MALBEC 115 | SANTIAGO",
+      "113": "MALBEC 203 | SANTIAGO",
+      "114": "MALBEC 607 | SANTIAGO",
+      "111": "DIEGO PORTALES 403 | VALPARAISO"
+    },
     "tasaImpuesto": 0.27,
-    "caja": {
-      "porPeriodo": {
-        "2026-05": { "banco": 580168028, "btg": 447188000 }
+    "resumenInformesDueno": {
+      "2025": {
+        "fuente": "Informes EERR del dueño entregados anteriormente (PDF en informes_dueno)",
+        "periodos": ["2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11"],
+        "sinInforme": ["2025-01", "2025-02", "2025-03", "2025-04", "2025-05"],
+        "excluidos": ["2025-12"],
+        "nota": "Suma de junio a noviembre 2025, igual al documento del dueño; diciembre 2025 no se incluye",
+        "valores": {
+          "ingOp": 1340219567,
+          "ingNoOp": 8511600,
+          "gcs": 202939981,
+          "gav": 819367632,
+          "res": 326423554,
+          "ret": 333265308
+        }
       }
+    },
+    "saldoInicialCaja": {
+      "periodo": "2026-01",
+      "monto": 414571449,
+      "empresa": "WCORP1",
+      "fuente": "Banco/CAJA \"Sociedad EWV\" del informe del dueño de enero 2026 (Softland de WCORP no tiene este saldo; el histórico está en la base FIDELMIRA)"
     }
   },
   "tabs": {
