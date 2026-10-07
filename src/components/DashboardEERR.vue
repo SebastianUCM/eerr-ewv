@@ -209,7 +209,8 @@
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('contribuciones')">{{ textoVariacionKpi('contribuciones') }}</p>
         <p class="text-[11px] mt-1 text-fuchsia-700/80">Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.contribuciones) }}</p>
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('contribuciones')">{{ textoVariacionKpiAcumulada('contribuciones') }}</p>
-        <p class="text-[11px] mt-2 text-fuchsia-700/80">Suma del subítem Impuestos y Contribuciones</p>
+        <p v-if="sobretasaAnio" class="text-[11px] mt-1 text-fuchsia-700/80">Sobretasa (aparte): <span class="font-semibold">{{ formatCLP(sobretasaAnio) }}</span></p>
+        <p class="text-[11px] mt-2 text-fuchsia-700/80">Suma del subítem Impuestos y Contribuciones, sin sobretasa</p>
       </div>
       <!-- Patente Municipal -->
       <div class="relative rounded-xl shadow-sm p-5 border-l-4 border border-amber-100" :class="kpis.patenteMunicipal >= 0 ? 'border-amber-500 bg-amber-50/80' : 'border-orange-500 bg-orange-50/80'">
@@ -226,6 +227,9 @@
           Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.patenteMunicipal) }}
         </p>
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('patenteMunicipal')">{{ textoVariacionKpiAcumulada('patenteMunicipal') }}</p>
+        <p v-if="!kpis.patenteMunicipal" class="text-[11px] mt-1 font-semibold text-amber-800">
+          Sin pagos registrados en Softland en {{ filtroAnio }}: pendiente de pago
+        </p>
         <p class="text-[11px] mt-2" :class="kpis.patenteMunicipal >= 0 ? 'text-amber-700/80' : 'text-orange-700/80'">
           Suma del subítem Patentes
         </p>
@@ -357,11 +361,11 @@
                       <template v-for="cc in cuenta.centros" :key="cc.key">
                       <tr
                         class="border-b border-slate-50 hover:bg-slate-100 transition-colors bg-white"
-                        :class="tieneDetalle(cuenta.codigo, cc.codigo) ? 'cursor-pointer' : ''"
-                        @click="tieneDetalle(cuenta.codigo, cc.codigo) && toggleFila(claveCentro(subitem.key, cuenta.key, cc.key))"
+                        :class="tieneDetalle(cuenta.codigo, cc.codigo, subitem.nombreOriginal) ? 'cursor-pointer' : ''"
+                        @click="tieneDetalle(cuenta.codigo, cc.codigo, subitem.nombreOriginal) && toggleFila(claveCentro(subitem.key, cuenta.key, cc.key))"
                       >
                         <td class="px-4 py-1 pl-[5.5rem] text-slate-500 text-[11px] flex items-center gap-1.5">
-                          <span v-if="tieneDetalle(cuenta.codigo, cc.codigo)" class="text-slate-400 text-base leading-none w-3">{{ filasAbiertas[claveCentro(subitem.key, cuenta.key, cc.key)] ? "▾" : "▸" }}</span>
+                          <span v-if="tieneDetalle(cuenta.codigo, cc.codigo, subitem.nombreOriginal)" class="text-slate-400 text-base leading-none w-3">{{ filasAbiertas[claveCentro(subitem.key, cuenta.key, cc.key)] ? "▾" : "▸" }}</span>
                           <span v-else class="w-1 h-1 rounded-full bg-slate-300"></span>
                           <span class="font-mono text-slate-400">{{ cc.codigo === '000' ? '' : cc.codigo }}</span>
                           <span class="truncate max-w-[14rem]">{{ cc.codigo === '000' ? 'Sin Centro de Costo' : cc.nombre }}</span>
@@ -379,7 +383,7 @@
 
                       <!-- NIVEL 5: PROVEEDOR (Entidad del detalle Softland) -->
                       <template v-if="filasAbiertas[claveCentro(subitem.key, cuenta.key, cc.key)]">
-                        <template v-for="prov in nodosProveedor(cuenta.codigo, cc.codigo)" :key="prov.key">
+                        <template v-for="prov in nodosProveedor(cuenta.codigo, cc.codigo, subitem.nombreOriginal)" :key="prov.key">
                           <tr
                             class="border-b border-slate-50 bg-indigo-50/20 hover:bg-indigo-50/50 cursor-pointer transition-colors"
                             @click="toggleFila(claveProv(subitem.key, cuenta.key, cc.key, prov.key))"
@@ -773,10 +777,72 @@ const datosEmpresa = computed(() => [...datosPorEmpresa.value.values()].flat());
 function mapearEmpresasSeleccionadas(anio) {
   const out = [];
   for (const [emp, filas] of datosPorEmpresa.value) {
-    out.push(...mapearDatosAnioEerr(emp, anio, tipoEerr.value, filas, mapeoCuentas));
+    out.push(...separarSobretasa(mapearDatosAnioEerr(emp, anio, tipoEerr.value, filas, mapeoCuentas)));
   }
   return out;
 }
+
+// ── SOBRETASA ─────────────────────────────────────────────────────────────
+// Softland registra la sobretasa en la misma cuenta que las contribuciones
+// (5-2-01-07-001); solo la glosa del pago la distingue ("PAGO CUOTA n DE 4 SOBRETASA").
+// Se separa en el subítem "sobretasa" con el detalle de movimientos, que suma
+// exactamente lo mismo que datos_vue.json por cuenta+centro+mes.
+const CUENTA_CONTRIBUCIONES = "5-2-01-07-001";
+const SUBITEM_SOBRETASA = "sobretasa";
+const esGlosaSobretasa = (glosa) => /SOBRETASA/i.test(String(glosa || ""));
+const claveSobretasa = (emp, anio, mes, centro) => `${emp}|${Number(anio)}|${Number(mes)}|${normCodigoCentro(centro)}`;
+
+const sobretasaPorClave = computed(() => {
+  const m = new Map();
+  for (const r of detalleMovimientos) {
+    if (String(r.CodigoCuenta).trim() !== CUENTA_CONTRIBUCIONES || !esGlosaSobretasa(r.Glosa)) continue;
+    const k = claveSobretasa(r.Empresa, r.Anio, r.Mes, r.CodigoCentroCosto);
+    m.set(k, (m.get(k) || 0) + (Number(r.SaldoNeto) || 0));
+  }
+  return m;
+});
+
+function separarSobretasa(rows) {
+  const out = [];
+  const usadas = new Set();
+  for (const d of rows) {
+    if (String(d.CodigoCuenta).trim() !== CUENTA_CONTRIBUCIONES) {
+      out.push(d);
+      continue;
+    }
+    const k = claveSobretasa(d.Empresa, d.Anio, d.Mes, d.CodigoCentroCosto);
+    const monto = usadas.has(k) ? 0 : sobretasaPorClave.value.get(k) || 0;
+    usadas.add(k);
+    if (!monto) {
+      out.push(d);
+      continue;
+    }
+    out.push({ ...d, SaldoNeto: d.SaldoNeto - monto });
+    out.push({ ...d, Subitem: SUBITEM_SOBRETASA, NombreCuenta: "SOBRETASA (en cuenta CONTRIBUCIONES)", SaldoNeto: monto });
+  }
+  return out;
+}
+
+/** Copia del mapeo solo para ordenar la matriz: la sobretasa va justo después de contribuciones. */
+const mapeoParaMatriz = computed(() => {
+  const emp = empresasSel.value[0];
+  const cfg = mapeoCuentas?.empresas?.[emp];
+  if (!cfg) return mapeoCuentas;
+  const ordenContrib = Number(cfg.cuentas?.[CUENTA_CONTRIBUCIONES]?.orden ?? 9998);
+  return {
+    ...mapeoCuentas,
+    empresas: {
+      ...mapeoCuentas.empresas,
+      [emp]: {
+        ...cfg,
+        cuentas: {
+          ...cfg.cuentas,
+          __orden_sobretasa__: { categoria: "gasto_adm_ventas", subitem: SUBITEM_SOBRETASA, orden: ordenContrib + 0.5 },
+        },
+      },
+    },
+  };
+});
 
 const aniosDisponibles = computed(() => {
   const set = new Set(datosEmpresa.value.map((d) => normAnio(d.Anio)));
@@ -1099,7 +1165,7 @@ function valorMesAnterior(mes, mensual, nivel, keyNivel) {
 }
 
 const matrizContable = computed(() =>
-  construirMatrizContableEerr(datosAnioMapeados.value, empresasSel.value[0], mapeoCuentas)
+  construirMatrizContableEerr(datosAnioMapeados.value, empresasSel.value[0], mapeoParaMatriz.value)
 );
 
 // ── DETALLE PROVEEDOR / DOCUMENTO ─────────────────────────────────────────
@@ -1111,6 +1177,13 @@ const matrizContable = computed(() =>
 const claveCentro = (s, c, cc) => `${s}-${c}-${cc}`;
 const claveProv = (s, c, cc, p) => `${s}-${c}-${cc}::${p}`;
 
+/** Clave del detalle. En la cuenta de contribuciones se separa por glosa, igual que la matriz. */
+function claveDetalle(cuenta, centro, subitem) {
+  const base = `${String(cuenta ?? "").trim()}||${normCodigoCentro(centro)}`;
+  if (String(cuenta ?? "").trim() !== CUENTA_CONTRIBUCIONES) return base;
+  return `${base}||${subitem === SUBITEM_SOBRETASA ? "S" : "C"}`;
+}
+
 /** Detalle de la empresa y año en pantalla, filtrado por centros, agrupado por `cuenta||centro`. */
 const detalleIndex = computed(() => {
   const idx = new Map();
@@ -1120,15 +1193,15 @@ const detalleIndex = computed(() => {
     centrosSeleccionados.value
   );
   for (const r of filas) {
-    const key = `${String(r.CodigoCuenta ?? "").trim()}||${normCodigoCentro(r.CodigoCentroCosto)}`;
+    const key = claveDetalle(r.CodigoCuenta, r.CodigoCentroCosto, esGlosaSobretasa(r.Glosa) ? SUBITEM_SOBRETASA : "");
     if (!idx.has(key)) idx.set(key, []);
     idx.get(key).push(r);
   }
   return idx;
 });
 
-function tieneDetalle(cuentaCod, centroCod) {
-  return detalleIndex.value.has(`${cuentaCod}||${centroCod}`);
+function tieneDetalle(cuentaCod, centroCod, subitem) {
+  return detalleIndex.value.has(claveDetalle(cuentaCod, centroCod, subitem));
 }
 
 /** Quita del inicio de la glosa el folio que ya se muestra aparte
@@ -1160,8 +1233,8 @@ function agruparDocumentos(lineas) {
 }
 
 /** Nodos proveedor (con sus documentos) para una cuenta+centro. */
-function nodosProveedor(cuentaCod, centroCod) {
-  const lineas = detalleIndex.value.get(`${cuentaCod}||${centroCod}`) || [];
+function nodosProveedor(cuentaCod, centroCod, subitem) {
+  const lineas = detalleIndex.value.get(claveDetalle(cuentaCod, centroCod, subitem)) || [];
   const provMap = new Map();
   for (const r of lineas) {
     // La Entidad parseada de la glosa trae "NOMBRE / descripción": se agrupa por el
@@ -1297,6 +1370,10 @@ const kpisAnioAnterior = computed(() => calcularKpisDesdeRows(datosAnioAnteriorM
 
 /** Mayor/menor valor de inversiones (subítem propio en mapeo_cuentas.json): variación de
  * valor de los fondos, no es caja. Se informa aparte para leer el resultado sin ella. */
+const sobretasaAnio = computed(() =>
+  datosAnioMapeados.value.reduce((s, d) => s + (d.Subitem === SUBITEM_SOBRETASA ? Number(d.SaldoNeto) || 0 : 0), 0)
+);
+
 const valorizacionInversiones = computed(() =>
   datosAnioMapeados.value.reduce((s, d) => s + (d.Subitem === "valorizacion_inversiones" ? Number(d.SaldoNeto) || 0 : 0), 0)
 );
@@ -1453,11 +1530,11 @@ const EXPLICACIONES = {
   },
   contribuciones: {
     titulo: "Contribuciones",
-    texto: "Suma de todas las cuentas del subítem Impuestos y Contribuciones: el impuesto territorial (contribuciones) que se paga por los inmuebles.",
+    texto: "Suma de todas las cuentas del subítem Impuestos y Contribuciones: el impuesto territorial (contribuciones) que se paga por los inmuebles. La sobretasa se paga junto con las contribuciones y Softland la registra en la misma cuenta; aquí se separa según la glosa del pago y se muestra aparte (subítem Sobretasa en la matriz).",
   },
   patenteMunicipal: {
     titulo: "Patente Municipal",
-    texto: "Suma de todas las cuentas del subítem Patentes: la patente comercial/municipal pagada a la municipalidad.",
+    texto: "Suma de todas las cuentas del subítem Patentes (5-2-01-03-003 y 5-2-01-07-002): la patente comercial/municipal pagada a la municipalidad. Si sale en cero es porque no hay pagos registrados en Softland en el año: la patente se debería pagar y queda como pendiente.",
   },
   resultado: {
     titulo: "Resultado antes de impuestos",

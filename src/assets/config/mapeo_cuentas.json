@@ -715,7 +715,7 @@
           "categoria": "otros_gastos_financieros",
           "subitem": "valorizacion_inversiones",
           "orden": 1406,
-          "eerr": ["financiero", "contable"]
+          "eerr": ["contable"]
         },
         "5-3-01-02-009": {
           "categoria": "otros_gastos_financieros",
@@ -1454,7 +1454,7 @@
           "categoria": "otros_gastos_financieros",
           "subitem": "valorizacion_inversiones",
           "orden": 1406,
-          "eerr": ["financiero", "contable"]
+          "eerr": ["contable"]
         },
         "5-3-01-02-009": {
           "categoria": "otros_gastos_financieros",
