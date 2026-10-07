@@ -634,9 +634,39 @@
         },
         "5-3-01-02-020": {
           "categoria": "gasto_adm_ventas",
-          "subitem": "otros_gastos_de_administracion_y_ventas",
-          "orden": 1317,
+          "subitem": "remuneraciones",
+          "orden": 209,
           "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-023": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 210,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-05-001": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "depreciacion",
+          "orden": 1450,
+          "eerr": ["contable"]
+        },
+        "5-3-01-05-002": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "depreciacion",
+          "orden": 1451,
+          "eerr": ["contable"]
+        },
+        "5-3-01-03-001": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "correccion_monetaria",
+          "orden": 1460,
+          "eerr": ["contable"]
+        },
+        "5-3-01-03-006": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "correccion_monetaria",
+          "orden": 1461,
+          "eerr": ["contable"]
         },
         "5-2-01-02-005": {
           "categoria": "gasto_adm_ventas",
@@ -683,7 +713,7 @@
         },
         "5-3-01-02-007": {
           "categoria": "otros_gastos_financieros",
-          "subitem": "otros_gastos_financieros",
+          "subitem": "valorizacion_inversiones",
           "orden": 1406,
           "eerr": ["financiero", "contable"]
         },
@@ -1343,9 +1373,39 @@
         },
         "5-3-01-02-020": {
           "categoria": "gasto_adm_ventas",
-          "subitem": "otros_gastos_de_administracion_y_ventas",
-          "orden": 1317,
+          "subitem": "remuneraciones",
+          "orden": 209,
           "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-02-023": {
+          "categoria": "gasto_adm_ventas",
+          "subitem": "remuneraciones",
+          "orden": 210,
+          "eerr": ["financiero", "contable"]
+        },
+        "5-3-01-05-001": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "depreciacion",
+          "orden": 1450,
+          "eerr": ["contable"]
+        },
+        "5-3-01-05-002": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "depreciacion",
+          "orden": 1451,
+          "eerr": ["contable"]
+        },
+        "5-3-01-03-001": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "correccion_monetaria",
+          "orden": 1460,
+          "eerr": ["contable"]
+        },
+        "5-3-01-03-006": {
+          "categoria": "otros_gastos_financieros",
+          "subitem": "correccion_monetaria",
+          "orden": 1461,
+          "eerr": ["contable"]
         },
         "5-2-01-02-005": {
           "categoria": "gasto_adm_ventas",
@@ -1392,7 +1452,7 @@
         },
         "5-3-01-02-007": {
           "categoria": "otros_gastos_financieros",
-          "subitem": "otros_gastos_financieros",
+          "subitem": "valorizacion_inversiones",
           "orden": 1406,
           "eerr": ["financiero", "contable"]
         },

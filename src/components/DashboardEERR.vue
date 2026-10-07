@@ -9,19 +9,37 @@
           <template v-if="variant === 'flujo_caja'">
             Misma lógica y datos que el EERR (<code class="text-xs bg-slate-100 px-1 rounded">datos_vue.json</code>,
             <code class="text-xs bg-slate-100 px-1 rounded">mapeo_cuentas.json</code>) —
-            {{ props.empresa }}
+            {{ etiquetaEmpresas }}
           </template>
           <template v-else>
             Montos desde <code class="text-xs bg-slate-100 px-1 rounded">datos_vue.json</code>,
             categorías desde <code class="text-xs bg-slate-100 px-1 rounded">mapeo_cuentas.json</code>
-            — {{ props.empresa }}
+            — {{ etiquetaEmpresas }}
           </template>
         </p>
       </div>
 
-      <div class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm flex flex-wrap items-end gap-3 max-w-2xl">
-        <div class="flex items-center gap-2">
-          <label class="text-xs font-semibold uppercase text-slate-500 whitespace-nowrap">Año Operativo:</label>
+      <div class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm flex flex-wrap items-end gap-3">
+        <div class="flex flex-col gap-1">
+          <span class="text-xs font-semibold uppercase text-slate-500">Empresas:</span>
+          <div class="flex flex-wrap items-center gap-1.5 py-1">
+            <button
+              v-for="e in empresasConDatos"
+              :key="e"
+              type="button"
+              :aria-pressed="empresasSel.includes(e)"
+              :title="empresasSel.includes(e) && empresasSel.length === 1 ? 'Debe quedar al menos una empresa' : ''"
+              :class="empresasSel.includes(e)
+                ? 'rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white border border-indigo-600'
+                : 'rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-600 border border-slate-300 hover:border-indigo-400 hover:text-indigo-700'"
+              @click="toggleEmpresa(e)"
+            >
+              {{ e }}
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label class="text-xs font-semibold uppercase text-slate-500">Año Operativo:</label>
           <select
             v-model.number="filtroAnio"
             class="border border-slate-300 rounded-md px-3 py-1.5 text-sm bg-white font-medium focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
@@ -31,8 +49,8 @@
             </option>
           </select>
         </div>
-        <div class="flex items-center gap-2">
-          <label class="text-xs font-semibold uppercase text-slate-500 whitespace-nowrap">Tipo EERR:</label>
+        <div class="flex flex-col gap-1">
+          <label class="text-xs font-semibold uppercase text-slate-500">Tipo EERR:</label>
           <select
             v-model="tipoEerr"
             class="border border-slate-300 rounded-md px-3 py-1.5 text-sm bg-white font-medium focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
@@ -41,179 +59,221 @@
             <option value="contable">Contable</option>
           </select>
         </div>
-        <div class="flex flex-col gap-1 min-w-[16rem] flex-1">
-          <label class="text-xs font-semibold uppercase text-slate-500">Centros de costo</label>
-          <div class="flex items-stretch gap-2">
-            <div ref="centrosDropdownRef" class="relative flex-1 min-w-0">
-              <button
-                id="eerr-centros-costo"
-                type="button"
-                class="w-full flex items-center justify-between gap-2 border border-slate-300 rounded-md px-3 py-1.5 text-sm bg-white font-medium text-left focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
-                @click.stop="centrosDropdownAbierto = !centrosDropdownAbierto"
-              >
-                <span class="truncate" :class="centrosSeleccionados.length ? 'text-slate-800' : 'text-slate-500'">
-                  {{ textoResumenCentros }}
-                </span>
-                <span class="text-slate-400 text-xs shrink-0">{{ centrosDropdownAbierto ? "▴" : "▾" }}</span>
-              </button>
+        <div ref="centrosDropdownRef" class="relative flex flex-col gap-1">
+          <label for="eerr-centros-costo" class="text-xs font-semibold uppercase text-slate-500">Centros de costo:</label>
+          <button
+            id="eerr-centros-costo"
+            type="button"
+            class="flex min-w-[11rem] max-w-[16rem] items-center justify-between gap-2 border border-slate-300 rounded-md px-3 py-1.5 text-sm bg-white font-medium text-left focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
+            @click.stop="centrosDropdownAbierto = !centrosDropdownAbierto"
+          >
+            <span class="truncate">{{ textoResumenCentros }}</span>
+            <span class="shrink-0 text-slate-400 text-xs" aria-hidden="true">▾</span>
+          </button>
 
-              <div
-                v-if="centrosDropdownAbierto"
-                class="absolute z-40 mt-1 w-full min-w-[18rem] max-h-64 overflow-y-auto rounded-lg border border-slate-200 bg-white shadow-lg py-1"
-                @click.stop
-              >
-                <label
-                  v-for="cc in centrosDisponibles"
-                  :key="cc.codigo"
-                  class="flex items-start gap-2 px-3 py-2 text-xs hover:bg-indigo-50/60 cursor-pointer"
-                >
-                  <input
-                    type="checkbox"
-                    class="mt-0.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                    :checked="centrosSeleccionados.includes(cc.codigo)"
-                    @change="toggleCentro(cc.codigo)"
-                  />
-                  <span class="leading-snug">
-                    <span class="font-mono text-indigo-700">{{ cc.codigo }}</span>
-                    <span class="text-slate-600"> — {{ cc.nombre }}</span>
-                  </span>
-                </label>
-                <p
-                  v-if="!centrosDisponibles.length"
-                  class="px-3 py-2 text-xs text-slate-400 italic"
-                >
-                  Sin centros de costo en este año.
-                </p>
-              </div>
-            </div>
-
+          <div
+            v-if="centrosDropdownAbierto"
+            class="absolute right-0 top-full z-40 mt-1 w-80 max-h-64 overflow-y-auto rounded-lg border border-slate-200 bg-white shadow-lg py-1"
+            @click.stop
+          >
             <button
               type="button"
-              class="shrink-0 rounded-md border border-slate-300 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-800 transition disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
+              class="w-full text-left text-xs px-3 py-1.5 font-semibold text-slate-600 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed"
               :disabled="!centrosSeleccionados.length"
-              @click.stop="limpiarCentrosSeleccionados"
+              @click="limpiarCentrosSeleccionados"
             >
-              Limpiar todos
+              Limpiar todos (ver todos los centros)
             </button>
+            <label
+              v-for="cc in centrosDisponibles"
+              :key="cc.codigo"
+              class="flex items-start gap-2 px-3 py-2 text-xs hover:bg-indigo-50/60 cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                class="mt-0.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                :checked="centrosSeleccionados.includes(cc.codigo)"
+                @change="toggleCentro(cc.codigo)"
+              />
+              <span class="leading-snug">
+                <span class="font-mono text-indigo-700">{{ cc.codigo }}</span>
+                <span class="text-slate-600"> — {{ cc.nombre }}</span>
+              </span>
+            </label>
+            <p
+              v-if="!centrosDisponibles.length"
+              class="px-3 py-2 text-xs text-slate-400 italic"
+            >
+              Sin centros de costo en este año.
+            </p>
           </div>
-          <p class="text-[10px] text-slate-400 leading-snug">
-            Sin selección = todos los centros.
-            <span v-if="centrosSeleccionados.length" class="text-indigo-600 font-medium">
-              · {{ centrosSeleccionados.length }} seleccionado(s)
-            </span>
-          </p>
         </div>
       </div>
     </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-      <!-- Ingresos Acumulados -->
-      <div class="rounded-xl shadow-sm p-5 border-l-4 border-emerald-500 bg-emerald-50/70 border border-emerald-100">
-        <p class="text-xs uppercase text-emerald-700 font-bold tracking-wider">Ingresos Acumulados</p>
-        <p class="text-2xl font-bold text-emerald-900 mt-1">{{ formatCLP(kpis.ingresos) }}</p>
-        <p class="text-[11px] mt-1 text-emerald-700/80">Año anterior: {{ formatCLP(kpisAnioAnterior.ingresos) }}</p>
-        <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('ingresos')">{{ textoVariacionKpi('ingresos') }}</p>
-        <p class="text-[11px] mt-2 text-emerald-700/80">ingreso_explotacion + ingreso_financiero</p>
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+      <!-- Ingresos Acumulados (más ancha: trae el desglose de arriendos al costado) -->
+      <div class="relative rounded-xl shadow-sm p-5 border-l-4 border-emerald-500 bg-emerald-50/70 border border-emerald-100 md:col-span-2 flex flex-col sm:flex-row gap-4">
+        <button type="button" class="absolute top-2 right-2 w-5 h-5 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-[10px] font-bold text-emerald-700 border border-emerald-300" title="¿Qué significa esta tarjeta?" @click="abrirInfo('ingresos')">i</button>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs uppercase text-emerald-700 font-bold tracking-wider">Ingresos Acumulados</p>
+          <p class="text-2xl font-bold text-emerald-900 mt-1">{{ formatCLP(kpis.ingresos) }}</p>
+          <p class="text-[11px] mt-1 text-emerald-700/80">Año Anterior: {{ formatCLP(kpisAnioAnterior.ingresos) }}</p>
+          <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('ingresos')">{{ textoVariacionKpi('ingresos') }}</p>
+          <p class="text-[11px] mt-1 text-emerald-700/80">Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.ingresos) }}</p>
+          <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('ingresos')">{{ textoVariacionKpiAcumulada('ingresos') }}</p>
+          <p class="text-[11px] mt-2 text-emerald-700/80">Ingresos de Explotación + Ingresos Financieros</p>
+        </div>
+        <div class="w-full h-px sm:w-px sm:h-auto bg-emerald-200 shrink-0"></div>
+        <div class="flex-1 min-w-0 flex flex-col justify-center gap-2.5">
+          <p class="text-[10px] uppercase font-bold tracking-wider text-emerald-700">Arriendos</p>
+          <div v-for="tipo in [{ clave: 'fijo', etiqueta: 'Arriendo Fijo' }, { clave: 'variable', etiqueta: 'Arriendo Variable' }]" :key="tipo.clave">
+            <p class="text-[11px] font-semibold text-emerald-900">{{ tipo.etiqueta }}</p>
+            <p class="text-sm font-bold text-emerald-900">{{ formatCLP(arriendosDesglose.actual[tipo.clave]) }}</p>
+            <p class="text-[10px] text-emerald-700/80">Año Anterior: {{ formatCLP(arriendosDesglose.anterior[tipo.clave]) }}</p>
+            <p class="text-[10px] font-semibold" :class="claseVariacionArriendo(tipo.clave)">{{ textoVariacionArriendo(tipo.clave) }}</p>
+            <p class="text-[10px] text-emerald-700/80">Acum. Año Anterior: {{ formatCLP(arriendosDesglose.anteriorAcum[tipo.clave]) }}</p>
+            <p class="text-[10px] font-semibold" :class="claseVariacionArriendoAcumulada(tipo.clave)">{{ textoVariacionArriendoAcumulada(tipo.clave) }}</p>
+          </div>
+        </div>
       </div>
        <!-- Ingresos Financieros -->
-       <div class="rounded-xl shadow-sm p-5 border-l-4 border border-cyan-100" :class="kpis.ingresosFinancieros >= 0 ? 'border-cyan-500 bg-cyan-50/80' : 'border-rose-500 bg-rose-50/80'">
-        <p class="text-xs uppercase font-bold tracking-wider" :class="kpis.ingresosFinancieros >= 0 ? 'text-cyan-700' : 'text-rose-700'">INGRESOS FINANCIEROS</p>
+       <div class="relative rounded-xl shadow-sm p-5 border-l-4 border border-cyan-100" :class="kpis.ingresosFinancieros >= 0 ? 'border-cyan-500 bg-cyan-50/80' : 'border-rose-500 bg-rose-50/80'">
+        <button type="button" class="absolute top-2 right-2 w-5 h-5 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-[10px] font-bold border" :class="kpis.ingresosFinancieros >= 0 ? 'text-cyan-700 border-cyan-300' : 'text-rose-700 border-rose-300'" title="¿Qué significa esta tarjeta?" @click="abrirInfo('ingresosFinancieros')">i</button>
+        <p class="text-xs uppercase font-bold tracking-wider" :class="kpis.ingresosFinancieros >= 0 ? 'text-cyan-700' : 'text-rose-700'">Ingresos Financieros</p>
         <p class="text-2xl font-bold mt-1" :class="kpis.ingresosFinancieros >= 0 ? 'text-cyan-900' : 'text-rose-800'">
           {{ formatCLP(kpis.ingresosFinancieros) }}
         </p>
         <p class="text-[11px] mt-1" :class="kpis.ingresosFinancieros >= 0 ? 'text-cyan-700/80' : 'text-rose-700/80'">
-          Año anterior: {{ formatCLP(kpisAnioAnterior.ingresosFinancieros) }}
+          Año Anterior: {{ formatCLP(kpisAnioAnterior.ingresosFinancieros) }}
         </p>
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('ingresosFinancieros')">{{ textoVariacionKpi('ingresosFinancieros') }}</p>
+        <p class="text-[11px] mt-1" :class="kpis.ingresosFinancieros >= 0 ? 'text-cyan-700/80' : 'text-rose-700/80'">
+          Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.ingresosFinancieros) }}
+        </p>
+        <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('ingresosFinancieros')">{{ textoVariacionKpiAcumulada('ingresosFinancieros') }}</p>
         <p class="text-[11px] mt-2" :class="kpis.ingresosFinancieros >= 0 ? 'text-cyan-700/80' : 'text-rose-700/80'">
-          suma de categoria ingreso_financiero
+          Suma de la categoría Ingresos Financieros
         </p>
       </div>
       <!-- Gastos Acumulados -->
-      <div class="rounded-xl shadow-sm p-5 border-l-4 border-rose-500 bg-rose-50/70 border border-rose-100">
+      <div class="relative rounded-xl shadow-sm p-5 border-l-4 border-rose-500 bg-rose-50/70 border border-rose-100">
+        <button type="button" class="absolute top-2 right-2 w-5 h-5 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-[10px] font-bold text-rose-700 border border-rose-300" title="¿Qué significa esta tarjeta?" @click="abrirInfo('gastos')">i</button>
         <p class="text-xs uppercase text-rose-700 font-bold tracking-wider">Gastos Acumulados</p>
         <p class="text-2xl font-bold text-rose-900 mt-1">{{ formatCLP(kpis.gastos) }}</p>
-        <p class="text-[11px] mt-1 text-rose-700/80">Año anterior: {{ formatCLP(kpisAnioAnterior.gastos) }}</p>
+        <p class="text-[11px] mt-1 text-rose-700/80">Año Anterior: {{ formatCLP(kpisAnioAnterior.gastos) }}</p>
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('gastos')">{{ textoVariacionKpi('gastos') }}</p>
-        <p class="text-[11px] mt-2 text-rose-700/80">resultado - ingresos</p>
+        <p class="text-[11px] mt-1 text-rose-700/80">Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.gastos) }}</p>
+        <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('gastos')">{{ textoVariacionKpiAcumulada('gastos') }}</p>
+        <p class="text-[11px] mt-2 text-rose-700/80">Resultado − Ingresos</p>
       </div>
       <!-- EBITDA -->
-      <div class="rounded-xl shadow-md p-5 border-l-4 border border-purple-100" :class="kpis.ebitda >= 0 ? 'border-purple-600 bg-purple-50/80' : 'border-orange-500 bg-orange-50/80'">
+      <div class="relative rounded-xl shadow-md p-5 border-l-4 border border-purple-100" :class="kpis.ebitda >= 0 ? 'border-purple-600 bg-purple-50/80' : 'border-orange-500 bg-orange-50/80'">
+        <button type="button" class="absolute top-2 right-2 w-5 h-5 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-[10px] font-bold border" :class="kpis.ebitda >= 0 ? 'text-purple-700 border-purple-300' : 'text-orange-700 border-orange-300'" title="¿Qué significa esta tarjeta?" @click="abrirInfo('ebitda')">i</button>
         <p class="text-xs uppercase font-bold tracking-wider" :class="kpis.ebitda >= 0 ? 'text-purple-700' : 'text-orange-700'">EBITDA</p>
         <p class="text-2xl font-bold mt-1" :class="kpis.ebitda >= 0 ? 'text-purple-900' : 'text-orange-800'">
           {{ formatCLP(kpis.ebitda) }}
         </p>
         <p class="text-[11px] mt-1" :class="kpis.ebitda >= 0 ? 'text-purple-700/80' : 'text-orange-700/80'">
-          Año anterior: {{ formatCLP(kpisAnioAnterior.ebitda) }}
+          Año Anterior: {{ formatCLP(kpisAnioAnterior.ebitda) }}
         </p>
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('ebitda')">{{ textoVariacionKpi('ebitda') }}</p>
+        <p class="text-[11px] mt-1" :class="kpis.ebitda >= 0 ? 'text-purple-700/80' : 'text-orange-700/80'">
+          Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.ebitda) }}
+        </p>
+        <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('ebitda')">{{ textoVariacionKpiAcumulada('ebitda') }}</p>
         <p class="text-[11px] mt-2" :class="kpis.ebitda >= 0 ? 'text-purple-700/80' : 'text-orange-700/80'">
-          ingreso_explotacion + ingreso_financiero + gasto_adm_ventas
+          Ingresos de Explotación + Ingresos Financieros + Gastos de Administración y Ventas
         </p>
       </div>
-     
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
       <!-- Margen Bruto -->
-      <div class="rounded-xl shadow-sm p-5 border-l-4 border-teal-500 bg-teal-50/70 border border-teal-100">
-        <p class="text-xs uppercase text-teal-700 font-bold tracking-wider">MARGEN BRUTO</p>
+      <div class="relative rounded-xl shadow-sm p-5 border-l-4 border-teal-500 bg-teal-50/70 border border-teal-100">
+        <button type="button" class="absolute top-2 right-2 w-5 h-5 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-[10px] font-bold text-teal-700 border border-teal-300" title="¿Qué significa esta tarjeta?" @click="abrirInfo('margenBruto')">i</button>
+        <p class="text-xs uppercase text-teal-700 font-bold tracking-wider">Margen Bruto</p>
         <p class="text-2xl font-bold text-teal-900 mt-1">{{ formatCLP(kpis.margenBruto) }}</p>
-        <p class="text-[11px] mt-1 text-teal-700/80">Año anterior: {{ formatCLP(kpisAnioAnterior.margenBruto) }}</p>
+        <p class="text-[11px] mt-1 text-teal-700/80">Año Anterior: {{ formatCLP(kpisAnioAnterior.margenBruto) }}</p>
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('margenBruto')">{{ textoVariacionKpi('margenBruto') }}</p>
-        <p class="text-[11px] mt-2 text-teal-700/80">ingreso_explotacion + (gasto_adm_ventas - remuneraciones)</p>
+        <p class="text-[11px] mt-1 text-teal-700/80">Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.margenBruto) }}</p>
+        <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('margenBruto')">{{ textoVariacionKpiAcumulada('margenBruto') }}</p>
+        <p class="text-[11px] mt-2 text-teal-700/80">Ingresos de Explotación + (Gastos de Administración y Ventas − Remuneraciones)</p>
       </div>
       <!-- Contribuciones -->
-      <div class="rounded-xl shadow-sm p-5 border-l-4 border-fuchsia-500 bg-fuchsia-50/70 border border-fuchsia-100">
-        <p class="text-xs uppercase text-fuchsia-700 font-bold tracking-wider">CONTRIBUCIONES</p>
+      <div class="relative rounded-xl shadow-sm p-5 border-l-4 border-fuchsia-500 bg-fuchsia-50/70 border border-fuchsia-100">
+        <button type="button" class="absolute top-2 right-2 w-5 h-5 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-[10px] font-bold text-fuchsia-700 border border-fuchsia-300" title="¿Qué significa esta tarjeta?" @click="abrirInfo('contribuciones')">i</button>
+        <p class="text-xs uppercase text-fuchsia-700 font-bold tracking-wider">Contribuciones</p>
         <p class="text-2xl font-bold text-fuchsia-900 mt-1">{{ formatCLP(kpis.contribuciones) }}</p>
-        <p class="text-[11px] mt-1 text-fuchsia-700/80">Año anterior: {{ formatCLP(kpisAnioAnterior.contribuciones) }}</p>
+        <p class="text-[11px] mt-1 text-fuchsia-700/80">Año Anterior: {{ formatCLP(kpisAnioAnterior.contribuciones) }}</p>
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('contribuciones')">{{ textoVariacionKpi('contribuciones') }}</p>
-        <p class="text-[11px] mt-2 text-fuchsia-700/80">suma de subitem impuestos_y_contribuciones</p>
+        <p class="text-[11px] mt-1 text-fuchsia-700/80">Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.contribuciones) }}</p>
+        <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('contribuciones')">{{ textoVariacionKpiAcumulada('contribuciones') }}</p>
+        <p class="text-[11px] mt-2 text-fuchsia-700/80">Suma del subítem Impuestos y Contribuciones</p>
       </div>
       <!-- Patente Municipal -->
-      <div class="rounded-xl shadow-sm p-5 border-l-4 border border-amber-100" :class="kpis.patenteMunicipal >= 0 ? 'border-amber-500 bg-amber-50/80' : 'border-orange-500 bg-orange-50/80'">
-        <p class="text-xs uppercase font-bold tracking-wider" :class="kpis.patenteMunicipal >= 0 ? 'text-amber-700' : 'text-orange-700'">PATENTE MUNICIPAL</p>
+      <div class="relative rounded-xl shadow-sm p-5 border-l-4 border border-amber-100" :class="kpis.patenteMunicipal >= 0 ? 'border-amber-500 bg-amber-50/80' : 'border-orange-500 bg-orange-50/80'">
+        <button type="button" class="absolute top-2 right-2 w-5 h-5 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-[10px] font-bold border" :class="kpis.patenteMunicipal >= 0 ? 'text-amber-700 border-amber-300' : 'text-orange-700 border-orange-300'" title="¿Qué significa esta tarjeta?" @click="abrirInfo('patenteMunicipal')">i</button>
+        <p class="text-xs uppercase font-bold tracking-wider" :class="kpis.patenteMunicipal >= 0 ? 'text-amber-700' : 'text-orange-700'">Patente Municipal</p>
         <p class="text-2xl font-bold mt-1" :class="kpis.patenteMunicipal >= 0 ? 'text-amber-900' : 'text-orange-800'">
           {{ formatCLP(kpis.patenteMunicipal) }}
         </p>
         <p class="text-[11px] mt-1" :class="kpis.patenteMunicipal >= 0 ? 'text-amber-700/80' : 'text-orange-700/80'">
-          Año anterior: {{ formatCLP(kpisAnioAnterior.patenteMunicipal) }}
+          Año Anterior: {{ formatCLP(kpisAnioAnterior.patenteMunicipal) }}
         </p>
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('patenteMunicipal')">{{ textoVariacionKpi('patenteMunicipal') }}</p>
+        <p class="text-[11px] mt-1" :class="kpis.patenteMunicipal >= 0 ? 'text-amber-700/80' : 'text-orange-700/80'">
+          Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.patenteMunicipal) }}
+        </p>
+        <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('patenteMunicipal')">{{ textoVariacionKpiAcumulada('patenteMunicipal') }}</p>
         <p class="text-[11px] mt-2" :class="kpis.patenteMunicipal >= 0 ? 'text-amber-700/80' : 'text-orange-700/80'">
-          suma de subitem patentes
+          Suma del subítem Patentes
         </p>
       </div>
-      <!-- Resultado del Ejercicio -->
-      <div class="rounded-xl shadow-md p-5 border-l-4 border" :class="kpis.resultado >= 0 ? 'bg-emerald-950 border-emerald-500' : 'bg-rose-950 border-rose-500'">
-        <p class="text-xs uppercase font-bold tracking-wider" :class="kpis.resultado >= 0 ? 'text-emerald-200' : 'text-rose-200'">Resultado del Ejercicio</p>
+      <!-- Resultado antes de impuestos -->
+      <div class="relative rounded-xl shadow-md p-5 border-l-4 border" :class="kpis.resultado >= 0 ? 'bg-emerald-950 border-emerald-500' : 'bg-rose-950 border-rose-500'">
+        <button type="button" class="absolute top-2 right-2 w-5 h-5 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-[10px] font-bold border" :class="kpis.resultado >= 0 ? 'text-emerald-200 border-emerald-400/50' : 'text-rose-200 border-rose-400/50'" title="¿Qué significa esta tarjeta?" @click="abrirInfo('resultado')">i</button>
+        <p class="text-xs uppercase font-bold tracking-wider" :class="kpis.resultado >= 0 ? 'text-emerald-200' : 'text-rose-200'">Resultado antes de impuestos</p>
         <p class="text-2xl font-bold mt-1" :class="kpis.resultado >= 0 ? 'text-emerald-100' : 'text-rose-100'">
           {{ formatCLP(kpis.resultado) }}
         </p>
         <p class="text-[11px] mt-1" :class="kpis.resultado >= 0 ? 'text-emerald-300/80' : 'text-rose-300/80'">
-          Año anterior: {{ formatCLP(kpisAnioAnterior.resultado) }}
+          Año Anterior: {{ formatCLP(kpisAnioAnterior.resultado) }}
         </p>
         <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpi('resultado', true)">{{ textoVariacionKpi('resultado') }}</p>
-        <p class="text-[11px] mt-2" :class="kpis.resultado >= 0 ? 'text-emerald-300/80' : 'text-rose-300/80'">
-          suma de SaldoNeto de todas las categorias
+        <p class="text-[11px] mt-1" :class="kpis.resultado >= 0 ? 'text-emerald-300/80' : 'text-rose-300/80'">
+          Acum. Año Anterior: {{ formatCLP(kpisAnioAnteriorAcum.resultado) }}
         </p>
+        <p class="text-[11px] font-semibold mt-0.5" :class="claseVariacionKpiAcumulada('resultado', true)">{{ textoVariacionKpiAcumulada('resultado') }}</p>
+        <p v-if="valorizacionInversiones" class="text-[11px] mt-1" :class="kpis.resultado >= 0 ? 'text-emerald-300/80' : 'text-rose-300/80'">
+          Sin valorización de inversiones: <span class="font-semibold">{{ formatCLP(kpis.resultado - valorizacionInversiones) }}</span>
+        </p>
+        <p class="text-[11px] mt-2" :class="kpis.resultado >= 0 ? 'text-emerald-300/80' : 'text-rose-300/80'">
+          Suma del saldo neto de todas las categorías, sin impuesto a la renta
+        </p>
+      </div>
+    </div>
+
+    <!-- Diálogo de información: una sola instancia compartida por todas las tarjetas -->
+    <div v-if="infoAbierto" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" @click.self="cerrarInfo">
+      <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative">
+        <button type="button" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 text-lg leading-none" title="Cerrar" @click="cerrarInfo">✕</button>
+        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-2 pr-6">{{ EXPLICACIONES[infoAbierto]?.titulo }}</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ EXPLICACIONES[infoAbierto]?.texto }}</p>
       </div>
     </div>
 
     <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-6">
       <div class="px-5 py-4 border-b border-slate-100 bg-slate-50 flex flex-wrap items-center justify-between gap-3">
         <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide">
-          Matriz {{ tipoEerr === "financiero" ? "Financiera" : "Contable" }} {{ filtroAnio }}<span
-            v-if="centrosSeleccionados.length"
-            class="normal-case font-medium text-indigo-600"
-          >
-            · {{ centrosSeleccionados.length }} centro(s) de costo
+          Matriz {{ tipoEerr === "financiero" ? "Financiera" : "Contable" }} {{ filtroAnio }}
+          <span v-if="centrosSeleccionados.length" class="normal-case text-indigo-600 font-semibold">
+            · {{ textoResumenCentros }}
           </span>
         </h2>
         <div class="flex flex-col items-end gap-2">
           <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded font-semibold">
-            Niveles: Categoría ▾ Subítem ▾ Cuenta ▾ Centro Costo
+            Niveles: Categoría ▾ Subítem ▾ Cuenta ▾ Centro ▾ Proveedor ▾ Documento
           </span>
           <button
             type="button"
@@ -225,13 +285,19 @@
         </div>
       </div>
 
+      <p v-if="avisoMeses" class="px-5 py-2 text-[11px] text-amber-800 bg-amber-50 border-b border-amber-100">
+        {{ avisoMeses }}
+      </p>
       <div class="overflow-x-auto max-h-[65vh]">
         <table class="min-w-[1400px] w-full text-xs border-collapse">
           <thead class="sticky top-0 z-20 bg-slate-100 shadow-sm">
             <tr class="border-b border-slate-300 text-slate-700">
               <th class="px-4 py-3 text-left font-bold min-w-[24rem]">Estructura de Cuentas</th>
-              <th v-for="m in 12" :key="m" class="px-2 py-3 text-right font-bold min-w-[6.5rem]">{{ mesNombre(m) }}</th>
               <th class="px-4 py-3 text-right font-bold min-w-[8rem] bg-slate-200/50">TOTAL</th>
+              <th v-for="m in 12" :key="m" class="px-2 py-3 text-right font-bold min-w-[6.5rem]" :title="tituloEstadoMes(m)">
+                {{ mesNombre(m) }}
+                <span v-if="estadoMes(m)" class="block text-[9px] font-semibold uppercase tracking-wide text-amber-700">{{ estadoMes(m) }}</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -239,14 +305,14 @@
               
               <tr :class="`border-y ${grupo.config.colorHeader} sticky top-[41px] z-10 shadow-sm`">
                 <td class="px-4 py-2.5 font-bold text-slate-900 text-[13px] uppercase tracking-wide">{{ grupo.config.label }}</td>
+                <td class="px-4 py-2.5 text-right font-mono font-bold bg-white/30" :class="grupo.total < 0 ? 'text-rose-700' : 'text-slate-900'">
+                  {{ formatCLPContable(grupo.total) }}
+                </td>
                 <td v-for="m in 12" :key="'g-' + m" class="px-2 py-2.5 text-right font-mono font-bold" :class="[
                   grupo.mensual[m] < 0 ? 'text-rose-700' : 'text-slate-800',
                   claseVariacionRealMensual(grupo.key, grupo.mensual[m], valorMesAnterior(m, grupo.mensual, 'grupos', grupo.key), filtroAnio, m)
                 ]">
                   {{ formatCLPContable(grupo.mensual[m]) }}
-                </td>
-                <td class="px-4 py-2.5 text-right font-mono font-bold bg-white/30" :class="grupo.total < 0 ? 'text-rose-700' : 'text-slate-900'">
-                  {{ formatCLPContable(grupo.total) }}
                 </td>
               </tr>
 
@@ -256,14 +322,14 @@
                     <span class="text-indigo-500 text-lg leading-none w-4">{{ filasAbiertas[subitem.key] ? "▾" : "▸" }}</span>
                     <span class="capitalize">{{ formatearNombre(subitem.nombreOriginal) }}</span>
                   </td>
+                  <td class="px-4 py-2 text-right font-mono font-bold bg-slate-50/50" :class="subitem.total < 0 ? 'text-rose-700' : 'text-slate-800'">
+                    {{ formatCLPContable(subitem.total) }}
+                  </td>
                   <td v-for="m in 12" :key="'s-' + m" class="px-2 py-2 text-right font-mono text-slate-700 font-medium" :class="[
                     subitem.mensual[m] < 0 ? 'text-rose-600' : '',
                     claseVariacionRealMensual(grupo.key, subitem.mensual[m], valorMesAnterior(m, subitem.mensual, 'subitems', subitem.key), filtroAnio, m)
                   ]">
                     {{ formatCLPContable(subitem.mensual[m]) }}
-                  </td>
-                  <td class="px-4 py-2 text-right font-mono font-bold bg-slate-50/50" :class="subitem.total < 0 ? 'text-rose-700' : 'text-slate-800'">
-                    {{ formatCLPContable(subitem.total) }}
                   </td>
                 </tr>
 
@@ -276,23 +342,32 @@
                         <span class="text-indigo-600 font-mono">{{ cuenta.codigo }}</span>
                         <span class="truncate max-w-[15rem]">{{ cuenta.nombre }}</span>
                       </td>
+                      <td class="px-4 py-1.5 text-right font-mono font-semibold bg-slate-100/50 text-[11px]" :class="cuenta.total < 0 ? 'text-rose-600' : 'text-slate-700'">
+                        {{ formatCLPContable(cuenta.total) }}
+                      </td>
                       <td v-for="m in 12" :key="'c-' + m" class="px-2 py-1.5 text-right font-mono text-slate-600 text-[11px]" :class="[
                         cuenta.mensual[m] < 0 ? 'text-rose-500' : '',
                         claseVariacionRealMensual(grupo.key, cuenta.mensual[m], valorMesAnterior(m, cuenta.mensual, 'cuentas', `${subitem.key}-${cuenta.key}`), filtroAnio, m)
                       ]">
                         {{ formatCLPContable(cuenta.mensual[m]) }}
                       </td>
-                      <td class="px-4 py-1.5 text-right font-mono font-semibold bg-slate-100/50 text-[11px]" :class="cuenta.total < 0 ? 'text-rose-600' : 'text-slate-700'">
-                        {{ formatCLPContable(cuenta.total) }}
-                      </td>
                     </tr>
 
                     <template v-if="filasAbiertas[subitem.key + '-' + cuenta.key]">
-                      <tr v-for="cc in cuenta.centros" :key="cc.key" class="border-b border-slate-50 hover:bg-slate-100 transition-colors bg-white">
+                      <template v-for="cc in cuenta.centros" :key="cc.key">
+                      <tr
+                        class="border-b border-slate-50 hover:bg-slate-100 transition-colors bg-white"
+                        :class="tieneDetalle(cuenta.codigo, cc.codigo) ? 'cursor-pointer' : ''"
+                        @click="tieneDetalle(cuenta.codigo, cc.codigo) && toggleFila(claveCentro(subitem.key, cuenta.key, cc.key))"
+                      >
                         <td class="px-4 py-1 pl-[5.5rem] text-slate-500 text-[11px] flex items-center gap-1.5">
-                          <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+                          <span v-if="tieneDetalle(cuenta.codigo, cc.codigo)" class="text-slate-400 text-base leading-none w-3">{{ filasAbiertas[claveCentro(subitem.key, cuenta.key, cc.key)] ? "▾" : "▸" }}</span>
+                          <span v-else class="w-1 h-1 rounded-full bg-slate-300"></span>
                           <span class="font-mono text-slate-400">{{ cc.codigo === '000' ? '' : cc.codigo }}</span>
                           <span class="truncate max-w-[14rem]">{{ cc.codigo === '000' ? 'Sin Centro de Costo' : cc.nombre }}</span>
+                        </td>
+                        <td class="px-4 py-1 text-right font-mono font-medium text-slate-500 bg-white text-[11px]" :class="cc.total < 0 ? 'text-rose-500' : ''">
+                          {{ formatCLPContable(cc.total) }}
                         </td>
                         <td v-for="m in 12" :key="'cc-' + m" class="px-2 py-1 text-right font-mono text-slate-400 text-[11px]" :class="[
                           cc.mensual[m] < 0 ? 'text-rose-400' : '',
@@ -300,12 +375,50 @@
                         ]">
                           {{ formatCLPContable(cc.mensual[m]) }}
                         </td>
-                        <td class="px-4 py-1 text-right font-mono font-medium text-slate-500 bg-white text-[11px]" :class="cc.total < 0 ? 'text-rose-500' : ''">
-                          {{ formatCLPContable(cc.total) }}
-                        </td>
                       </tr>
+
+                      <!-- NIVEL 5: PROVEEDOR (Entidad del detalle Softland) -->
+                      <template v-if="filasAbiertas[claveCentro(subitem.key, cuenta.key, cc.key)]">
+                        <template v-for="prov in nodosProveedor(cuenta.codigo, cc.codigo)" :key="prov.key">
+                          <tr
+                            class="border-b border-slate-50 bg-indigo-50/20 hover:bg-indigo-50/50 cursor-pointer transition-colors"
+                            @click="toggleFila(claveProv(subitem.key, cuenta.key, cc.key, prov.key))"
+                          >
+                            <td class="px-4 py-1 pl-[7rem] text-[11px] flex items-center gap-1.5">
+                              <span class="text-indigo-400 text-base leading-none w-3">{{ filasAbiertas[claveProv(subitem.key, cuenta.key, cc.key, prov.key)] ? "▾" : "▸" }}</span>
+                              <span class="truncate max-w-[16rem] text-slate-600 font-medium" :title="prov.nombre">{{ prov.nombre }}</span>
+                              <span class="text-slate-400 shrink-0">· {{ prov.documentos.length }} doc</span>
+                            </td>
+                            <td class="px-4 py-1 text-right font-mono font-semibold text-[11px] bg-indigo-50/40" :class="prov.total < 0 ? 'text-rose-500' : 'text-slate-600'">
+                              {{ formatCLPContable(prov.total) }}
+                            </td>
+                            <td v-for="m in 12" :key="'pv-' + m" class="px-2 py-1 text-right font-mono text-[11px]" :class="prov.mensual[m] < 0 ? 'text-rose-400' : 'text-slate-500'">
+                              {{ formatCLPContable(prov.mensual[m]) }}
+                            </td>
+                          </tr>
+
+                          <!-- NIVEL 6: DOCUMENTO (línea real de Softland) -->
+                          <template v-if="filasAbiertas[claveProv(subitem.key, cuenta.key, cc.key, prov.key)]">
+                            <tr v-for="doc in prov.documentos" :key="doc.key" class="border-b border-slate-50 bg-white hover:bg-slate-50">
+                              <td class="px-4 py-1 pl-[9rem] text-[10px] text-slate-500 flex items-center gap-1.5">
+                                <span class="w-1 h-1 rounded-full bg-indigo-200 shrink-0"></span>
+                                <span v-if="doc.doc" class="font-mono text-indigo-500 shrink-0">{{ doc.doc }}</span>
+                                <span class="truncate max-w-[18rem]" :title="doc.glosa">{{ doc.glosaLimpia }}</span>
+                                <span v-if="doc.fecha" class="text-slate-300 shrink-0">· {{ doc.fecha }}</span>
+                              </td>
+                              <td class="px-4 py-1 text-right font-mono text-[10px] text-slate-500" :class="doc.total < 0 ? 'text-rose-400' : ''">
+                                {{ formatCLPContable(doc.total) }}
+                              </td>
+                              <td v-for="m in 12" :key="'dc-' + m" class="px-2 py-1 text-right font-mono text-[10px]" :class="doc.mensual[m] < 0 ? 'text-rose-300' : 'text-slate-400'">
+                                {{ formatCLPContable(doc.mensual[m]) }}
+                              </td>
+                            </tr>
+                          </template>
+                        </template>
+                      </template>
+                      </template>
                     </template>
-                    
+
                   </template>
                 </template>
                 
@@ -338,6 +451,74 @@
       </div>
     </div>
 
+    <!-- RESULTADO DEL EJERCICIO POR PERIODO: mes a mes, mismas cuentas de la matriz -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-6">
+      <div class="px-5 py-4 border-b border-slate-100 bg-slate-50 flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide">
+          Resultado del Ejercicio por Periodo {{ filtroAnio }}
+          <span v-if="centrosSeleccionados.length" class="normal-case text-indigo-600 font-semibold">
+            · {{ textoResumenCentros }}
+          </span>
+        </h2>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded font-semibold">
+            Mismas cuentas de la matriz {{ tipoEerr === "financiero" ? "financiera" : "contable" }}
+          </span>
+          <button
+            type="button"
+            class="inline-flex items-center gap-1.5 rounded-lg border border-rose-200 bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-700 hover:bg-rose-100 transition"
+            title="Resultado del Ejercicio por periodo, carta horizontal"
+            @click="descargarPeriodos('pdf')"
+          >
+            Descargar PDF
+          </button>
+          <button
+            type="button"
+            class="inline-flex items-center gap-1.5 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 transition"
+            title="Resultado del Ejercicio por periodo, carta horizontal"
+            @click="descargarPeriodos('excel')"
+          >
+            Descargar Excel
+          </button>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto px-5 pt-4">
+        <table class="min-w-[1100px] w-full text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-slate-300 text-slate-700 bg-slate-100">
+              <th class="w-6 pl-3 pr-0 py-2 text-center font-bold" aria-label="Signo"></th>
+              <th class="px-3 py-2 text-left font-bold min-w-[18rem]">Concepto</th>
+              <th class="px-3 py-2 text-right font-bold min-w-[7rem] bg-slate-200/60">TOTAL</th>
+              <th v-for="m in 12" :key="'rm-h-' + m" class="px-2 py-2 text-right font-bold min-w-[5.5rem]">
+                {{ mesNombreAbrev(m) }}
+                <span v-if="estadoMes(m)" class="block text-[9px] font-semibold uppercase tracking-wide text-amber-700" :title="tituloEstadoMes(m)">{{ estadoMes(m) }}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="fila in resumenResultadoMensual" :key="'rm-' + fila.label" class="border-b border-slate-100" :class="claseFilaResumen(fila.tipo)">
+              <td class="w-6 pl-3 pr-0 py-1.5 text-center font-mono font-bold text-slate-500">{{ fila.signo }}</td>
+              <td class="px-3 py-1.5">{{ fila.label }}</td>
+              <td class="px-3 py-1.5 text-right font-mono font-bold bg-slate-50/60" :class="fila.total < 0 ? 'text-rose-700' : ''">
+                {{ formatCLPContable(fila.total) }}
+              </td>
+              <td v-for="m in 12" :key="'rm-' + fila.label + '-' + m" class="px-2 py-1.5 text-right font-mono"
+                :class="Number(fila.mensual[m]) < 0 ? 'text-rose-600' : ''">
+                {{ formatCLPContable(fila.mensual[m]) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="px-5 py-3 mt-4 border-t border-slate-100 bg-slate-50/70">
+        <p class="text-[10px] text-slate-500">
+          {{ notaResultadoPeriodo }}
+        </p>
+      </div>
+    </div>
+
     <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-6">
       <div class="px-5 py-4 border-b border-slate-100 bg-slate-50 flex items-center justify-between gap-3">
         <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide">
@@ -356,10 +537,10 @@
           <thead class="sticky top-0 z-10 bg-slate-100">
             <tr class="border-b border-slate-300 text-slate-700">
               <th class="px-4 py-3 text-left font-bold min-w-[24rem]">Cuenta</th>
+              <th class="px-4 py-3 text-right font-bold min-w-[8rem] bg-slate-200/50">TOTAL</th>
               <th v-for="m in 12" :key="'nc-h-' + m" class="px-2 py-3 text-right font-bold min-w-[6.5rem]">
                 {{ mesNombre(m) }}
               </th>
-              <th class="px-4 py-3 text-right font-bold min-w-[8rem] bg-slate-200/50">TOTAL</th>
             </tr>
           </thead>
           <tbody>
@@ -368,11 +549,11 @@
                 <td class="px-4 py-2.5 font-bold text-slate-900 uppercase tracking-wide">
                   {{ grupo.nombre }}
                 </td>
-                <td v-for="m in 12" :key="'ncg-m-' + grupo.key + '-' + m" class="px-2 py-2.5 text-right font-mono font-bold text-slate-800">
-                  {{ formatCLPContable(grupo.mensual[m]) }}
-                </td>
                 <td class="px-4 py-2.5 text-right font-mono font-bold text-slate-900 bg-white/40">
                   {{ formatCLPContable(grupo.total) }}
+                </td>
+                <td v-for="m in 12" :key="'ncg-m-' + grupo.key + '-' + m" class="px-2 py-2.5 text-right font-mono font-bold text-slate-800">
+                  {{ formatCLPContable(grupo.mensual[m]) }}
                 </td>
               </tr>
 
@@ -382,11 +563,11 @@
                   <span class="mx-2 text-slate-400">-</span>
                   <span>{{ cuenta.nombre }}</span>
                 </td>
-                <td v-for="m in 12" :key="'nc-' + grupo.key + '-' + cuenta.key + '-' + m" class="px-2 py-2 text-right font-mono text-slate-700">
-                  {{ formatCLPContable(cuenta.mensual[m]) }}
-                </td>
                 <td class="px-4 py-2 text-right font-mono font-semibold text-slate-800">
                   {{ formatCLPContable(cuenta.total) }}
+                </td>
+                <td v-for="m in 12" :key="'nc-' + grupo.key + '-' + cuenta.key + '-' + m" class="px-2 py-2 text-right font-mono text-slate-700">
+                  {{ formatCLPContable(cuenta.mensual[m]) }}
                 </td>
               </tr>
 
@@ -394,11 +575,11 @@
                 <td class="px-4 py-2 font-bold text-slate-800">
                   Subtotal {{ grupo.nombre }}
                 </td>
-                <td v-for="m in 12" :key="'ncs-m-' + grupo.key + '-' + m" class="px-2 py-2 text-right font-mono font-bold text-slate-800">
-                  {{ formatCLPContable(grupo.mensual[m]) }}
-                </td>
                 <td class="px-4 py-2 text-right font-mono font-bold text-slate-900">
                   {{ formatCLPContable(grupo.total) }}
+                </td>
+                <td v-for="m in 12" :key="'ncs-m-' + grupo.key + '-' + m" class="px-2 py-2 text-right font-mono font-bold text-slate-800">
+                  {{ formatCLPContable(grupo.mensual[m]) }}
                 </td>
               </tr>
             </template>
@@ -407,11 +588,11 @@
               <td class="px-4 py-2.5 font-bold text-slate-900 uppercase tracking-wide">
                 Total General
               </td>
-              <td v-for="m in 12" :key="'nct-m-' + m" class="px-2 py-2.5 text-right font-mono font-bold text-slate-900">
-                {{ formatCLPContable(totalNoClasificadas45.mensual[m]) }}
-              </td>
               <td class="px-4 py-2.5 text-right font-mono font-bold text-slate-900 bg-white/50">
                 {{ formatCLPContable(totalNoClasificadas45.total) }}
+              </td>
+              <td v-for="m in 12" :key="'nct-m-' + m" class="px-2 py-2.5 text-right font-mono font-bold text-slate-900">
+                {{ formatCLPContable(totalNoClasificadas45.mensual[m]) }}
               </td>
             </tr>
 
@@ -478,6 +659,7 @@ import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import VueApexCharts from "vue3-apexcharts";
 import * as XLSX from "xlsx";
 import eerrDataRaw from "../assets/datos_vue.json";
+import detalleMovimientos from "../assets/detalle_movimientos.json";
 import mapeoCuentas from "../assets/config/mapeo_cuentas.json";
 import macroData from "../assets/config/macro.json";
 import {
@@ -487,8 +669,11 @@ import {
   normCodigoCentro,
   mapearDatosAnioEerr,
   filtrarFilasPorCentros,
+  filtrarFilasPorRangoMes,
 } from "../utils/kpiEerr.js";
 import { BLOQUES_FINANCIEROS, construirMatrizContableEerr } from "../utils/eerrMatriz.js";
+import { EMPRESAS } from "../utils/empresas.js";
+import { descargarPeriodosPdf, descargarPeriodosExcel } from "../utils/periodoEerrDescargas.js";
 
 const props = defineProps({
   empresa: { type: String, required: true },
@@ -550,9 +735,48 @@ const CATEGORIAS_GASTOS = new Set(["gasto_adm_ventas", "otros_gastos_financieros
 const UMBRAL_RELATIVO_NEUTRO = 0.005;
 const UMBRAL_CONSIDERABLE_GASTOS = 0.03;
 
-const datosEmpresa = computed(() =>
-  eerrDataRaw.filter((d) => String(d.Empresa).trim() === String(props.empresa).trim())
-);
+// ── EMPRESAS: el EERR consolida las empresas marcadas (por defecto WCORP1 y WCORP2).
+// Cada empresa se mapea con su propio plan en mapeo_cuentas.json y luego se suman:
+// una misma cuenta o centro de costo en ambas queda en una sola fila.
+const EMPRESAS_POR_DEFECTO = ["WCORP1", "WCORP2"];
+const empresasConDatos = computed(() => {
+  const set = new Set(eerrDataRaw.map((d) => String(d.Empresa).trim()));
+  return [...EMPRESAS.filter((e) => set.has(e)), ...[...set].filter((e) => !EMPRESAS.includes(e)).sort()];
+});
+const empresasSel = ref(EMPRESAS_POR_DEFECTO.filter((e) => empresasConDatos.value.includes(e)));
+if (!empresasSel.value.length) empresasSel.value = empresasConDatos.value.slice(0, 1);
+
+function toggleEmpresa(e) {
+  if (empresasSel.value.includes(e)) {
+    if (empresasSel.value.length === 1) return; // siempre al menos una
+    empresasSel.value = empresasSel.value.filter((x) => x !== e);
+  } else {
+    // Se conserva el orden de la lista, no el orden en que se marcaron.
+    empresasSel.value = empresasConDatos.value.filter((x) => x === e || empresasSel.value.includes(x));
+  }
+}
+
+const etiquetaEmpresas = computed(() => empresasSel.value.join(" + "));
+
+const datosPorEmpresa = computed(() => {
+  const sel = new Set(empresasSel.value);
+  const m = new Map(empresasSel.value.map((e) => [e, []]));
+  for (const d of eerrDataRaw) {
+    const e = String(d.Empresa).trim();
+    if (sel.has(e)) m.get(e).push(d);
+  }
+  return m;
+});
+
+const datosEmpresa = computed(() => [...datosPorEmpresa.value.values()].flat());
+
+function mapearEmpresasSeleccionadas(anio) {
+  const out = [];
+  for (const [emp, filas] of datosPorEmpresa.value) {
+    out.push(...mapearDatosAnioEerr(emp, anio, tipoEerr.value, filas, mapeoCuentas));
+  }
+  return out;
+}
 
 const aniosDisponibles = computed(() => {
   const set = new Set(datosEmpresa.value.map((d) => normAnio(d.Anio)));
@@ -579,8 +803,8 @@ function filtrarMapeadosPorCentros(rows) {
   return filtrarFilasPorCentros(rows, centrosSeleccionados.value);
 }
 
-watch(() => props.empresa, () => {
-  filtroAnio.value = aniosDisponibles.value[0];
+watch(empresasSel, () => {
+  if (!aniosDisponibles.value.includes(filtroAnio.value)) filtroAnio.value = aniosDisponibles.value[0];
   centrosSeleccionados.value = [];
   centrosDropdownAbierto.value = false;
   filasAbiertas.value = {};
@@ -650,34 +874,17 @@ function claseVariacionRealMensual(categoria, actual, anterior, anio, mes) {
 
 // Mapeo Inteligente
 const datosAnioMapeados = computed(() =>
-  filtrarMapeadosPorCentros(
-    mapearDatosAnioEerr(
-      props.empresa,
-      filtroAnio.value,
-      tipoEerr.value,
-      datosEmpresa.value,
-      mapeoCuentas
-    )
-  )
+  filtrarMapeadosPorCentros(mapearEmpresasSeleccionadas(filtroAnio.value))
 );
 const datosAnioAnteriorMapeados = computed(() =>
-  filtrarMapeadosPorCentros(
-    mapearDatosAnioEerr(
-      props.empresa,
-      Number(filtroAnio.value) - 1,
-      tipoEerr.value,
-      datosEmpresa.value,
-      mapeoCuentas
-    )
-  )
+  filtrarMapeadosPorCentros(mapearEmpresasSeleccionadas(Number(filtroAnio.value) - 1))
 );
 const datosAnioNoClasificados45 = computed(() => {
-  const configEmpresa = mapeoCuentas?.empresas?.[props.empresa];
-  if (!configEmpresa) return [];
-  const mapCuentas = configEmpresa.cuentas || {};
+  // Cada fila se compara contra el plan de su propia empresa.
+  const cuentasDe = (emp) => mapeoCuentas?.empresas?.[emp]?.cuentas || {};
 
   return datosEmpresa.value
-    .filter((d) => normAnio(d.Anio) === Number(filtroAnio.value))
+    .filter((d) => normAnio(d.Anio) === Number(filtroAnio.value) && mapeoCuentas?.empresas?.[String(d.Empresa).trim()])
     .map((d) => ({
       ...d,
       Mes: normMes(d.Mes),
@@ -691,7 +898,7 @@ const datosAnioNoClasificados45 = computed(() => {
       const esCuenta45 = cod.startsWith("4") || cod.startsWith("5");
       if (!esCuenta45) return false;
 
-      const cfg = mapCuentas[cod];
+      const cfg = cuentasDe(String(d.Empresa).trim())[cod];
       // Se considera no clasificada para el tipo EERR actual si:
       // - no existe en el mapeo, o
       // - existe pero no incluye el tipo seleccionado.
@@ -809,7 +1016,7 @@ function descargarNoClasificadas45Excel() {
   const workbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(workbook, worksheet, "NoClasificadas45");
 
-  const nombreArchivo = `no_clasificadas_45_${props.empresa}_${filtroAnio.value}.xlsx`;
+  const nombreArchivo = `no_clasificadas_45_${etiquetaEmpresas.value}_${filtroAnio.value}.xlsx`;
   XLSX.writeFile(workbook, nombreArchivo);
 }
 
@@ -853,7 +1060,7 @@ function descargarMatrizEerrExcel() {
   XLSX.utils.book_append_sheet(workbook, worksheet, "MatrizEERR");
 
   const tipo = tipoEerr.value === "financiero" ? "financiera" : "contable";
-  const nombreArchivo = `matriz_eerr_${tipo}_${props.empresa}_${filtroAnio.value}.xlsx`;
+  const nombreArchivo = `matriz_eerr_${tipo}_${etiquetaEmpresas.value}_${filtroAnio.value}.xlsx`;
   XLSX.writeFile(workbook, nombreArchivo);
 }
 
@@ -892,40 +1099,371 @@ function valorMesAnterior(mes, mensual, nivel, keyNivel) {
 }
 
 const matrizContable = computed(() =>
-  construirMatrizContableEerr(datosAnioMapeados.value, props.empresa, mapeoCuentas)
+  construirMatrizContableEerr(datosAnioMapeados.value, empresasSel.value[0], mapeoCuentas)
 );
+
+// ── DETALLE PROVEEDOR / DOCUMENTO ─────────────────────────────────────────
+// Bajo cada centro de costo: Proveedor (Entidad del detalle Softland: auxiliar o,
+// si no hay, el nombre parseado de la glosa) y Documento (línea real con folio,
+// glosa y fecha). Mismo ETL que datos_vue.json, así que por cuenta+centro+mes
+// suma exactamente lo mismo que la matriz.
+
+const claveCentro = (s, c, cc) => `${s}-${c}-${cc}`;
+const claveProv = (s, c, cc, p) => `${s}-${c}-${cc}::${p}`;
+
+/** Detalle de la empresa y año en pantalla, filtrado por centros, agrupado por `cuenta||centro`. */
+const detalleIndex = computed(() => {
+  const idx = new Map();
+  const anio = Number(filtroAnio.value);
+  const filas = filtrarFilasPorCentros(
+    detalleMovimientos.filter((r) => empresasSel.value.includes(r.Empresa) && Number(r.Anio) === anio),
+    centrosSeleccionados.value
+  );
+  for (const r of filas) {
+    const key = `${String(r.CodigoCuenta ?? "").trim()}||${normCodigoCentro(r.CodigoCentroCosto)}`;
+    if (!idx.has(key)) idx.set(key, []);
+    idx.get(key).push(r);
+  }
+  return idx;
+});
+
+function tieneDetalle(cuentaCod, centroCod) {
+  return detalleIndex.value.has(`${cuentaCod}||${centroCod}`);
+}
+
+/** Quita del inicio de la glosa el folio que ya se muestra aparte
+ * (ej. "F.V 26283 / 15.842.077-5 - JAIME…" con doc "F.V 26283" → "15.842.077-5 - JAIME…"). */
+function limpiarGlosa(glosa, doc) {
+  const g = String(glosa ?? "").trim();
+  if (!doc || !g.startsWith(doc)) return g;
+  return g.slice(doc.length).replace(/^\s*[-–/]\s*/, "").trim() || g;
+}
+
+function agruparDocumentos(lineas) {
+  const m = new Map();
+  for (const r of lineas) {
+    const doc = String(r.Doc ?? "").trim();
+    const glosa = String(r.Glosa ?? "").trim();
+    const dkey = doc || glosa || "(s/documento)";
+    if (!m.has(dkey)) {
+      m.set(dkey, { key: dkey, doc, glosa: glosa || "(sin glosa)", fecha: r.Fecha || "", mensual: mesesCeroPeriodo(), total: 0 });
+    }
+    const d = m.get(dkey);
+    const monto = Number(r.SaldoNeto) || 0;
+    d.mensual[normMes(r.Mes)] += monto;
+    d.total += monto;
+    if (r.Fecha && (!d.fecha || r.Fecha > d.fecha)) d.fecha = r.Fecha;
+  }
+  return [...m.values()]
+    .map((d) => ({ ...d, glosaLimpia: limpiarGlosa(d.glosa, d.doc) }))
+    .sort((a, b) => Math.abs(b.total) - Math.abs(a.total));
+}
+
+/** Nodos proveedor (con sus documentos) para una cuenta+centro. */
+function nodosProveedor(cuentaCod, centroCod) {
+  const lineas = detalleIndex.value.get(`${cuentaCod}||${centroCod}`) || [];
+  const provMap = new Map();
+  for (const r of lineas) {
+    // La Entidad parseada de la glosa trae "NOMBRE / descripción": se agrupa por el
+    // nombre (la descripción sigue visible en la glosa del documento).
+    const prov = String(r.Entidad ?? "").split(" / ")[0].trim() || "(Sin proveedor identificado)";
+    if (!provMap.has(prov)) {
+      provMap.set(prov, { key: prov, nombre: prov, mensual: mesesCeroPeriodo(), total: 0, lineas: [] });
+    }
+    const p = provMap.get(prov);
+    const monto = Number(r.SaldoNeto) || 0;
+    p.mensual[normMes(r.Mes)] += monto;
+    p.total += monto;
+    p.lineas.push(r);
+  }
+  return [...provMap.values()]
+    .sort((a, b) => Math.abs(b.total) - Math.abs(a.total))
+    .map((p) => ({ ...p, documentos: agruparDocumentos(p.lineas) }));
+}
+
+// ── RESULTADO DEL EJERCICIO POR PERIODO ───────────────────────────────────
+// Mes a mes del año en pantalla, sobre las mismas filas que arman la matriz
+// (respeta tipo EERR y filtro de centros). Se lee como una suma: el signo de la
+// izquierda indica la operación; los gastos ya vienen con SaldoNeto negativo.
+
+const mesesCeroPeriodo = () => ({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0 });
+const sumaMeses = (m) => Object.values(m).reduce((s, v) => s + (Number(v) || 0), 0);
+const SIGNO_CATEGORIA = { ingreso_explotacion: "+", ingreso_financiero: "+", gasto_adm_ventas: "−" };
+
+const categoriasMensuales = computed(() => {
+  const porCat = new Map(BLOQUES_FINANCIEROS.map((b) => [b.key, mesesCeroPeriodo()]));
+  datosAnioMapeados.value.forEach((d) => {
+    const mensual = porCat.get(d.Categoria);
+    if (!mensual || !(d.Mes >= 1 && d.Mes <= 12)) return;
+    mensual[d.Mes] += Number(d.SaldoNeto) || 0;
+  });
+  return porCat;
+});
+
+const resumenResultadoMensual = computed(() => {
+  const porCat = categoriasMensuales.value;
+  const ebitda = mesesCeroPeriodo();
+  const resultado = mesesCeroPeriodo();
+  for (let m = 1; m <= 12; m++) {
+    for (const b of BLOQUES_FINANCIEROS) {
+      const v = porCat.get(b.key)[m] || 0;
+      resultado[m] += v;
+      if (b.key !== CATEGORIA_EXCLUIDA_EBITDA) ebitda[m] += v;
+    }
+  }
+  const filaCategoria = (b, signo) => ({
+    label: b.label, signo, mensual: porCat.get(b.key), total: sumaMeses(porCat.get(b.key)), tipo: "categoria",
+  });
+
+  const filas = BLOQUES_FINANCIEROS
+    .filter((b) => b.key !== CATEGORIA_EXCLUIDA_EBITDA)
+    .map((b) => filaCategoria(b, SIGNO_CATEGORIA[b.key] || "+"));
+  filas.push({ label: "EBITDA", signo: "=", mensual: ebitda, total: sumaMeses(ebitda), tipo: "subtotal" });
+  filas.push(filaCategoria(BLOQUES_FINANCIEROS.find((b) => b.key === CATEGORIA_EXCLUIDA_EBITDA), "−"));
+  filas.push({ label: "RESULTADO DEL MES", signo: "=", mensual: resultado, total: sumaMeses(resultado), tipo: "resultado" });
+  return filas;
+});
+
+function claseFilaResumen(tipo) {
+  if (tipo === "resultado") return "bg-indigo-50 font-bold text-indigo-900 border-y border-indigo-200";
+  if (tipo === "subtotal") return "bg-slate-50 font-semibold text-slate-700";
+  return "bg-white text-slate-700";
+}
+
+// Misma nota en pantalla y en las descargas.
+const NOTA_RESULTADO_PERIODO =
+  "EBITDA = ingresos de explotación + ingresos financieros − gastos de administración y ventas. " +
+  "Resultado del mes = EBITDA − otros gastos financieros. Los gastos se muestran entre paréntesis porque " +
+  "vienen con signo negativo; el signo de la izquierda indica la operación.";
+
+const notaResultadoPeriodo = computed(() =>
+  avisoMeses.value ? `${NOTA_RESULTADO_PERIODO} ${avisoMeses.value}` : NOTA_RESULTADO_PERIODO
+);
+
+// ── ESTADO DE LOS MESES ───────────────────────────────────────────────────
+// "Sin mov.": mes anterior al último con datos que no trae ningún movimiento de
+// resultado (p. ej. enero 2026 en Softland). "Parcial": el mes calendario en curso,
+// que el ETL trae hasta el día de la extracción.
+const mesesConMovimiento = computed(() => new Set(datosAnioMapeados.value.map((d) => Number(d.Mes))));
+const mesParcial = computed(() => {
+  const hoy = new Date();
+  const mes = hoy.getMonth() + 1;
+  return Number(filtroAnio.value) === hoy.getFullYear() && mesesConMovimiento.value.has(mes) ? mes : null;
+});
+const mesesSinMovimiento = computed(() => {
+  const out = [];
+  for (let m = 1; m < ultimoMesConMovimiento.value; m++) if (!mesesConMovimiento.value.has(m)) out.push(m);
+  return out;
+});
+
+function estadoMes(m) {
+  if (m === mesParcial.value) return "parcial";
+  if (mesesSinMovimiento.value.includes(m)) return "sin mov.";
+  return "";
+}
+function tituloEstadoMes(m) {
+  if (m === mesParcial.value) return "Mes en curso: datos hasta el día de la última actualización";
+  if (mesesSinMovimiento.value.includes(m)) return "Softland no trae movimientos de resultado en este mes";
+  return "";
+}
+
+const avisoMeses = computed(() => {
+  const partes = [];
+  const sin = mesesSinMovimiento.value.map((m) => mesNombre(m));
+  if (sin.length) {
+    partes.push(`${sin.join(", ")} ${filtroAnio.value} sin movimientos de resultado en Softland (verificar con contabilidad).`);
+  }
+  if (mesParcial.value) partes.push(`${mesNombre(mesParcial.value)} es el mes en curso: datos parciales.`);
+  return partes.join(" ");
+});
+
+function descargarPeriodos(formato) {
+  const tipo = tipoEerr.value === "financiero" ? "EERR Financiero" : "EERR Contable";
+  const p = {
+    empresa: etiquetaEmpresas.value,
+    anio: filtroAnio.value,
+    subtitulo: `${tipo} · ${textoResumenCentros.value}`,
+    fecha: new Date().toLocaleString("es-CL", { dateStyle: "short", timeStyle: "short" }),
+    tablas: [
+      { titulo: "Resultado del Ejercicio por Periodo", filas: resumenResultadoMensual.value, nota: notaResultadoPeriodo.value },
+    ],
+  };
+  if (formato === "pdf") descargarPeriodosPdf(p);
+  else descargarPeriodosExcel(p);
+}
 
 const kpis = computed(() => calcularKpisDesdeRows(datosAnioMapeados.value));
 const kpisAnioAnterior = computed(() => calcularKpisDesdeRows(datosAnioAnteriorMapeados.value));
 
+/** Mayor/menor valor de inversiones (subítem propio en mapeo_cuentas.json): variación de
+ * valor de los fondos, no es caja. Se informa aparte para leer el resultado sin ella. */
+const valorizacionInversiones = computed(() =>
+  datosAnioMapeados.value.reduce((s, d) => s + (d.Subitem === "valorizacion_inversiones" ? Number(d.SaldoNeto) || 0 : 0), 0)
+);
+
+/** Último mes con movimiento del año en pantalla: corte del acumulado comparable. */
+const ultimoMesConMovimiento = computed(() =>
+  datosAnioMapeados.value.reduce((max, d) => Math.max(max, Number(d.Mes) || 0), 0)
+);
+
+// Var Acumulada: enero → último mes con datos del año en pantalla, contra el mismo
+// tramo del año anterior (el año anterior trae sus 12 meses en `kpisAnioAnterior`).
+const kpisAnioAnteriorAcum = computed(() =>
+  calcularKpisDesdeRows(
+    filtrarFilasPorRangoMes(datosAnioAnteriorMapeados.value, 1, ultimoMesConMovimiento.value)
+  )
+);
+const etiquetaAcumulado = computed(() => {
+  const m = ultimoMesConMovimiento.value;
+  if (m <= 1) return "Ene";
+  return `Ene-${mesNombreAbrev(Math.min(m, 12))}`;
+});
+
 const KPIS_MEJORA_CUANDO_SUBE = new Set(["ingresos", "ingresosFinancieros", "ebitda", "margenBruto", "resultado"]);
 const KPIS_COMPARAR_ABSOLUTO = new Set(["gastos", "contribuciones", "patenteMunicipal"]);
 
-function variacionKpiPorcentual(key) {
-  const actualRaw = Number(kpis.value[key] ?? 0);
-  const anteriorRaw = Number(kpisAnioAnterior.value[key] ?? 0);
+function variacionPorcentualEntre(actualRaw, anteriorRaw, key) {
   const actual = KPIS_COMPARAR_ABSOLUTO.has(key) ? Math.abs(actualRaw) : actualRaw;
   const anterior = KPIS_COMPARAR_ABSOLUTO.has(key) ? Math.abs(anteriorRaw) : anteriorRaw;
   if (!Number.isFinite(anterior) || anterior === 0) return null;
   return ((actual - anterior) / Math.abs(anterior)) * 100;
 }
 
-function textoVariacionKpi(key) {
-  const variacion = variacionKpiPorcentual(key);
-  if (variacion === null) return "• Var: N/A";
-  const flecha = variacion >= 0 ? "▲" : "▼";
-  const signo = variacion > 0 ? "+" : "";
-  return `${flecha} Var: ${signo}${variacion.toFixed(1)}%`;
-}
-
-function claseVariacionKpi(key, modoOscuro = false) {
-  const variacion = variacionKpiPorcentual(key);
+function claseSegunVariacion(variacion, key, modoOscuro = false) {
   if (variacion === null) return modoOscuro ? "text-slate-300" : "text-slate-500";
-
   const mejora = KPIS_MEJORA_CUANDO_SUBE.has(key) ? variacion >= 0 : variacion <= 0;
   if (modoOscuro) return mejora ? "text-emerald-300" : "text-rose-300";
   return mejora ? "text-emerald-600" : "text-rose-600";
 }
+
+/** Var Anual: año en pantalla (lo cargado) vs. año anterior completo. */
+function variacionKpiPorcentual(key) {
+  return variacionPorcentualEntre(Number(kpis.value[key] ?? 0), Number(kpisAnioAnterior.value[key] ?? 0), key);
+}
+
+function textoVariacionKpi(key) {
+  const variacion = variacionKpiPorcentual(key);
+  if (variacion === null) return "• Var Anual: N/A";
+  const flecha = variacion >= 0 ? "▲" : "▼";
+  const signo = variacion > 0 ? "+" : "";
+  return `${flecha} Var Anual: ${signo}${variacion.toFixed(1)}%`;
+}
+
+function claseVariacionKpi(key, modoOscuro = false) {
+  return claseSegunVariacion(variacionKpiPorcentual(key), key, modoOscuro);
+}
+
+/** Var Acumulada: enero → mismo mes, año en pantalla vs. año anterior. */
+function variacionKpiAcumuladaPorcentual(key) {
+  return variacionPorcentualEntre(Number(kpis.value[key] ?? 0), Number(kpisAnioAnteriorAcum.value[key] ?? 0), key);
+}
+
+function textoVariacionKpiAcumulada(key) {
+  const variacion = variacionKpiAcumuladaPorcentual(key);
+  if (variacion === null) return `• Var Acumulada (${etiquetaAcumulado.value}): N/A`;
+  const flecha = variacion >= 0 ? "▲" : "▼";
+  const signo = variacion > 0 ? "+" : "";
+  return `${flecha} Var Acumulada (${etiquetaAcumulado.value}): ${signo}${variacion.toFixed(1)}%`;
+}
+
+function claseVariacionKpiAcumulada(key, modoOscuro = false) {
+  return claseSegunVariacion(variacionKpiAcumuladaPorcentual(key), key, modoOscuro);
+}
+
+// ── DESGLOSE DE ARRIENDOS (fijo vs. variable), al costado de "Ingresos Acumulados".
+// El subítem "arriendos" no distingue fijo/variable en mapeo_cuentas.json: se separa
+// por el nombre de la cuenta Softland ("ARRIENDO FIJO" / "ARRIENDO VARIABLE"). Solo
+// ingresos de explotación (en WW DINAMITY SA "arriendos" es un gasto).
+function sumaArriendosPorTipo(rows) {
+  let fijo = 0;
+  let variable = 0;
+  for (const d of rows) {
+    if (d.Subitem !== "arriendos" || d.Categoria !== "ingreso_explotacion") continue;
+    const nombreCuenta = String(d.NombreCuenta || "").toUpperCase();
+    if (nombreCuenta.includes("VARIABLE")) variable += Number(d.SaldoNeto) || 0;
+    else fijo += Number(d.SaldoNeto) || 0;
+  }
+  return { fijo, variable };
+}
+
+const arriendosDesglose = computed(() => ({
+  actual: sumaArriendosPorTipo(datosAnioMapeados.value),
+  anterior: sumaArriendosPorTipo(datosAnioAnteriorMapeados.value),
+  anteriorAcum: sumaArriendosPorTipo(
+    filtrarFilasPorRangoMes(datosAnioAnteriorMapeados.value, 1, ultimoMesConMovimiento.value)
+  ),
+}));
+
+function variacionArriendoEntre(actual, anterior) {
+  if (!anterior) return null;
+  return ((actual - anterior) / Math.abs(anterior)) * 100;
+}
+
+function textoVariacionArriendoBase(variacion, etiqueta) {
+  if (variacion === null) return `${etiqueta}: N/A`;
+  const flecha = variacion >= 0 ? "▲" : "▼";
+  const signo = variacion > 0 ? "+" : "";
+  return `${flecha} ${etiqueta} ${signo}${variacion.toFixed(1)}%`;
+}
+
+function claseVariacionArriendoBase(variacion) {
+  if (variacion === null) return "text-emerald-700/60";
+  return variacion >= 0 ? "text-emerald-700" : "text-rose-600";
+}
+
+const variacionArriendoAnual = (tipo) =>
+  variacionArriendoEntre(Number(arriendosDesglose.value.actual[tipo]) || 0, Number(arriendosDesglose.value.anterior[tipo]) || 0);
+const variacionArriendoAcum = (tipo) =>
+  variacionArriendoEntre(Number(arriendosDesglose.value.actual[tipo]) || 0, Number(arriendosDesglose.value.anteriorAcum[tipo]) || 0);
+
+const textoVariacionArriendo = (tipo) => textoVariacionArriendoBase(variacionArriendoAnual(tipo), "Anual");
+const claseVariacionArriendo = (tipo) => claseVariacionArriendoBase(variacionArriendoAnual(tipo));
+const textoVariacionArriendoAcumulada = (tipo) => textoVariacionArriendoBase(variacionArriendoAcum(tipo), "Acum.");
+const claseVariacionArriendoAcumulada = (tipo) => claseVariacionArriendoBase(variacionArriendoAcum(tipo));
+
+// ── DIÁLOGO DE INFORMACIÓN: una explicación en lenguaje simple por tarjeta ────
+const infoAbierto = ref(null);
+function abrirInfo(clave) {
+  infoAbierto.value = clave;
+}
+function cerrarInfo() {
+  infoAbierto.value = null;
+}
+
+const EXPLICACIONES = {
+  ingresos: {
+    titulo: "Ingresos Acumulados",
+    texto: "Suma de todos los ingresos del año en pantalla: Ingresos de Explotación (arriendos, gastos comunes, consumos) más Ingresos Financieros. Es el ingreso bruto, antes de cualquier gasto. El desglose de arriendos fijo/variable al costado se separa por el nombre de la cuenta en Softland.",
+  },
+  ingresosFinancieros: {
+    titulo: "Ingresos Financieros",
+    texto: "Solo la parte de los Ingresos Acumulados que corresponde a la categoría Ingresos Financieros (intereses ganados, dividendos recibidos, corrección monetaria a favor). Ya está incluida dentro de Ingresos Acumulados, no se suma aparte.",
+  },
+  gastos: {
+    titulo: "Gastos Acumulados",
+    texto: "Todos los gastos del año: Gastos de Administración y Ventas más Otros Gastos Financieros. Se calcula como Resultado menos Ingresos, lo que da exactamente lo mismo que sumar ambas categorías de gasto.",
+  },
+  ebitda: {
+    titulo: "EBITDA",
+    texto: "Resultado operacional antes de intereses y corrección monetaria: Ingresos de Explotación más Ingresos Financieros, menos Gastos de Administración y Ventas. Excluye a propósito la categoría Otros Gastos Financieros, que sí está incluida en el Resultado antes de impuestos. La fórmula es la misma en Financiero y Contable; lo que cambia es qué cuentas entran según el plan de cuentas, por eso el EBITDA puede moverse al cambiar el selector \"Tipo EERR\".",
+  },
+  margenBruto: {
+    titulo: "Margen Bruto",
+    texto: "Ingresos de Explotación menos Gastos de Administración y Ventas, excluyendo Remuneraciones. Aproxima el margen del negocio antes de pagar sueldos.",
+  },
+  contribuciones: {
+    titulo: "Contribuciones",
+    texto: "Suma de todas las cuentas del subítem Impuestos y Contribuciones: el impuesto territorial (contribuciones) que se paga por los inmuebles.",
+  },
+  patenteMunicipal: {
+    titulo: "Patente Municipal",
+    texto: "Suma de todas las cuentas del subítem Patentes: la patente comercial/municipal pagada a la municipalidad.",
+  },
+  resultado: {
+    titulo: "Resultado antes de impuestos",
+    texto: "Suma de las cuatro categorías (Ingresos de Explotación, Ingresos Financieros, Gastos de Administración y Ventas, Otros Gastos Financieros) según Softland, para el tipo EERR seleccionado arriba. No descuenta impuesto a la renta. En Contable incluye depreciación y corrección monetaria; en Financiero no. \"Sin valorización de inversiones\" muestra el mismo resultado quitando el mayor/menor valor de los fondos, que es una variación de valor y no un gasto pagado.",
+  },
+};
 
 function computeEbitdaMensualFromRows(rows) {
   const mensual = Array(12).fill(0);
