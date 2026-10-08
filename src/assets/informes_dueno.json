@@ -1,0 +1,3888 @@
+{
+ "fuente": "Informes previos (PDF)",
+ "nota": "Meses sin datos de resultado en Softland. Montos transcritos de los informes previos; no son Softland.",
+ "periodos": {
+  "2025-06": {
+   "periodo": "2025-06",
+   "fechaCierre": "30 Junio 2025",
+   "banco": -25299190,
+   "btg": 400106000,
+   "participacion": 28.43,
+   "totales": {
+    "ingOp": 216108119,
+    "ingNoOp": 0,
+    "gcs": 31555436,
+    "gav": 116469381,
+    "res": 68083302,
+    "impuesto": 18382492,
+    "utilidad": 49700810,
+    "flujo": -25299190,
+    "flujoAcum": -25299190,
+    "ret": 75000000
+   },
+   "filas": [
+    {
+     "label": "INGRESOS OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_operacionales",
+     "valor": 216108119
+    },
+    {
+     "label": "1 - STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 64712690
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8972768
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8720615
+    },
+    {
+     "label": "ARRIENDO VARIABLE",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 2457511
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 132941
+    },
+    {
+     "label": "50 - SUPERMERCADO - EL TREBOL | PROYECTO MULCHEN | MULCHEN",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 27833476
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 7140158
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1568083
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 138890
+    },
+    {
+     "label": "3 - TALAGANTE",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19723447
+    },
+    {
+     "label": "10 - RENCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19667985
+    },
+    {
+     "label": "29 - ALVI - TALCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 18712057
+    },
+    {
+     "label": "80 - TERRENO - PROYECTO CHACABUCO 781 | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 15704353
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 4681597
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 136504
+    },
+    {
+     "label": "39 - DINAMITY - PROYECTO GIMNASIO | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 6701741
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3458067
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 254950
+    },
+    {
+     "label": "112 - MALBEC 115 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1568083
+    },
+    {
+     "label": "113 - MALBEC 203 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1548482
+    },
+    {
+     "label": "114 - MALBEC 607 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1489679
+    },
+    {
+     "label": "111 - DIEGO PORTALES 403 | VALPARAISO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 784042
+    },
+    {
+     "label": "INGRESOS NO OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_no_operacionales",
+     "valor": 0
+    },
+    {
+     "label": "GASTOS COMUNES Y SERVICIOS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 31555436
+    },
+    {
+     "label": "CONSUMOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "CONSUMO AGUA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 549513
+    },
+    {
+     "label": "CONSUMO ENERGIA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 20601078
+    },
+    {
+     "label": "SERVICIOS INFORMATICOS DE SISTEMAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 29235
+    },
+    {
+     "label": "SERVICIO ACTIVOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO ASEO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1413622
+    },
+    {
+     "label": "SERVICIO CONTROL PLAGAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 117691
+    },
+    {
+     "label": "SERVICIO HIGIENE",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 54030
+    },
+    {
+     "label": "SERVICIO JARDINES",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 126050
+    },
+    {
+     "label": "SERVICIOS COMUNES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "COMISIONES ARRIENDO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1819025
+    },
+    {
+     "label": "SERVICIO MATENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 0
+    },
+    {
+     "label": "MANTENCIÓN ALCANTARILLADOS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 0
+    },
+    {
+     "label": "MANTENCIÓN CCTV",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1725812
+    },
+    {
+     "label": "MANTENCIÓN GENERAL (CAMBIOS Y REPOSICIONES)",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 365700
+    },
+    {
+     "label": "SERVICIO SEGURIDAD",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO GUARDIAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 4753680
+    },
+    {
+     "label": "GASTOS ADM. Y VENTAS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_adm_ventas",
+     "valor": 116469381
+    },
+    {
+     "label": "Remuneraciones Eric Waghonr Vitar",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 68100115
+    },
+    {
+     "label": "Remuneraciones Administración (28.435)",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 9023448
+    },
+    {
+     "label": "Cuentas Servicios",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 449288
+    },
+    {
+     "label": "Patentes Comerciales",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 4921085
+    },
+    {
+     "label": "Contribuciones",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 16539784
+    },
+    {
+     "label": "Sobretasa",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 2328389
+    },
+    {
+     "label": "Gastos Administración",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 2897363
+    },
+    {
+     "label": "Gastos Activos",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1100000
+    },
+    {
+     "label": "Seguros",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 8948270
+    },
+    {
+     "label": "Cuenta Luz Los Maitenes",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 2161640
+    },
+    {
+     "label": "Gastos Abogado división",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 9121859
+    },
+    {
+     "label": "RESULTADO (Antes de Impuestos)",
+     "estilo": "sec-resultado",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 68083302
+    },
+    {
+     "label": "Impuesto a la Renta",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 18382492
+    },
+    {
+     "label": "Utilidad Ejercicio",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 49700810
+    },
+    {
+     "label": "RETIROS Y/O MUTUOS",
+     "estilo": "sec",
+     "seccion": "retiros",
+     "valor": 75000000
+    },
+    {
+     "label": "Mutuo Prestamo Dinamity 30-6-2025",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 20000000
+    },
+    {
+     "label": "Retiro EWV Nomina 354 /16-6-2025",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 25000000
+    },
+    {
+     "label": "Retiro EWV Nomina 353 /11-6-2025",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 20000000
+    },
+    {
+     "label": "Retiro EWV Nomina 348 / 2-6-2025",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 10000000
+    },
+    {
+     "label": "Flujo de Caja",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": -25299190
+    },
+    {
+     "label": "Flujo de Caja Acumulado",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": -25299190
+    },
+    {
+     "label": "Uso Fondos ISF Matriz",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": -25299190
+    }
+   ],
+   "avisos": [
+    "Gastos adm. y ventas: las líneas del informe suman más que el total (diferencia 9.121.860)"
+   ]
+  },
+  "2025-07": {
+   "periodo": "2025-07",
+   "fechaCierre": "30 Julio 2025",
+   "banco": 223171239,
+   "btg": 400106000,
+   "participacion": 28.43,
+   "totales": {
+    "ingOp": 227477329,
+    "ingNoOp": 8511600,
+    "gcs": 22994164,
+    "gav": 120906038,
+    "res": 92088727,
+    "impuesto": 24863956,
+    "utilidad": 67224771,
+    "flujo": -155840337,
+    "flujoAcum": -181139527,
+    "ret": 223065108
+   },
+   "filas": [
+    {
+     "label": "INGRESOS OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_operacionales",
+     "valor": 227477329
+    },
+    {
+     "label": "1 - STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 63001492
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8990636
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8638643
+    },
+    {
+     "label": "ARRIENDO VARIABLE",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 31607
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 139660
+    },
+    {
+     "label": "50 - SUPERMERCADO - EL TREBOL | PROYECTO MULCHEN | MULCHEN",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 27888907
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 6984865
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1571206
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 108403
+    },
+    {
+     "label": "3 - TALAGANTE",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 37629525
+    },
+    {
+     "label": "10 - RENCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19708308
+    },
+    {
+     "label": "29 - ALVI - TALCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 18749479
+    },
+    {
+     "label": "80 - TERRENO - PROYECTO CHACABUCO 781 | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 15303546
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 35719
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1325
+    },
+    {
+     "label": "39 - DINAMITY - PROYECTO GIMNASIO | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 7848223
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 5208235
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 236529
+    },
+    {
+     "label": "112 - MALBEC 115 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1571206
+    },
+    {
+     "label": "113 - MALBEC 203 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1551566
+    },
+    {
+     "label": "114 - MALBEC 607 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1492646
+    },
+    {
+     "label": "111 - DIEGO PORTALES 403 | VALPARAISO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 785603
+    },
+    {
+     "label": "INGRESOS NO OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_no_operacionales",
+     "valor": 8511600
+    },
+    {
+     "label": "*Dividendos BTG Pactual",
+     "estilo": "linea",
+     "seccion": "ingresos_no_operacionales",
+     "valor": null
+    },
+    {
+     "label": "GASTOS COMUNES Y SERVICIOS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 22994164
+    },
+    {
+     "label": "CONSUMOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "CONSUMO AGUA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 454140
+    },
+    {
+     "label": "CONSUMO ENERGIA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 12131376
+    },
+    {
+     "label": "SERVICIOS INFORMATICOS DE SISTEMAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 0
+    },
+    {
+     "label": "SERVICIO ACTIVOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO ASEO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1385703
+    },
+    {
+     "label": "SERVICIO CONTROL PLAGAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 117735
+    },
+    {
+     "label": "SERVICIO HIGIENE",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 54030
+    },
+    {
+     "label": "SERVICIO JARDINES",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 0
+    },
+    {
+     "label": "SERVICIOS COMUNES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "COMISIONES ARRIENDO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1822647
+    },
+    {
+     "label": "SERVICIO MATENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 58000
+    },
+    {
+     "label": "MANTENCIÓN ALCANTARILLADOS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 58898
+    },
+    {
+     "label": "MANTENCIÓN CCTV",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 861938
+    },
+    {
+     "label": "MANTENCIÓN GENERAL (CAMBIOS Y REPOSICIONES)",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1286601
+    },
+    {
+     "label": "SERVICIO SEGURIDAD",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO GUARDIAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 4763096
+    },
+    {
+     "label": "GASTOS ADM. Y VENTAS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_adm_ventas",
+     "valor": 120906038
+    },
+    {
+     "label": "Remuneraciones Eric Waghonr Vitar",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 68342608
+    },
+    {
+     "label": "Remuneraciones Administración (28.435)",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 9450424
+    },
+    {
+     "label": "Cuentas Servicios",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 689699
+    },
+    {
+     "label": "Patentes Comerciales",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 27426863
+    },
+    {
+     "label": "Contribuciones",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 0
+    },
+    {
+     "label": "Sobretasa",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 0
+    },
+    {
+     "label": "Gastos Administración",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 2043687
+    },
+    {
+     "label": "Gastos Activos",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1310958
+    },
+    {
+     "label": "Seguros",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 8948270
+    },
+    {
+     "label": "Cuenta Luz Los Maitenes",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 2693529
+    },
+    {
+     "label": "Gastos Abogado división",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "RESULTADO (Antes de Impuestos)",
+     "estilo": "sec-resultado",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 92088727
+    },
+    {
+     "label": "Impuesto a la Renta",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 24863956
+    },
+    {
+     "label": "Utilidad Ejercicio",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 67224771
+    },
+    {
+     "label": "RETIROS Y/O MUTUOS",
+     "estilo": "sec",
+     "seccion": "retiros",
+     "valor": 223065108
+    },
+    {
+     "label": "Retiro EWV Nomina 360 OC8443 / 7-7-2025",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 128065108
+    },
+    {
+     "label": "Mutuo Prestamo Dinamity 18-7-2025",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 10000000
+    },
+    {
+     "label": "Retiro EWV Nomina 365 OC8498 / 23-7-2025",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 50000000
+    },
+    {
+     "label": "Retiro EWV Nomina 375 / 31-7-2025",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 35000000
+    },
+    {
+     "label": "Flujo de Caja",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": -155840337
+    },
+    {
+     "label": "Flujo de Caja Acumulado",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": -181139527
+    },
+    {
+     "label": "Uso Fondos ISF Matriz",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": -181139527
+    },
+    {
+     "label": "Rescate FFMM BTG Pactual (Cuotas)",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 404310766
+    },
+    {
+     "label": "Restituye \"Sociedad EWV\" a Santa Fidelmira EWA",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 181139527
+    }
+   ],
+   "avisos": []
+  },
+  "2025-08": {
+   "periodo": "2025-08",
+   "fechaCierre": "30 Agosto 2025",
+   "banco": 263829301,
+   "btg": 447188000,
+   "participacion": 28.43,
+   "totales": {
+    "ingOp": 213794539,
+    "ingNoOp": 0,
+    "gcs": 53693929,
+    "gav": 104404635,
+    "res": 55695975,
+    "impuesto": 15037913,
+    "utilidad": 40658062,
+    "flujo": 40658062,
+    "flujoAcum": 223171239,
+    "ret": 0
+   },
+   "filas": [
+    {
+     "label": "INGRESOS OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_operacionales",
+     "valor": 213794539
+    },
+    {
+     "label": "1 - STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 63480277
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8139466
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 9422288
+    },
+    {
+     "label": "ARRIENDO VARIABLE",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 180004
+    },
+    {
+     "label": "50 - SUPERMERCADO - EL TREBOL | PROYECTO MULCHEN | MULCHEN",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 27799120
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 7272984
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 704766
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 142272
+    },
+    {
+     "label": "3 - TALAGANTE",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 16488143
+    },
+    {
+     "label": "10 - RENCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19638283
+    },
+    {
+     "label": "29 - ALVI - TALCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 18674482
+    },
+    {
+     "label": "80 - TERRENO - PROYECTO CHACABUCO 781 | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 15254278
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8378005
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 201935
+    },
+    {
+     "label": "39 - DINAMITY - PROYECTO GIMNASIO | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3915369
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8209327
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 509907
+    },
+    {
+     "label": "112 - MALBEC 115 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1566148
+    },
+    {
+     "label": "113 - MALBEC 203 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1546571
+    },
+    {
+     "label": "114 - MALBEC 607 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1487840
+    },
+    {
+     "label": "111 - DIEGO PORTALES 403 | VALPARAISO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 783074
+    },
+    {
+     "label": "INGRESOS NO OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_no_operacionales",
+     "valor": null
+    },
+    {
+     "label": "GASTOS COMUNES Y SERVICIOS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 53693929
+    },
+    {
+     "label": "CONSUMOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "CONSUMO AGUA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 510639
+    },
+    {
+     "label": "CONSUMO ENERGIA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 28383013
+    },
+    {
+     "label": "CONSUMO GAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 320385
+    },
+    {
+     "label": "SERVICIOS INFORMATICOS DE SISTEMAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 0
+    },
+    {
+     "label": "SERVICIO ACTIVOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO ASEO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1429048
+    },
+    {
+     "label": "SERVICIO CONTROL PLAGAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 117570
+    },
+    {
+     "label": "SERVICIO HIGIENE",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 54030
+    },
+    {
+     "label": "SERVICIO JARDINES",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 126050
+    },
+    {
+     "label": "SERVICIOS COMUNES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "COMISIONES ARRIENDO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1816779
+    },
+    {
+     "label": "SERVICIO MATENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN ALCANTARILLADOS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 520000
+    },
+    {
+     "label": "MANTENCIÓN CCTV",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 865920
+    },
+    {
+     "label": "MANTENCIÓN GENERAL (CAMBIOS Y REPOSICIONES)",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 450000
+    },
+    {
+     "label": "MANTENCIÓN CLIMA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1310958
+    },
+    {
+     "label": "SERVICIO HABILITACIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "HABILITACIONES",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 12958765
+    },
+    {
+     "label": "SERVICIO SEGURIDAD",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO GUARDIAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 4830772
+    },
+    {
+     "label": "GASTOS ADM. Y VENTAS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_adm_ventas",
+     "valor": 104404635
+    },
+    {
+     "label": "Remuneraciones Eric Waghonr Vitar",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 68363799
+    },
+    {
+     "label": "Remuneraciones Administración (28.435)",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 9646081
+    },
+    {
+     "label": "Cuentas Servicios",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1068859
+    },
+    {
+     "label": "Patentes Comerciales",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Contribuciones",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 0
+    },
+    {
+     "label": "Sobretasa",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 0
+    },
+    {
+     "label": "Gastos Administración",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1148537
+    },
+    {
+     "label": "Gastos Activos",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 13677996
+    },
+    {
+     "label": "Seguros",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 8948270
+    },
+    {
+     "label": "Cuenta Luz Los Maitenes",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1551093
+    },
+    {
+     "label": "Gastos Abogado división",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "RESULTADO (Antes de Impuestos)",
+     "estilo": "sec-resultado",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 55695975
+    },
+    {
+     "label": "Impuesto a la Renta",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 15037913
+    },
+    {
+     "label": "Utilidad Ejercicio",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 40658062
+    },
+    {
+     "label": "RETIROS Y/O MUTUOS",
+     "estilo": "sec",
+     "seccion": "retiros",
+     "valor": 0
+    },
+    {
+     "label": "Flujo de Caja",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 40658062
+    },
+    {
+     "label": "Flujo de Caja Acumulado",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 223171239
+    }
+   ],
+   "avisos": []
+  },
+  "2025-09": {
+   "periodo": "2025-09",
+   "fechaCierre": "Septiembre 2025",
+   "banco": 275553532,
+   "btg": 447188000,
+   "participacion": 28.43,
+   "totales": {
+    "ingOp": 218431966,
+    "ingNoOp": 0,
+    "gcs": 29948182,
+    "gav": 172148947,
+    "res": 16334837,
+    "impuesto": 4410406,
+    "utilidad": 11924431,
+    "flujo": 11724231,
+    "flujoAcum": 263829301,
+    "ret": 200200
+   },
+   "filas": [
+    {
+     "label": "INGRESOS OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_operacionales",
+     "valor": 218431966
+    },
+    {
+     "label": "1 - STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 64865632
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 9010132
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 9292552
+    },
+    {
+     "label": "ARRIENDO VARIABLE",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 246503
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 155762
+    },
+    {
+     "label": "50 - SUPERMERCADO - EL TREBOL | PROYECTO MULCHEN | MULCHEN",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 28002421
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 7311149
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 709921
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 141831
+    },
+    {
+     "label": "3 - TALAGANTE",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 28095133
+    },
+    {
+     "label": "10 - RENCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19786274
+    },
+    {
+     "label": "29 - ALVI - TALCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 18842552
+    },
+    {
+     "label": "80 - TERRENO - PROYECTO CHACABUCO 781 | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 15460600
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 4671092
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 90437
+    },
+    {
+     "label": "39 - DINAMITY - PROYECTO GIMNASIO | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3944003
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3498151
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 253630
+    },
+    {
+     "label": "112 - MALBEC 115 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 208788
+    },
+    {
+     "label": "113 - MALBEC 203 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1557881
+    },
+    {
+     "label": "114 - MALBEC 607 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1498721
+    },
+    {
+     "label": "111 - DIEGO PORTALES 403 | VALPARAISO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 788801
+    },
+    {
+     "label": "INGRESOS NO OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_no_operacionales",
+     "valor": null
+    },
+    {
+     "label": "GASTOS COMUNES Y SERVICIOS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 29948182
+    },
+    {
+     "label": "CONSUMOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "CONSUMO AGUA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 476965
+    },
+    {
+     "label": "CONSUMO ENERGIA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 20139045
+    },
+    {
+     "label": "CONSUMO GAS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIOS INFORMATICOS DE SISTEMAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 215516
+    },
+    {
+     "label": "SERVICIO ACTIVOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO ASEO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1281511
+    },
+    {
+     "label": "SERVICIO CONTROL PLAGAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 118457
+    },
+    {
+     "label": "SERVICIO HIGIENE",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 54030
+    },
+    {
+     "label": "SERVICIO JARDINES",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 126050
+    },
+    {
+     "label": "SERVICIOS COMUNES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "COMISIONES ARRIENDO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1752755
+    },
+    {
+     "label": "SERVICIO MATENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN ALCANTARILLADOS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 59228
+    },
+    {
+     "label": "MANTENCIÓN CCTV",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 868692
+    },
+    {
+     "label": "MANTENCIÓN GENERAL (CAMBIOS Y REPOSICIONES)",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN CLIMA",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO HABILITACIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "HABILITACIONES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO SEGURIDAD",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO GUARDIAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 4855933
+    },
+    {
+     "label": "GASTOS ADM. Y VENTAS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_adm_ventas",
+     "valor": 172148947
+    },
+    {
+     "label": "Remuneraciones Eric Waghonr Vitar",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 78299293
+    },
+    {
+     "label": "Remuneraciones Administración (28.435)",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 12400484
+    },
+    {
+     "label": "Cuentas Servicios",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 223187
+    },
+    {
+     "label": "Patentes Comerciales",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Contribuciones",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 52577365
+    },
+    {
+     "label": "Sobretasa",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 12395876
+    },
+    {
+     "label": "Gastos Administración",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1159693
+    },
+    {
+     "label": "Gastos Activos",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 4325456
+    },
+    {
+     "label": "Seguros",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 8948270
+    },
+    {
+     "label": "Cuenta Luz Los Maitenes",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1819323
+    },
+    {
+     "label": "Gastos Abogado división",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "RESULTADO (Antes de Impuestos)",
+     "estilo": "sec-resultado",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 16334837
+    },
+    {
+     "label": "Impuesto a la Renta",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 4410406
+    },
+    {
+     "label": "Utilidad Ejercicio",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 11924431
+    },
+    {
+     "label": "RETIROS Y/O MUTUOS",
+     "estilo": "sec",
+     "seccion": "retiros",
+     "valor": 200200
+    },
+    {
+     "label": "Impuesto Mutuo Isf a Dinamity (CAJA CHICA)",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 166000
+    },
+    {
+     "label": "Pago BT/5037175102 SII",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 34200
+    },
+    {
+     "label": "Flujo de Caja",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 11724231
+    },
+    {
+     "label": "Flujo de Caja Acumulado",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 263829301
+    }
+   ],
+   "avisos": []
+  },
+  "2025-10": {
+   "periodo": "2025-10",
+   "fechaCierre": "Octubre 2025",
+   "banco": 362608203,
+   "btg": 447188000,
+   "participacion": 28.43,
+   "totales": {
+    "ingOp": 241644106,
+    "ingNoOp": 0,
+    "gcs": 27326332,
+    "gav": 95064800,
+    "res": 119252974,
+    "impuesto": 32198303,
+    "utilidad": 87054671,
+    "flujo": 87054671,
+    "flujoAcum": 275553532,
+    "ret": 0
+   },
+   "filas": [
+    {
+     "label": "INGRESOS OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_operacionales",
+     "valor": 241644106
+    },
+    {
+     "label": "1 - STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 64938350
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 9030566
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8962745
+    },
+    {
+     "label": "ARRIENDO VARIABLE",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 141314
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 133788
+    },
+    {
+     "label": "50 - SUPERMERCADO - EL TREBOL | PROYECTO MULCHEN | MULCHEN",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 28034812
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 7163259
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 710742
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 143153
+    },
+    {
+     "label": "3 - TALAGANTE",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 31460322
+    },
+    {
+     "label": "10 - RENCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19809161
+    },
+    {
+     "label": "29 - ALVI - TALCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 18842552
+    },
+    {
+     "label": "80 - TERRENO - PROYECTO CHACABUCO 781 | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 15872855
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 4971597
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 161563
+    },
+    {
+     "label": "39 - DINAMITY - PROYECTO GIMNASIO | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3948565
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3361765
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 248378
+    },
+    {
+     "label": "112 - MALBEC 115 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19900768
+    },
+    {
+     "label": "113 - MALBEC 203 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1559683
+    },
+    {
+     "label": "114 - MALBEC 607 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1500455
+    },
+    {
+     "label": "111 - DIEGO PORTALES 403 | VALPARAISO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 747713
+    },
+    {
+     "label": "INGRESOS NO OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_no_operacionales",
+     "valor": null
+    },
+    {
+     "label": "GASTOS COMUNES Y SERVICIOS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 27326332
+    },
+    {
+     "label": "CONSUMOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "CONSUMO AGUA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 393843
+    },
+    {
+     "label": "CONSUMO ENERGIA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 12166668
+    },
+    {
+     "label": "CONSUMO GAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 0
+    },
+    {
+     "label": "SERVICIOS INFORMATICOS DE SISTEMAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 126337
+    },
+    {
+     "label": "SERVICIO ACTIVOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO ASEO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1355279
+    },
+    {
+     "label": "SERVICIO CONTROL PLAGAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 118457
+    },
+    {
+     "label": "SERVICIO HIGIENE",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 54030
+    },
+    {
+     "label": "SERVICIO JARDINES",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 188550
+    },
+    {
+     "label": "SERVICIOS COMUNES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "COMISIONES ARRIENDO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1754783
+    },
+    {
+     "label": "SERVICIO MATENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 870804
+    },
+    {
+     "label": "MANTENCIÓN ALCANTARILLADOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN CCTV",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN GENERAL (CAMBIOS Y REPOSICIONES)",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 5479000
+    },
+    {
+     "label": "MANTENCIÓN CLIMA",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO HABILITACIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "HABILITACIONES",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 350000
+    },
+    {
+     "label": "SERVICIO SEGURIDAD",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO GUARDIAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 4468581
+    },
+    {
+     "label": "GASTOS ADM. Y VENTAS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_adm_ventas",
+     "valor": 95064800
+    },
+    {
+     "label": "Remuneraciones Eric Waghonr Vitar",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 68386305
+    },
+    {
+     "label": "Remuneraciones Administración (28.435)",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 9697954
+    },
+    {
+     "label": "Cuentas Servicios",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 126239
+    },
+    {
+     "label": "Patentes Comerciales",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Contribuciones",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 0
+    },
+    {
+     "label": "Sobretasa",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Gastos Administración",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1150520
+    },
+    {
+     "label": "Gastos Activos",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 5061405
+    },
+    {
+     "label": "Seguros",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 8948270
+    },
+    {
+     "label": "Cuenta Luz Los Maitenes",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1694107
+    },
+    {
+     "label": "Gastos Abogado división",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "RESULTADO (Antes de Impuestos)",
+     "estilo": "sec-resultado",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 119252974
+    },
+    {
+     "label": "Impuesto a la Renta",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 32198303
+    },
+    {
+     "label": "Utilidad Ejercicio",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 87054671
+    },
+    {
+     "label": "RETIROS Y/O MUTUOS",
+     "estilo": "sec",
+     "seccion": "retiros",
+     "valor": 0
+    },
+    {
+     "label": "Flujo de Caja",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 87054671
+    },
+    {
+     "label": "Flujo de Caja Acumulado",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 275553532
+    }
+   ],
+   "avisos": []
+  },
+  "2025-11": {
+   "periodo": "2025-11",
+   "fechaCierre": "Noviembre 2025",
+   "banco": 309334652,
+   "btg": 447188000,
+   "participacion": 28.43,
+   "totales": {
+    "ingOp": 222763508,
+    "ingNoOp": 0,
+    "gcs": 37421938,
+    "gav": 210373831,
+    "res": -25032261,
+    "impuesto": -6758710,
+    "utilidad": -18273550,
+    "flujo": -53273550,
+    "flujoAcum": 362608203,
+    "ret": 35000000
+   },
+   "filas": [
+    {
+     "label": "INGRESOS OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_operacionales",
+     "valor": 222763508
+    },
+    {
+     "label": "1 - STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 65600337
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 9062019
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 9981202
+    },
+    {
+     "label": "ARRIENDO VARIABLE",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 137818
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 221851
+    },
+    {
+     "label": "50 - SUPERMERCADO - EL TREBOL | PROYECTO MULCHEN | MULCHEN",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 28924921
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 7699002
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 713217
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 257990
+    },
+    {
+     "label": "3 - TALAGANTE",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 28279816
+    },
+    {
+     "label": "10 - RENCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19449450
+    },
+    {
+     "label": "29 - ALVI - TALCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 18917921
+    },
+    {
+     "label": "80 - TERRENO - PROYECTO CHACABUCO 781 | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 16071161
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 5716791
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 176191
+    },
+    {
+     "label": "39 - DINAMITY - PROYECTO GIMNASIO | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3962318
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3520168
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 227092
+    },
+    {
+     "label": "112 - MALBEC 115 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "113 - MALBEC 203 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1565116
+    },
+    {
+     "label": "114 - MALBEC 607 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1505681
+    },
+    {
+     "label": "111 - DIEGO PORTALES 403 | VALPARAISO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 773446
+    },
+    {
+     "label": "INGRESOS NO OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_no_operacionales",
+     "valor": null
+    },
+    {
+     "label": "GASTOS COMUNES Y SERVICIOS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 37421938
+    },
+    {
+     "label": "CONSUMOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "CONSUMO AGUA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 594915
+    },
+    {
+     "label": "CONSUMO ENERGIA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 26601648
+    },
+    {
+     "label": "CONSUMO GAS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIOS INFORMATICOS DE SISTEMAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 29999
+    },
+    {
+     "label": "SERVICIO ACTIVOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO ASEO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1429048
+    },
+    {
+     "label": "SERVICIO CONTROL PLAGAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 241336
+    },
+    {
+     "label": "SERVICIO HIGIENE",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 54030
+    },
+    {
+     "label": "SERVICIO JARDINES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIOS COMUNES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "COMISIONES ARRIENDO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1760895
+    },
+    {
+     "label": "SERVICIO MATENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN ALCANTARILLADOS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 829465
+    },
+    {
+     "label": "MANTENCIÓN CCTV",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 872159
+    },
+    {
+     "label": "MANTENCIÓN GENERAL (CAMBIOS Y REPOSICIONES)",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 126050
+    },
+    {
+     "label": "MANTENCIÓN CLIMA",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO HABILITACIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "HABILITACIONES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO SEGURIDAD",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO GUARDIAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 4882393
+    },
+    {
+     "label": "GASTOS ADM. Y VENTAS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_adm_ventas",
+     "valor": 210373831
+    },
+    {
+     "label": "Remuneraciones Eric Waghonr Vitar",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 118351921
+    },
+    {
+     "label": "Remuneraciones Administración (28.435)",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 9720595
+    },
+    {
+     "label": "Cuentas Servicios",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Patentes Comerciales",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Contribuciones",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 52577365
+    },
+    {
+     "label": "Sobretasa",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 12395876
+    },
+    {
+     "label": "Gastos Administración",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1155796
+    },
+    {
+     "label": "Gastos Activos",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 5645926
+    },
+    {
+     "label": "Seguros",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 8948270
+    },
+    {
+     "label": "Cuenta Luz Los Maitenes",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1578082
+    },
+    {
+     "label": "Gastos Abogado división",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "RESULTADO (Antes de Impuestos)",
+     "estilo": "sec-resultado",
+     "seccion": "resultado_antes_impuestos",
+     "valor": -25032261
+    },
+    {
+     "label": "Impuesto a la Renta",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": -6758710
+    },
+    {
+     "label": "Utilidad Ejercicio",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": -18273550
+    },
+    {
+     "label": "RETIROS Y/O MUTUOS",
+     "estilo": "sec",
+     "seccion": "retiros",
+     "valor": 35000000
+    },
+    {
+     "label": "Mutuo Prestamo Dinamity 30-6-2025",
+     "estilo": "linea",
+     "seccion": "retiros",
+     "valor": 35000000
+    },
+    {
+     "label": "Flujo de Caja",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": -53273550
+    },
+    {
+     "label": "Flujo de Caja Acumulado",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 362608203
+    }
+   ],
+   "avisos": []
+  },
+  "2025-12": {
+   "periodo": "2025-12",
+   "fechaCierre": "Diciembre 2025",
+   "banco": 342594913,
+   "btg": 447188000,
+   "participacion": 28.43,
+   "totales": {
+    "ingOp": 219391842,
+    "ingNoOp": 0,
+    "gcs": 34253361,
+    "gav": 139576480,
+    "res": 45562001,
+    "impuesto": 12301740,
+    "utilidad": 33260260,
+    "flujo": 33260260,
+    "flujoAcum": 309334652,
+    "ret": 0
+   },
+   "filas": [
+    {
+     "label": "INGRESOS OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_operacionales",
+     "valor": 219391842
+    },
+    {
+     "label": "1 - STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 65887824
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 9106331
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 10093337
+    },
+    {
+     "label": "ARRIENDO VARIABLE",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 0
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 136362
+    },
+    {
+     "label": "50 - SUPERMERCADO - EL TREBOL | PROYECTO MULCHEN | MULCHEN",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 28939821
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8392427
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 713585
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 480624
+    },
+    {
+     "label": "3 - TALAGANTE",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 22421821
+    },
+    {
+     "label": "10 - RENCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19888395
+    },
+    {
+     "label": "29 - ALVI - TALCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 18917921
+    },
+    {
+     "label": "80 - TERRENO - PROYECTO CHACABUCO 781 | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 16274086
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 5934959
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 163850
+    },
+    {
+     "label": "39 - DINAMITY - PROYECTO GIMNASIO | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3964359
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3995966
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 214924
+    },
+    {
+     "label": "112 - MALBEC 115 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "113 - MALBEC 203 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1565922
+    },
+    {
+     "label": "114 - MALBEC 607 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1506456
+    },
+    {
+     "label": "111 - DIEGO PORTALES 403 | VALPARAISO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 792872
+    },
+    {
+     "label": "INGRESOS NO OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_no_operacionales",
+     "valor": null
+    },
+    {
+     "label": "GASTOS COMUNES Y SERVICIOS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 34253361
+    },
+    {
+     "label": "CONSUMOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "CONSUMO AGUA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 867456
+    },
+    {
+     "label": "CONSUMO ENERGIA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 24092201
+    },
+    {
+     "label": "CONSUMO GAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 0
+    },
+    {
+     "label": "SERVICIOS INFORMATICOS DE SISTEMAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 29999
+    },
+    {
+     "label": "SERVICIO ACTIVOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO ASEO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1355279
+    },
+    {
+     "label": "SERVICIO CONTROL PLAGAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 118931
+    },
+    {
+     "label": "SERVICIO HIGIENE",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 54030
+    },
+    {
+     "label": "SERVICIO JARDINES",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 126050
+    },
+    {
+     "label": "SERVICIOS COMUNES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "COMISIONES ARRIENDO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1847432
+    },
+    {
+     "label": "SERVICIO MATENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN ALCANTARILLADOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN CCTV",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 873928
+    },
+    {
+     "label": "MANTENCIÓN GENERAL (CAMBIOS Y REPOSICIONES)",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN CLIMA",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO HABILITACIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "HABILITACIONES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO SEGURIDAD",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO GUARDIAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 4888055
+    },
+    {
+     "label": "GASTOS ADM. Y VENTAS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_adm_ventas",
+     "valor": 139576480
+    },
+    {
+     "label": "Remuneraciones Eric Waghonr Vitar",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 128352442
+    },
+    {
+     "label": "Remuneraciones Administración (28.435)",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 12597164
+    },
+    {
+     "label": "Cuentas Servicios",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Patentes Comerciales",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Contribuciones",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 0
+    },
+    {
+     "label": "Sobretasa",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 0
+    },
+    {
+     "label": "Gastos Administración",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 736517
+    },
+    {
+     "label": "Gastos Activos",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 0
+    },
+    {
+     "label": "Seguros",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 8948270
+    },
+    {
+     "label": "Cuenta Luz Los Maitenes",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1539251
+    },
+    {
+     "label": "Gastos Abogado división",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 5015170
+    },
+    {
+     "label": "RESULTADO (Antes de Impuestos)",
+     "estilo": "sec-resultado",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 45562001
+    },
+    {
+     "label": "Impuesto a la Renta",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 12301740
+    },
+    {
+     "label": "Utilidad Ejercicio",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 33260260
+    },
+    {
+     "label": "RETIROS Y/O MUTUOS",
+     "estilo": "sec",
+     "seccion": "retiros",
+     "valor": 0
+    },
+    {
+     "label": "Flujo de Caja",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 33260260
+    },
+    {
+     "label": "Flujo de Caja Acumulado",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 309334652
+    }
+   ],
+   "avisos": [
+    "Gastos adm. y ventas: las líneas del informe suman más que el total (diferencia 17.612.334)"
+   ]
+  },
+  "2026-01": {
+   "periodo": "2026-01",
+   "fechaCierre": "Enero 2026",
+   "banco": 414571449,
+   "btg": 447188000,
+   "participacion": 28.43,
+   "totales": {
+    "ingOp": 229692857,
+    "ingNoOp": 0,
+    "gcs": 36860378,
+    "gav": 94234484,
+    "res": 98597995,
+    "impuesto": 26621459,
+    "utilidad": 71976537,
+    "flujo": 71976537,
+    "flujoAcum": 342594913,
+    "ret": 0
+   },
+   "filas": [
+    {
+     "label": "",
+     "estilo": "linea",
+     "seccion": null,
+     "valor": 861759449
+    },
+    {
+     "label": "INGRESOS OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_operacionales",
+     "valor": 229692857
+    },
+    {
+     "label": "1 - STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 65366122
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 9090372
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 10417905
+    },
+    {
+     "label": "ARRIENDO VARIABLE",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 136705
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "50 - SUPERMERCADO - EL TREBOL | PROYECTO MULCHEN | MULCHEN",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 29015420
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 8815139
+    },
+    {
+     "label": "GASTOS COMUNES",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 715449
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 674116
+    },
+    {
+     "label": "3 - TALAGANTE",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 31391144
+    },
+    {
+     "label": "10 - RENCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 19945295
+    },
+    {
+     "label": "29 - ALVI - TALCA",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 18974675
+    },
+    {
+     "label": "80 - TERRENO - PROYECTO CHACABUCO 781 | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 16121444
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 6667627
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 133430
+    },
+    {
+     "label": "39 - DINAMITY - PROYECTO GIMNASIO | LINARES",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 3974715
+    },
+    {
+     "label": "CONSUMOS DE LUZ",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 4209496
+    },
+    {
+     "label": "CONSUMOS DE AGUAS",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 170504
+    },
+    {
+     "label": "112 - MALBEC 115 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "113 - MALBEC 203 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1570012
+    },
+    {
+     "label": "114 - MALBEC 607 | SANTIAGO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 1508344
+    },
+    {
+     "label": "111 - DIEGO PORTALES 403 | VALPARAISO",
+     "estilo": "prop",
+     "seccion": "ingresos_operacionales",
+     "valor": null
+    },
+    {
+     "label": "ARRIENDO FIJO",
+     "estilo": "linea-ing",
+     "seccion": "ingresos_operacionales",
+     "valor": 794943
+    },
+    {
+     "label": "INGRESOS NO OPERACIONALES",
+     "estilo": "sec",
+     "seccion": "ingresos_no_operacionales",
+     "valor": null
+    },
+    {
+     "label": "GASTOS COMUNES Y SERVICIOS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 36860378
+    },
+    {
+     "label": "CONSUMOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "CONSUMO AGUA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 974152
+    },
+    {
+     "label": "CONSUMO ENERGIA",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 26447139
+    },
+    {
+     "label": "CONSUMO GAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 0
+    },
+    {
+     "label": "SERVICIOS INFORMATICOS DE SISTEMAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 97508
+    },
+    {
+     "label": "SERVICIO ACTIVOS",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO ASEO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1334295
+    },
+    {
+     "label": "SERVICIO CONTROL PLAGAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 119257
+    },
+    {
+     "label": "SERVICIO HIGIENE",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 54030
+    },
+    {
+     "label": "SERVICIO JARDINES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIOS COMUNES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "COMISIONES ARRIENDO",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 1852258
+    },
+    {
+     "label": "SERVICIO MATENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "MANTENCIÓN ALCANTARILLADOS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 59574
+    },
+    {
+     "label": "MANTENCIÓN CCTV",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 873708
+    },
+    {
+     "label": "MANTENCIÓN GENERAL (CAMBIOS Y REPOSI",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 150000
+    },
+    {
+     "label": "MANTENCIÓN CLIMA",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO HABILITACIÓN",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "HABILITACIONES",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO SEGURIDAD",
+     "estilo": "subgrupo",
+     "seccion": "gastos_comunes_servicios",
+     "valor": null
+    },
+    {
+     "label": "SERVICIO GUARDIAS",
+     "estilo": "linea",
+     "seccion": "gastos_comunes_servicios",
+     "valor": 4898457
+    },
+    {
+     "label": "GASTOS ADM. Y VENTAS",
+     "estilo": "sec-gasto",
+     "seccion": "gastos_adm_ventas",
+     "valor": 94234484
+    },
+    {
+     "label": "Remuneraciones Eric Waghonr Vitar",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 68363949
+    },
+    {
+     "label": "Remuneraciones Administración (28.435)",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 9942459
+    },
+    {
+     "label": "Cuentas Servicios",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Patentes Comerciales",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Contribuciones",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Sobretasa",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "Gastos Administración",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1157354
+    },
+    {
+     "label": "Gastos Activos",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 4166532
+    },
+    {
+     "label": "Seguros",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 8948270
+    },
+    {
+     "label": "Cuenta Luz Los Maitenes",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": 1655919
+    },
+    {
+     "label": "Gastos Abogado división",
+     "estilo": "linea",
+     "seccion": "gastos_adm_ventas",
+     "valor": null
+    },
+    {
+     "label": "RESULTADO (Antes de Impuestos)",
+     "estilo": "sec-resultado",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 98597995
+    },
+    {
+     "label": "Impuesto a la Renta",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 26621459
+    },
+    {
+     "label": "Utilidad Ejercicio",
+     "estilo": "resultado-linea",
+     "seccion": "resultado_antes_impuestos",
+     "valor": 71976537
+    },
+    {
+     "label": "RETIROS Y/O MUTUOS",
+     "estilo": "sec",
+     "seccion": "retiros",
+     "valor": 0
+    },
+    {
+     "label": "Flujo de Caja",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 71976537
+    },
+    {
+     "label": "Flujo de Caja Acumulado",
+     "estilo": "flujo",
+     "seccion": "retiros",
+     "valor": 342594913
+    }
+   ],
+   "avisos": []
+  }
+ }
+}

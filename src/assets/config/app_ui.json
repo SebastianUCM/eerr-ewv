@@ -6,6 +6,7 @@
     "excluirCategorias": ["gasto_adm_ventas", "otros_gastos_financieros"]
   },
   "informeEerr": {
+    "empresasSoftland": ["WCORP1", "WCORP2"],
     "participacion": 28.43,
     "nombresPropiedad": {
       "001": "STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
@@ -23,7 +24,7 @@
     "tasaImpuesto": 0.27,
     "resumenInformesDueno": {
       "2025": {
-        "fuente": "Informes EERR del dueño entregados anteriormente (PDF en informes_dueno)",
+        "fuente": "Informes previos entregados (PDF en informes_dueno)",
         "periodos": ["2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11"],
         "sinInforme": ["2025-01", "2025-02", "2025-03", "2025-04", "2025-05"],
         "excluidos": ["2025-12"],
@@ -42,7 +43,7 @@
       "periodo": "2026-01",
       "monto": 414571449,
       "empresa": "WCORP1",
-      "fuente": "Banco/CAJA \"Sociedad EWV\" del informe del dueño de enero 2026 (Softland de WCORP no tiene este saldo; el histórico está en la base FIDELMIRA)"
+      "fuente": "Banco/CAJA \"Sociedad EWV\" de los informes previos, enero 2026 (Softland de WCORP no tiene este saldo; el histórico está en la base FIDELMIRA)"
     }
   },
   "tabs": {

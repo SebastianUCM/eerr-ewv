@@ -6,17 +6,50 @@
         <h1>Informe EERR</h1>
         <div class="enc-chips">
           <span class="chip chip-fuerte">{{ etiquetaPeriodo(periodo) }}</span>
-          <span class="chip">{{ modo === 'acumulado' ? 'Sociedad EWV · consolidado' : 'Por empresa' }}</span>
-          <span class="chip">{{ tipoEerr === 'contable' ? 'Contable' : 'Financiero' }}</span>
+          <template v-if="informeDueno">
+            <span class="chip chip-dueno"><span class="punto-dueno" aria-hidden="true"></span>Informes previos</span>
+          </template>
+          <template v-else>
+            <span class="chip">{{ modo === 'acumulado' ? 'Sociedad EWV · consolidado' : 'Por empresa' }}</span>
+            <span class="chip">{{ tipoEerr === 'contable' ? 'Contable' : 'Financiero' }}</span>
+          </template>
         </div>
       </div>
 
       <div class="enc-controles">
-        <label class="sr-only" for="informe-periodo">Período</label>
-        <select id="informe-periodo" v-model="periodo" :class="selCls" title="Período">
-          <option v-for="p in periodosDisponibles" :key="p" :value="p">{{ etiquetaPeriodo(p) }}</option>
-        </select>
+        <div ref="selPeriodoRef" class="sel-periodo">
+          <button
+            id="informe-periodo"
+            type="button"
+            class="sel-periodo-btn"
+            aria-haspopup="listbox"
+            :aria-expanded="selPeriodoAbierto"
+            title="Período"
+            @click="selPeriodoAbierto = !selPeriodoAbierto"
+          >
+            <span v-if="esPeriodoDueno(periodo)" class="punto-dueno" title="Informes previos" aria-label="Informes previos"></span>
+            {{ etiquetaPeriodo(periodo) }}
+            <span class="sel-periodo-flecha" aria-hidden="true">▾</span>
+          </button>
+          <ul v-if="selPeriodoAbierto" class="sel-periodo-lista" role="listbox" aria-label="Período" @keydown.esc="selPeriodoAbierto = false">
+            <li
+              v-for="p in periodosDisponibles"
+              :key="p"
+              role="option"
+              :aria-selected="p === periodo"
+              :class="{ activo: p === periodo }"
+              tabindex="0"
+              @click="elegirPeriodo(p)"
+              @keydown.enter="elegirPeriodo(p)"
+            >
+              <span class="punto-dueno" :class="{ invisible: !esPeriodoDueno(p) }" aria-hidden="true"></span>
+              {{ etiquetaPeriodo(p) }}<span v-if="esPeriodoDueno(p)" class="sr-only"> (informes previos)</span>
+            </li>
+            <li class="sel-periodo-leyenda" role="presentation"><span class="punto-dueno" aria-hidden="true"></span>Informes previos: Softland no tiene el mes</li>
+          </ul>
+        </div>
 
+        <template v-if="!informeDueno">
         <div class="segmento" role="group" aria-label="Tipo de EERR">
           <button type="button" :class="tipoEerr === 'financiero' ? segActive : segIdle" :aria-pressed="tipoEerr === 'financiero'" @click="tipoEerr = 'financiero'">Financiero</button>
           <button type="button" :class="tipoEerr === 'contable' ? segActive : segIdle" :aria-pressed="tipoEerr === 'contable'" @click="tipoEerr = 'contable'">Contable</button>
@@ -30,10 +63,11 @@
         <span class="separador" aria-hidden="true"></span>
 
         <div class="segmento" role="group" aria-label="Niveles">
-          <button type="button" :class="segIdle" title="Muestra el informe como los del dueño" @click="vistaInforme">Vista informe</button>
+          <button type="button" :class="segIdle" title="Muestra el informe como los informes previos" @click="vistaInforme">Vista informe</button>
           <button type="button" :class="segIdle" @click="expandirTodo">Expandir</button>
           <button type="button" :class="segIdle" @click="abiertas = {}">Contraer</button>
         </div>
+        </template>
 
         <span class="separador" aria-hidden="true"></span>
 
@@ -41,7 +75,7 @@
         <button type="button" :class="btnPdf" title="PDF con el formato del informe, tal como se ve en pantalla" @click="descargarInformePdf">Descargar PDF</button>
       </div>
 
-      <div v-if="modo === 'empresa'" class="enc-empresas">
+      <div v-if="modo === 'empresa' && !informeDueno" class="enc-empresas">
         <span class="enc-label">Empresas</span>
         <button
           v-for="e in props.empresasDisponibles"
@@ -80,7 +114,7 @@
       </article>
     </section>
 
-    <div class="informe-grid" :class="{ 'modo-empresa': modo === 'empresa' }">
+    <div class="informe-grid" :class="{ 'modo-empresa': modo === 'empresa' && !informeDueno }">
     <!-- Izquierda: mismo mes del año anterior -->
     <aside class="ui-card resumen resumen-izq">
       <header class="resumen-cab">
@@ -93,12 +127,83 @@
           <dd>{{ formatTarjeta(l.valor) }}</dd>
         </div>
       </dl>
-      <p v-else class="resumen-vacio">Sin datos en Softland ni informes del dueño para este período.</p>
+      <p v-else class="resumen-vacio">Sin datos en Softland ni en informes previos para este período.</p>
       <p v-if="resumenAnioAnterior.fuente" class="resumen-fuente">Fuente: {{ resumenAnioAnterior.fuente }}</p>
     </aside>
 
+    <!-- Hoja de un mes que Softland no tiene: transcrita del informe PDF del dueño -->
+    <div v-if="informeDueno" class="hoja">
+      <div class="aviso-dueno">
+        <p><span class="punto-dueno" aria-hidden="true"></span><strong>Informes previos.</strong> Softland no tiene movimientos de resultado de este mes; los montos se transcribieron del informe entregado y no se pueden abrir a cuentas ni documentos.</p>
+        <p v-for="a in informeDueno.avisos" :key="a" class="aviso-dueno-item">Revisar en el PDF: {{ a }}.</p>
+      </div>
+      <table class="caja">
+        <tbody>
+          <tr><td colspan="3" class="caja-fecha">FECHA CIERRE: {{ informeDueno.fechaCierre }}</td></tr>
+          <tr>
+            <td class="caja-label">Banco/CAJA "Sociedad EWV" <span class="tag tag-dueno">Informes previos</span></td>
+            <td class="pesos">$</td>
+            <td class="caja-monto">{{ formatCaja(informeDueno.banco) }}</td>
+          </tr>
+          <tr>
+            <td class="caja-label">*FI BTG Pactual Renta Comercial <span class="tag tag-dueno">Informes previos</span></td>
+            <td class="pesos">$</td>
+            <td class="caja-monto">{{ formatCaja(informeDueno.btg) }}</td>
+          </tr>
+          <tr class="caja-total">
+            <td></td>
+            <td class="pesos">$</td>
+            <td class="caja-monto">{{ formatCaja((informeDueno.banco || 0) + (informeDueno.btg || 0)) }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="titulo">ESTADO DE RESULTADOS PRELIMINAR</div>
+      <table class="participacion">
+        <tbody>
+          <tr>
+            <td class="part-vacio"></td>
+            <td class="part-label">Participación</td>
+            <td class="part-valor">{{ formatPct(informeDueno.participacion) }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="periodo">{{ tituloPeriodo }}</div>
+
+      <div class="tabla-wrap">
+        <table class="informe">
+          <tbody>
+            <tr
+              v-for="(f, i) in filasDueno"
+              :key="'d' + i"
+              :class="['r-' + f.estilo, f.seccion === 'gastos_comunes_servicios' ? 'gcs' : '', f.resaltada ? 'resaltada' : '']"
+            >
+              <td class="concepto" :style="{ paddingLeft: f.sangria }">{{ f.label }}</td>
+              <td class="pesos">{{ f.valor !== null ? '$' : '' }}</td>
+              <td class="monto">{{ formatDueno(f) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <table class="caja caja-pie">
+        <tbody>
+          <tr>
+            <td class="caja-label">Banco/CAJA "Sociedad EWV"</td>
+            <td class="pesos">$</td>
+            <td class="caja-monto">{{ formatCaja(informeDueno.banco) }}</td>
+          </tr>
+          <tr>
+            <td class="caja-label">*FI BTG Pactual Renta Comercial</td>
+            <td class="pesos">$</td>
+            <td class="caja-monto">{{ formatCaja(informeDueno.btg) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <!-- Hoja con el formato de los informes del dueño -->
-    <div class="hoja">
+    <div v-else class="hoja">
       <!-- Recuadro de cierre -->
       <table class="caja">
         <tbody>
@@ -200,7 +305,7 @@
     <aside class="ui-card resumen resumen-der">
       <header class="resumen-cab">
         <span class="resumen-titulo">Mes anterior</span>
-        <span class="resumen-periodo">{{ resumenMesAnterior.titulo || etiquetaPeriodo(resumenMesAnterior.periodo) }}</span>
+        <span class="resumen-periodo"><span v-if="resumenMesAnterior.dueno" class="punto-dueno" title="Informes previos"></span>{{ resumenMesAnterior.titulo || etiquetaPeriodo(resumenMesAnterior.periodo) }}</span>
       </header>
       <dl v-if="resumenMesAnterior.hayDatos" class="resumen-lista">
         <div v-for="l in resumenMesAnterior.lineas" :key="'der-' + l.key" class="resumen-fila" :class="l.clase">
@@ -208,25 +313,31 @@
           <dd>{{ formatTarjeta(l.valor) }}</dd>
         </div>
       </dl>
-      <p v-else class="resumen-vacio">Sin datos en Softland para este período.</p>
+      <p v-else class="resumen-vacio">Sin datos en Softland ni en informes previos para este período.</p>
+      <p v-if="resumenMesAnterior.dueno" class="resumen-fuente">Fuente: informes previos.</p>
     </aside>
     </div>
-    <p class="mt-3 px-1 text-[11px] text-slate-400">
-      Montos desde Softland. Los gastos y retiros se muestran en positivo, como en los informes del dueño.
-      Clic en una línea con ▸ para ver sus cuentas y documentos. Banco/Caja = saldo inicial del informe del dueño
+    <p v-if="informeDueno" class="mt-3 px-1 text-[11px] text-slate-400">
+      Mes transcrito de los informes previos porque Softland no tiene sus movimientos de resultado. Cuando Softland
+      tenga el mes, el informe pasará a calcularse desde Softland automáticamente.
+    </p>
+    <p v-else class="mt-3 px-1 text-[11px] text-slate-400">
+      Montos desde Softland. Los gastos y retiros se muestran en positivo, como en los informes previos.
+      Clic en una línea con ▸ para ver sus cuentas y documentos. Banco/Caja = saldo inicial de los informes previos
       (cierre de enero 2026, que Softland de WCORP no tiene) + flujos de caja mensuales calculados con Softland.
     </p>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted, nextTick } from "vue";
+import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
 import * as XLSX from "xlsx";
 import eerrDataRaw from "../assets/datos_vue.json";
 import detalleRaw from "../assets/detalle_movimientos.json";
 import mapeoCuentas from "../assets/config/mapeo_cuentas.json";
 import comparativoGerencial from "../assets/config/comparativo_gerencial.json";
 import appUi from "../assets/config/app_ui.json";
+import informesDuenoRaw from "../assets/informes_dueno.json";
 import { normAnio, mapearDatosAnioEerr, filtrarFilasPorRangoMes } from "../utils/kpiEerr.js";
 import { calcularMatrizResumenGerencial } from "../utils/eerrResumenGerencial.js";
 import { descargarInformeHojaPdf } from "../utils/informeHojaPdf.js";
@@ -236,8 +347,6 @@ const props = defineProps({
   empresasDisponibles: { type: Array, required: true },
 });
 
-const selCls =
-  "h-8 rounded-md border border-slate-300 bg-white px-2.5 text-xs font-medium text-slate-700 outline-none focus:border-indigo-500 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200";
 const segActive = "h-7 rounded-md px-3 text-xs font-semibold text-indigo-700 bg-white shadow-sm ring-1 ring-slate-200 dark:bg-slate-700 dark:text-white dark:ring-slate-600";
 const segIdle = "h-7 rounded-md px-3 text-xs font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white";
 const btnExcel =
@@ -337,27 +446,72 @@ const aniosDisponibles = computed(() => {
   return arr.length ? arr : [new Date().getFullYear()];
 });
 
-/** Períodos con movimientos de resultado en Softland, del más reciente al más antiguo. */
-const periodosDisponibles = computed(() => {
-  const set = new Set();
-  for (const emp of props.empresasDisponibles || []) {
+/** Períodos con movimientos de resultado (cuentas 4 y 5) y con ingresos en Softland.
+ * Solo cuentan las empresas que vienen del ETL (WW DINAMITY SA está cargada a mano). */
+const EMPRESAS_SOFTLAND = appUi.informeEerr?.empresasSoftland || ["WCORP1", "WCORP2"];
+const periodosSoftland = computed(() => {
+  const resultado = new Set();
+  const ingresos = new Set();
+  for (const emp of (props.empresasDisponibles || []).filter((e) => EMPRESAS_SOFTLAND.includes(e))) {
     for (const d of filasPorEmpresa(emp)) {
-      if (!/^[45]/.test(String(d.CodigoCuenta))) continue;
-      set.add(`${normAnio(d.Anio)}-${String(Number(d.Mes)).padStart(2, "0")}`);
+      const cta = String(d.CodigoCuenta);
+      if (!/^[45]/.test(cta)) continue;
+      const p = `${normAnio(d.Anio)}-${String(Number(d.Mes)).padStart(2, "0")}`;
+      resultado.add(p);
+      if (cta.startsWith("4")) ingresos.add(p);
     }
   }
-  return Array.from(set).sort().reverse();
+  return { resultado, ingresos };
 });
-// Abre en el último mes con ingresos (el mes en curso suele tener solo algunos gastos).
-const periodoInicial = computed(() => {
-  const conIngresos = new Set();
-  for (const emp of props.empresasDisponibles || []) {
-    for (const d of filasPorEmpresa(emp)) {
-      if (String(d.CodigoCuenta).startsWith("4")) conIngresos.add(`${normAnio(d.Anio)}-${String(Number(d.Mes)).padStart(2, "0")}`);
-    }
-  }
-  return periodosDisponibles.value.find((p) => conIngresos.has(p)) || periodosDisponibles.value[0] || "";
-});
+// Meses sin ingresos en Softland que se muestran desde los informes PDF del dueño
+// (src/assets/informes_dueno.json). Si Softland llega a tener el mes, manda Softland.
+const periodosDueno = computed(() =>
+  Object.keys(informesDuenoRaw?.periodos || {}).filter((p) => !periodosSoftland.value.ingresos.has(p))
+);
+const esPeriodoDueno = (p) => periodosDueno.value.includes(p);
+const datosDueno = (p) => (esPeriodoDueno(p) ? informesDuenoRaw.periodos[p] : null);
+const periodoDe = (anio, mes) => `${anio}-${String(mes).padStart(2, "0")}`;
+
+/** Períodos del selector, del más reciente al más antiguo. */
+const periodosDisponibles = computed(() =>
+  Array.from(new Set([...periodosSoftland.value.resultado, ...periodosDueno.value])).sort().reverse()
+);
+// Abre en el último mes con ingresos en Softland (el mes en curso suele tener solo algunos gastos).
+const periodoInicial = computed(
+  () => periodosDisponibles.value.find((p) => periodosSoftland.value.ingresos.has(p)) || periodosDisponibles.value[0] || ""
+);
+
+// Selector de período propio (un <select> no permite marcar meses con un punto de color).
+const selPeriodoAbierto = ref(false);
+const selPeriodoRef = ref(null);
+function elegirPeriodo(p) {
+  periodo.value = p;
+  selPeriodoAbierto.value = false;
+}
+function cerrarSelPeriodo(ev) {
+  if (selPeriodoAbierto.value && selPeriodoRef.value && !selPeriodoRef.value.contains(ev.target)) selPeriodoAbierto.value = false;
+}
+onMounted(() => document.addEventListener("click", cerrarSelPeriodo));
+onBeforeUnmount(() => document.removeEventListener("click", cerrarSelPeriodo));
+
+/** Informe del dueño del período elegido (null si el período sale de Softland). */
+const informeDueno = computed(() => datosDueno(periodo.value));
+const SANGRIA_DUENO = { "linea-ing": "34px", subgrupo: "34%" };
+const filasDueno = computed(() =>
+  (informeDueno.value?.filas || []).map((f) => {
+    const gasto = f.seccion === "gastos_comunes_servicios" || f.seccion === "gastos_adm_ventas";
+    let sangria = SANGRIA_DUENO[f.estilo] || "4px";
+    if (f.estilo === "linea" && gasto) sangria = f.seccion === "gastos_comunes_servicios" ? "36%" : "34%";
+    const resaltada = f.estilo === "prop" || f.estilo === "subgrupo" || (f.estilo === "linea" && f.seccion === "gastos_adm_ventas");
+    return { ...f, sangria, resaltada, depth: f.estilo === "linea" && f.seccion === "gastos_comunes_servicios" ? 2 : 1 };
+  })
+);
+function formatDueno(f) {
+  if (f.valor === null || f.valor === undefined) return "";
+  const n = Math.round(Number(f.valor) || 0);
+  if (n === 0) return "-";
+  return n < 0 ? `-${nf.format(-n)}` : nf.format(n);
+}
 const etiquetaPeriodo = (p) => (p ? `${mesNombre(Number(p.slice(5, 7)))} ${p.slice(0, 4)}` : "");
 
 const empresasActivas = computed(() => {
@@ -761,8 +915,25 @@ const tituloBanco = computed(() =>
 );
 
 // ── Cuadros resumen: mes anterior (derecha) y mismo mes del año anterior (izquierda) ──
-function resumenDe(anio, mes) {
+function resumenDe(anio, mes, conDueno = true) {
   const p = `${anio}-${String(mes).padStart(2, "0")}`;
+  const dueno = conDueno ? datosDueno(p) : null;
+  if (dueno) {
+    const t = dueno.totales;
+    return {
+      periodo: p,
+      hayDatos: true,
+      dueno: true,
+      lineas: [
+        { key: "io", label: "Ingresos operacionales", valor: t.ingOp, clase: "rs-sec" },
+        { key: "ino", label: "Ingresos no operacionales", valor: t.ingNoOp, clase: "rs-sec" },
+        { key: "gcs", label: "Gastos comunes y servicios", valor: t.gcs, clase: "rs-gasto" },
+        { key: "gav", label: "Gastos adm. y ventas", valor: t.gav, clase: "rs-gasto" },
+        { key: "res", label: "Resultado antes de impuestos", valor: t.res, clase: "rs-res" },
+        { key: "ret", label: "Retiros y/o mutuos", valor: t.ret, clase: "rs-sec" },
+      ],
+    };
+  }
   const calc = calcularMes(anio, mes);
   const suma = (k) => Object.values(calc.porEmpresa).reduce((s, x) => s + (Number(x[k]) || 0), 0);
   return {
@@ -785,7 +956,7 @@ const resumenMesAnterior = computed(() =>
 // dueño de ese año (app_ui.json), indicando la fuente y los meses sin informe.
 const resumenAnioAnterior = computed(() => {
   const anio = filtroAnio.value - 1;
-  const softland = resumenDe(anio, mesHasta.value);
+  const softland = resumenDe(anio, mesHasta.value, false);
   if (softland.hayDatos) return { ...softland, titulo: etiquetaPeriodo(softland.periodo), fuente: "Softland" };
   const inf = appUi.informeEerr?.resumenInformesDueno?.[String(anio)];
   if (!inf) return { ...softland, titulo: etiquetaPeriodo(softland.periodo), fuente: "" };
@@ -813,6 +984,13 @@ const resumenAnioAnterior = computed(() => {
 // Mismo cálculo que la hoja; gastos y retiros en positivo, como en el informe.
 // Comparan contra el mes anterior.
 function totalesMes(anio, mes) {
+  const dueno = datosDueno(periodoDe(anio, mes));
+  if (dueno) {
+    const t = dueno.totales;
+    const banco = Number(dueno.banco) || 0;
+    const btg = Number(dueno.btg) || 0;
+    return { ...t, banco, btg, total: banco + btg };
+  }
   const calc = calcularMes(anio, mes);
   const suma = (k) => Object.values(calc.porEmpresa).reduce((s, x) => s + (Number(x[k]) || 0), 0);
   const banco = Object.values(bancoAlCierre(anio, mes)).reduce((s, x) => s + (Number(x) || 0), 0);
@@ -1057,6 +1235,21 @@ const formatCLPContable = (v) => {
 };
 
 function descargarExcel() {
+  if (informeDueno.value) {
+    const d = informeDueno.value;
+    const filas = [
+      { Concepto: `FECHA CIERRE: ${d.fechaCierre}`, "Sociedad EWV": null },
+      { Concepto: 'Banco/CAJA "Sociedad EWV"', "Sociedad EWV": d.banco },
+      { Concepto: "*FI BTG Pactual Renta Comercial", "Sociedad EWV": d.btg },
+      { Concepto: tituloPeriodo.value, "Sociedad EWV": null },
+      ...filasDueno.value.map((f) => ({ Concepto: (f.estilo.startsWith("sec") ? "" : "  ") + f.label, "Sociedad EWV": f.valor })),
+      { Concepto: "Fuente: informes previos; Softland no tiene este mes.", "Sociedad EWV": null },
+    ];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(filas), "Informe EERR");
+    XLSX.writeFile(wb, `informe_eerr_${periodo.value}_informe_dueno.xlsx`);
+    return;
+  }
   const emps = empresasActivas.value;
   const filas = [];
   const walk = (node) => {
@@ -1074,6 +1267,27 @@ function descargarExcel() {
 }
 
 function descargarInformePdf() {
+  if (informeDueno.value) {
+    const d = informeDueno.value;
+    descargarInformeHojaPdf({
+      meta: {
+        fechaCierre: `FECHA CIERRE: ${d.fechaCierre}`,
+        titulo: tituloPeriodo.value,
+        nota: "Fuente: informes previos",
+        participacion: formatPct(d.participacion),
+        banco: formatCaja(d.banco),
+        btg: formatCaja(d.btg),
+        total: formatCaja((d.banco || 0) + (d.btg || 0)),
+      },
+      columnas: ["Sociedad EWV"],
+      filas: filasDueno.value.map((f) => ({
+        label: f.label, estilo: f.estilo, seccion: f.seccion, depth: f.depth, drill: 0,
+        valores: [{ pesos: f.valor !== null, texto: formatDueno(f) }],
+      })),
+      fileName: `informe_eerr_${periodo.value}_informe_dueno.pdf`,
+    });
+    return;
+  }
   descargarInformeHojaPdf({
     meta: {
       fechaCierre: `FECHA CIERRE: ${mesNombre(mesHasta.value)} ${filtroAnio.value}`,
@@ -1117,6 +1331,31 @@ html.dark .separador { background: #334155; }
 .enc-empresas { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding-top: 8px; border-top: 1px solid #f1f5f9; }
 html.dark .enc-empresas { border-top-color: #1e293b; }
 .enc-label { font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #94a3b8; }
+
+/* Selector de período: los meses del informe del dueño llevan un punto rojo */
+.sel-periodo { position: relative; }
+.sel-periodo-btn { display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 10px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; font-size: 12px; font-weight: 500; color: #334155; white-space: nowrap; }
+.sel-periodo-btn:focus-visible { outline: 2px solid #6366f1; outline-offset: 1px; }
+.sel-periodo-flecha { color: #94a3b8; font-size: 10px; margin-left: 2px; }
+.sel-periodo-lista { position: absolute; z-index: 40; top: calc(100% + 4px); left: 0; min-width: 100%; max-height: 340px; overflow-y: auto; overflow-x: hidden; margin: 0; padding: 4px; list-style: none; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12); }
+.sel-periodo-lista li { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 6px; font-size: 12px; color: #334155; white-space: nowrap; cursor: pointer; }
+.sel-periodo-lista li:hover, .sel-periodo-lista li:focus-visible { background: #f1f5f9; outline: none; }
+.sel-periodo-lista li.activo { background: #eef2ff; color: #3730a3; font-weight: 600; }
+.sel-periodo-lista .sel-periodo-leyenda { cursor: default; margin-top: 4px; padding-top: 8px; border-top: 1px solid #e2e8f0; border-radius: 0; font-size: 10.5px; color: #64748b; white-space: normal; min-width: 220px; }
+.sel-periodo-lista .sel-periodo-leyenda:hover { background: none; }
+html.dark .sel-periodo-btn { background: #1e293b; border-color: #475569; color: #e2e8f0; }
+html.dark .sel-periodo-lista { background: #0f172a; border-color: #334155; }
+html.dark .sel-periodo-lista li { color: #cbd5e1; }
+html.dark .sel-periodo-lista li:hover { background: #1e293b; }
+html.dark .sel-periodo-lista li.activo { background: rgba(99, 102, 241, 0.18); color: #c7d2fe; }
+.punto-dueno { display: inline-block; width: 8px; height: 8px; border-radius: 999px; background: #dc2626; flex-shrink: 0; margin-right: 5px; vertical-align: 1px; }
+.sel-periodo-lista .punto-dueno, .sel-periodo-btn .punto-dueno { margin-right: 0; }
+.punto-dueno.invisible { visibility: hidden; }
+.chip-dueno { color: #b91c1c; background: #fee2e2; font-weight: 600; display: inline-flex; align-items: center; }
+html.dark .chip-dueno { color: #fca5a5; background: #450a0a; }
+.aviso-dueno { margin-bottom: 16px; padding: 10px 12px; border: 1px solid #fecaca; border-radius: 8px; background: #fef2f2; color: #7f1d1d; font-family: system-ui, sans-serif; font-size: 12px; line-height: 1.5; }
+.aviso-dueno-item { margin-top: 4px; font-weight: 600; }
+html.dark .aviso-dueno { background: #2a0a0a; border-color: #7f1d1d; color: #fecaca; }
 
 /* ── Sistema visual del módulo: un solo componente de tarjeta para todo lo que no es
    la hoja del informe (la hoja mantiene el formato de documento del dueño). ── */
@@ -1200,6 +1439,8 @@ html.dark .informe-modulo {
 .informe-grid.modo-empresa .resumen-izq { order: 2; position: static; }
 .informe-grid.modo-empresa .resumen-der { order: 3; position: static; }
 .tag-manual { background: #fef3c7; color: #92400e; }
+.tag-dueno { background: #fee2e2; color: #b91c1c; }
+html.dark .tag-dueno { background: #450a0a; color: #fca5a5; }
 html.dark .tag-manual { background: #451a03; color: #fcd34d; }
 
 /* Hoja con el formato de los informes del dueño (Excel → PDF, carta). */
