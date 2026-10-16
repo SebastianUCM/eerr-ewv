@@ -145,15 +145,19 @@
             <td class="pesos">$</td>
             <td class="caja-monto">{{ formatCaja(informeDueno.banco) }}</td>
           </tr>
-          <tr>
-            <td class="caja-label">*FI BTG Pactual Renta Comercial <span class="tag tag-dueno">Informes previos</span></td>
+          <tr v-for="inv in inversionesDueno" :key="'d-' + inv.key">
+            <td class="caja-label">
+              {{ inv.label }}
+              <span v-if="inv.fuente === 'softland'" class="tag tag-softland" :title="`Saldo de la cuenta ${inv.cuenta} en Softland al cierre del período`">Softland</span>
+              <span v-else class="tag tag-dueno">Informes previos</span>
+            </td>
             <td class="pesos">$</td>
-            <td class="caja-monto">{{ formatCaja(informeDueno.btg) }}</td>
+            <td class="caja-monto">{{ formatCaja(inv.monto) }}</td>
           </tr>
           <tr class="caja-total">
             <td></td>
             <td class="pesos">$</td>
-            <td class="caja-monto">{{ formatCaja((informeDueno.banco || 0) + (informeDueno.btg || 0)) }}</td>
+            <td class="caja-monto">{{ formatCaja(totalDueno) }}</td>
           </tr>
         </tbody>
       </table>
@@ -193,10 +197,10 @@
             <td class="pesos">$</td>
             <td class="caja-monto">{{ formatCaja(informeDueno.banco) }}</td>
           </tr>
-          <tr>
-            <td class="caja-label">*FI BTG Pactual Renta Comercial</td>
+          <tr v-for="inv in inversionesDueno" :key="'dp-' + inv.key">
+            <td class="caja-label">{{ inv.label }}</td>
             <td class="pesos">$</td>
-            <td class="caja-monto">{{ formatCaja(informeDueno.btg) }}</td>
+            <td class="caja-monto">{{ formatCaja(inv.monto) }}</td>
           </tr>
         </tbody>
       </table>
@@ -217,18 +221,18 @@
             <td class="pesos">$</td>
             <td class="caja-monto">{{ formatCaja(cajaBanco) }}</td>
           </tr>
-          <tr>
+          <tr v-for="inv in cajaInversiones" :key="inv.key">
             <td class="caja-label">
-              *FI BTG Pactual Renta Comercial
-              <span class="tag tag-softland" title="Saldo de la cuenta 1-1-20-04-004 en Softland al cierre del período (valor de mercado)">Softland</span>
+              {{ inv.label }}
+              <span class="tag tag-softland" :title="`Saldo de la cuenta ${inv.cuenta} en Softland al cierre del período`">Softland</span>
             </td>
             <td class="pesos">$</td>
-            <td class="caja-monto">{{ formatCaja(cajaBtg) }}</td>
+            <td class="caja-monto">{{ formatCaja(inv.monto) }}</td>
           </tr>
           <tr class="caja-total">
             <td></td>
             <td class="pesos">$</td>
-            <td class="caja-monto">{{ formatCaja(cajaBanco + cajaBtg) }}</td>
+            <td class="caja-monto">{{ formatCaja(cajaTotal) }}</td>
           </tr>
         </tbody>
       </table>
@@ -292,10 +296,10 @@
             <td class="pesos">$</td>
             <td class="caja-monto">{{ formatCaja(cajaBanco) }}</td>
           </tr>
-          <tr>
-            <td class="caja-label">*FI BTG Pactual Renta Comercial</td>
+          <tr v-for="inv in cajaInversiones" :key="'pie-' + inv.key">
+            <td class="caja-label">{{ inv.label }}</td>
             <td class="pesos">$</td>
-            <td class="caja-monto">{{ formatCaja(cajaBtg) }}</td>
+            <td class="caja-monto">{{ formatCaja(inv.monto) }}</td>
           </tr>
         </tbody>
       </table>
@@ -395,8 +399,15 @@ const cajaBanco = computed(() => {
   const hijo = (k) => Number(retiros?.children?.find((ch) => ch.key === k)?.acumulado) || 0;
   return hijo("flujo_caja") + hijo("flujo_caja_acumulado");
 });
-// BTG siempre desde Softland (regla principal): saldo de la cuenta al cierre del período.
-const cajaBtg = computed(() => cajaEnLibros("fi_btg_pactual"));
+// Inversiones: saldo de cada cuenta en Softland al cierre del período (filas "corte" de
+// comparativo_gerencial.json). Van en el recuadro de cierre y suman a la posición total.
+const INVERSIONES = [
+  { key: "fi_btg_pactual", corto: "btg", label: "*FI BTG Pactual Renta Comercial", titulo: "FI BTG Pactual Renta Comercial", cuenta: "1-1-20-04-004" },
+  { key: "acciones_cfinrentas", corto: "cfin", label: "Acciones CFINRENTAS Banco Santander", titulo: "Acciones CFINRENTAS Banco Santander", cuenta: "1-1-20-01-003" },
+  { key: "fm_bci_pesos", corto: "bci", label: "Fondos Mutuos BCI Pesos", titulo: "Fondos Mutuos BCI Pesos", cuenta: "1-1-20-01-006" },
+];
+const cajaInversiones = computed(() => INVERSIONES.map((inv) => ({ ...inv, monto: cajaEnLibros(inv.key) })));
+const cajaTotal = computed(() => cajaBanco.value + cajaInversiones.value.reduce((s, x) => s + x.monto, 0));
 const participacion = computed(() => {
   const o = ov("participacion");
   if (o != null) return o;
@@ -496,6 +507,17 @@ onBeforeUnmount(() => document.removeEventListener("click", cerrarSelPeriodo));
 
 /** Informe del dueño del período elegido (null si el período sale de Softland). */
 const informeDueno = computed(() => datosDueno(periodo.value));
+const inversionesDueno = computed(() => {
+  const d = informeDueno.value;
+  if (!d) return [];
+  const t = totalesMes(filtroAnio.value, mesHasta.value);
+  return INVERSIONES.map((inv) =>
+    inv.corto === "btg"
+      ? { ...inv, monto: Number(d.btg) || 0, fuente: "previos" }
+      : { ...inv, monto: t[inv.corto], fuente: "softland" }
+  ).filter((inv) => inv.fuente === "previos" || Math.round(inv.monto) !== 0);
+});
+const totalDueno = computed(() => (Number(informeDueno.value?.banco) || 0) + inversionesDueno.value.reduce((s, x) => s + x.monto, 0));
 const SANGRIA_DUENO = { "linea-ing": "34px", subgrupo: "34%" };
 const filasDueno = computed(() =>
   (informeDueno.value?.filas || []).map((f) => {
@@ -741,7 +763,7 @@ const TONO_POR_SECCION = {
   resultado_antes_impuestos: "resultado",
   retiros_mutuos: "neutro",
 };
-const SECCIONES_CAJA = new Set(["banco_caja_ewv", "fi_btg_pactual"]);
+const SECCIONES_CAJA = new Set(["banco_caja_ewv", ...INVERSIONES.map((inv) => inv.key)]);
 
 function nodoDesdeGerencial(fila, depth) {
   const children = [];
@@ -866,7 +888,7 @@ function calcularMes(anio, mes) {
     const utilidad = res > 0 ? res * (1 - tasaImpuesto.value) : res;
     const retiros = v("retiros_mutuos");
     porEmpresa[e] = {
-      btg: -v("fi_btg_pactual"),
+      ...Object.fromEntries(INVERSIONES.map((inv) => [inv.corto, -v(inv.key)])),
       ingOp, ingNoOp: v("ingresos_no_operacionales"), gcs: v("gastos_comunes_servicios"), gav: v("gastos_adm_ventas"),
       res, utilidad, retiros, flujo: utilidad + retiros,
     };
@@ -985,22 +1007,25 @@ const resumenAnioAnterior = computed(() => {
 // Comparan contra el mes anterior.
 function totalesMes(anio, mes) {
   const dueno = datosDueno(periodoDe(anio, mes));
-  if (dueno) {
-    const t = dueno.totales;
-    const banco = Number(dueno.banco) || 0;
-    const btg = Number(dueno.btg) || 0;
-    return { ...t, banco, btg, total: banco + btg };
-  }
   const calc = calcularMes(anio, mes);
   const suma = (k) => Object.values(calc.porEmpresa).reduce((s, x) => s + (Number(x[k]) || 0), 0);
+  // Saldos de inversiones al cierre (Softland); en meses de informes previos, BTG viene del informe.
+  const inv = Object.fromEntries(INVERSIONES.map((i) => [i.corto, suma(i.corto)]));
+  const conTotales = (base, banco) => {
+    const totalInv = INVERSIONES.reduce((s, i) => s + (Number(inv[i.corto]) || 0), 0);
+    return { ...base, ...inv, banco, inv: totalInv, total: banco + totalInv };
+  };
+  if (dueno) {
+    inv.btg = Number(dueno.btg) || 0;
+    return conTotales(dueno.totales, Number(dueno.banco) || 0);
+  }
   const banco = Object.values(bancoAlCierre(anio, mes)).reduce((s, x) => s + (Number(x) || 0), 0);
-  const btg = suma("btg");
   const flujo = suma("flujo");
-  return {
+  return conTotales({
     ingOp: suma("ingOp"), ingNoOp: suma("ingNoOp"), gcs: -suma("gcs"), gav: -suma("gav"),
     res: suma("res"), impuesto: suma("res") - suma("utilidad"), utilidad: suma("utilidad"),
-    ret: -suma("retiros"), flujo, flujoAcum: banco - flujo, banco, btg, total: banco + btg,
-  };
+    ret: -suma("retiros"), flujo, flujoAcum: banco - flujo,
+  }, banco);
 }
 const tarjetas = computed(() => {
   const anio = filtroAnio.value;
@@ -1027,9 +1052,17 @@ const tarjetas = computed(() => {
       ancha: true,
       detalle: [det("flujo", "Flujo de caja"), det("flujoAcum", "Flujo de caja acumulado")],
     }),
-    t("total", "Posición total", "resultado", "Banco/Caja + FI BTG Pactual", true, {
+    t("total", "Posición total", "resultado", "Banco/Caja + inversiones", true, {
       ancha: true, destacada: true,
-      detalle: [det("banco", 'Banco/CAJA "Sociedad EWV"'), det("btg", "FI BTG Pactual Renta Comercial")],
+      detalle: [det("banco", 'Banco/CAJA "Sociedad EWV"'), det("inv", "Inversiones")],
+    }),
+    // Fila 3: inversiones (saldos de Softland al cierre)
+    ...INVERSIONES.filter((i) => i.corto !== "btg").map((i) =>
+      t(i.corto, i.titulo, "inversion", `Cuenta ${i.cuenta} al cierre (Softland)`, true, { ancha: true })
+    ),
+    t("inv", "Total inversiones", "inversion", "FI BTG Pactual + Acciones CFINRENTAS + Fondos Mutuos BCI", true, {
+      ancha: true,
+      detalle: INVERSIONES.map((i) => det(i.corto, i.titulo)),
     }),
   ];
 });
@@ -1240,7 +1273,7 @@ function descargarExcel() {
     const filas = [
       { Concepto: `FECHA CIERRE: ${d.fechaCierre}`, "Sociedad EWV": null },
       { Concepto: 'Banco/CAJA "Sociedad EWV"', "Sociedad EWV": d.banco },
-      { Concepto: "*FI BTG Pactual Renta Comercial", "Sociedad EWV": d.btg },
+      ...inversionesDueno.value.map((inv) => ({ Concepto: inv.label, "Sociedad EWV": inv.monto })),
       { Concepto: tituloPeriodo.value, "Sociedad EWV": null },
       ...filasDueno.value.map((f) => ({ Concepto: (f.estilo.startsWith("sec") ? "" : "  ") + f.label, "Sociedad EWV": f.valor })),
       { Concepto: "Fuente: informes previos; Softland no tiene este mes.", "Sociedad EWV": null },
@@ -1276,8 +1309,8 @@ function descargarInformePdf() {
         nota: "Fuente: informes previos",
         participacion: formatPct(d.participacion),
         banco: formatCaja(d.banco),
-        btg: formatCaja(d.btg),
-        total: formatCaja((d.banco || 0) + (d.btg || 0)),
+        inversiones: inversionesDueno.value.map((inv) => ({ label: inv.label, monto: formatCaja(inv.monto) })),
+        total: formatCaja(totalDueno.value),
       },
       columnas: ["Sociedad EWV"],
       filas: filasDueno.value.map((f) => ({
@@ -1295,8 +1328,8 @@ function descargarInformePdf() {
       nota: tipoEerr.value === "contable" ? "EERR contable" : "",
       participacion: formatPct(participacion.value),
       banco: formatCaja(cajaBanco.value),
-      btg: formatCaja(cajaBtg.value),
-      total: formatCaja(cajaBanco.value + cajaBtg.value),
+      inversiones: cajaInversiones.value.map((inv) => ({ label: inv.label, monto: formatCaja(inv.monto) })),
+      total: formatCaja(cajaTotal.value),
     },
     columnas: columnas.value.map((c) => c.label),
     filas: filasVisibles.value.map((f) => ({
@@ -1396,6 +1429,7 @@ html.dark .informe-modulo {
 .punto-resultado { background: var(--ui-acento); }
 .punto-retiro { background: #a855f7; }
 .punto-caja { background: #0ea5e9; }
+.punto-inversion { background: #f59e0b; }
 .var-buena { color: var(--ui-bueno); }
 .var-mala { color: var(--ui-malo); }
 .var-neutra { color: var(--ui-tenue); }

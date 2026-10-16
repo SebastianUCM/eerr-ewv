@@ -1,6 +1,6 @@
 // PDF del Informe EERR con el formato de los informes del dueño: recuadro de cierre,
 // título, participación, mes, las filas tal como se ven en pantalla (mismos niveles
-// abiertos) y Banco/Caja y BTG al final; sin pie de página ni agregados. Recibe los
+// abiertos) y Banco/Caja e inversiones al final; sin pie de página ni agregados. Recibe los
 // textos ya formateados, así el PDF no puede decir otra cosa.
 import { jsPDF } from "jspdf";
 
@@ -13,7 +13,7 @@ const AZUL_CLARO = [74, 127, 193];
 /**
  * @param {{
  *   meta: { fechaCierre: string, titulo: string, nota?: string, participacion: string,
- *           banco: string, btg: string, total: string },
+ *           banco: string, inversiones: { label: string, monto: string }[], total: string },
  *   columnas: string[],
  *   filas: { label: string, estilo: string, seccion: string, depth: number, drill: number,
  *            valores: { pesos: boolean, texto: string }[] }[],
@@ -56,7 +56,7 @@ export function descargarInformeHojaPdf(p) {
   doc.text(p.meta.fechaCierre, mL + 2, y + 5.2);
   y += 7; setD(TINTA); doc.setLineWidth(0.2); doc.line(mL, y, W - mR, y);
   cajaFila('Banco/CAJA "Sociedad EWV"', true, p.meta.banco);
-  cajaFila("*FI BTG Pactual Renta Comercial", true, p.meta.btg);
+  (p.meta.inversiones || []).forEach((inv) => cajaFila(inv.label, true, inv.monto));
   cajaFila("", true, p.meta.total, { italic: true, color: AZUL_CLARO, size: 10 });
   doc.setLineWidth(0.6); setD(TINTA); doc.rect(mL, yCaja, ancho, y - yCaja);
   y += 6;
@@ -138,11 +138,11 @@ export function descargarInformeHojaPdf(p) {
   }
 
   // ── Pie: caja otra vez
-  y += 6; asegurar(16);
+  y += 6; asegurar(7 * (1 + (p.meta.inversiones || []).length) + 3);
   doc.setLineWidth(0.25); setD(TINTA);
   doc.line(mL, y, W - mR, y);
   cajaFila('Banco/CAJA "Sociedad EWV"', true, p.meta.banco);
-  cajaFila("*FI BTG Pactual Renta Comercial", true, p.meta.btg);
+  (p.meta.inversiones || []).forEach((inv) => cajaFila(inv.label, true, inv.monto));
 
   doc.save(p.fileName);
 }

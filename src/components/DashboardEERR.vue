@@ -1468,7 +1468,7 @@ const avisoMeses = computed(() => {
 // explicar mes a mes la diferencia: el Informe no incluye ingresos ni gastos
 // financieros, y lo que su configuración no asigna a ninguna fila queda como
 // "diferencias de configuración". Siempre todos los centros: el Informe no filtra.
-const SECCIONES_FUERA_RESULTADO = new Set(["resultado_antes_impuestos", "retiros_mutuos", "banco_caja_ewv", "fi_btg_pactual"]);
+const SECCIONES_FUERA_RESULTADO = new Set(["resultado_antes_impuestos", "retiros_mutuos", "banco_caja_ewv", "fi_btg_pactual", "acciones_cfinrentas", "fm_bci_pesos"]);
 
 const conciliacionInforme = computed(() => {
   const emps = empresasSel.value;

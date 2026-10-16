@@ -15,7 +15,13 @@
       "tipo": "rango_mapeado_subitems",
       "modo_valor": "rango",
       "expandible": true,
-      "subitems": ["consumos","servicios_activos", "gastos_comunes", "mantencion", "seguridad"],
+      "subitems": [
+        "consumos",
+        "servicios_activos",
+        "gastos_comunes",
+        "mantencion",
+        "seguridad"
+      ],
       "subfilas": [
         {
           "key": "consumos",
@@ -46,7 +52,6 @@
                   "nombre_centro": "PROYECTO CHACABUCO 781",
                   "nota": "opcional"
                 }
-
               ]
             },
             {
@@ -79,7 +84,6 @@
                   "nombre_centro": "PROYECTO CHACABUCO 781",
                   "nota": "opcional"
                 }
-
               ]
             },
             {
@@ -100,7 +104,11 @@
               "key": "servicio_informatico",
               "label": "SERVICIO INFORMATICO DE SISTEMAS",
               "tipo": "rango_mapeado_filtrado",
-              "patrones_nombre": ["SERVICIOS INFORMATICOS", "INFORMATICO DE SISTEMAS", "INFORMATICA"]
+              "patrones_nombre": [
+                "SERVICIOS INFORMATICOS",
+                "INFORMATICO DE SISTEMAS",
+                "INFORMATICA"
+              ]
             },
             {
               "key": "consumo_telefonia",
@@ -133,12 +141,6 @@
                   "centro": "001",
                   "nombre_centro": "VICENTE VALDES",
                   "nota": ""
-                },
-                {
-                  "cuenta": "5-1-01-07-002",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": ""
                 }
               ]
             }
@@ -167,7 +169,10 @@
               "key": "servicio_control_plagas",
               "label": "SERVICIO CONTROL PLAGAS",
               "tipo": "rango_mapeado_filtrado",
-              "patrones_nombre": ["CONTROL DE PLAGAS", "CONTROL PLAGAS"]
+              "patrones_nombre": [
+                "CONTROL DE PLAGAS",
+                "CONTROL PLAGAS"
+              ]
             },
             {
               "key": "servicio_higiene",
@@ -221,6 +226,72 @@
                   "centro": "001",
                   "nombre_centro": "VICENTE VALDES",
                   "nota": "honorarios de comercialización"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "003",
+                  "nombre_centro": "TALAGANTE",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "010",
+                  "nombre_centro": "RENCA",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "029",
+                  "nombre_centro": "ALVI TALCA",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "039",
+                  "nombre_centro": "PROYECTO GIMNASIO LINARES",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "050",
+                  "nombre_centro": "PROYECTO MULCHEN",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "080",
+                  "nombre_centro": "PROYECTO CHACABUCO LINARES",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "111",
+                  "nombre_centro": "DIEGO PORTALES 403",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "112",
+                  "nombre_centro": "MALBEC 115",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "113",
+                  "nombre_centro": "MALBEC 203",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "114",
+                  "nombre_centro": "MALBEC 607",
+                  "nota": "preventiva (planilla 16-10-2026)"
+                },
+                {
+                  "cuenta": "5-2-01-02-010",
+                  "centro": "116",
+                  "nombre_centro": "",
+                  "nota": "preventiva (planilla 16-10-2026)"
                 }
               ]
             }
@@ -235,8 +306,13 @@
               "key": "mantencion",
               "label": "MANTENCION",
               "tipo": "rango_mapeado_filtrado",
-              "subitems": ["mantencion"],
-              "patrones_nombre": ["MANTENCION", "GASTOS DE MANTENCION"],
+              "subitems": [
+                "mantencion"
+              ],
+              "patrones_nombre": [
+                "MANTENCION",
+                "GASTOS DE MANTENCION"
+              ],
               "excluir_patrones_nombre": [
                 "ALCANTARILLADOS",
                 "CCTV",
@@ -249,15 +325,24 @@
               "key": "mantencion_alcantarillados",
               "label": "MANTENCION ALCANTARILLADOS",
               "tipo": "rango_mapeado_filtrado",
-              "subitems": ["mantencion"],
-              "patrones_nombre": ["MANTENCION ALCANTARILLADOS", "ALCANTARILLADOS"]
+              "subitems": [
+                "mantencion"
+              ],
+              "patrones_nombre": [
+                "MANTENCION ALCANTARILLADOS",
+                "ALCANTARILLADOS"
+              ]
             },
             {
               "key": "mantencion_cctv",
               "label": "MANTENCION CCTV",
               "tipo": "rango_mapeado_filtrado",
-              "subitems": ["mantencion"],
-              "patrones_nombre": ["MANTENCION CCTV"]
+              "subitems": [
+                "mantencion"
+              ],
+              "patrones_nombre": [
+                "MANTENCION CCTV"
+              ]
             },
             {
               "key": "mantencion_general",
@@ -277,15 +362,24 @@
               "key": "mantencion_clima",
               "label": "MANTENCION CLIMA",
               "tipo": "rango_mapeado_filtrado",
-              "subitems": ["mantencion"],
-              "patrones_nombre": ["MANTENCION CLIMA"]
+              "subitems": [
+                "mantencion"
+              ],
+              "patrones_nombre": [
+                "MANTENCION CLIMA"
+              ]
             },
             {
               "key": "mantencion_electrica_correctiva",
               "label": "MANTENCION ELECTRICA CORRECTIVA",
               "tipo": "rango_mapeado_filtrado",
-              "subitems": ["mantencion"],
-              "patrones_nombre": ["MANTENCION ELECTRICA CORRECTIVA", "ELECTRICA CORRECTIVA"]
+              "subitems": [
+                "mantencion"
+              ],
+              "patrones_nombre": [
+                "MANTENCION ELECTRICA CORRECTIVA",
+                "ELECTRICA CORRECTIVA"
+              ]
             }
           ]
         },
@@ -293,7 +387,9 @@
           "key": "servicio_habilitacion",
           "label": "SERVICIO HABILITACION",
           "tipo": "rango_cuentas",
-          "patrones_nombre": ["HABILITACION"],
+          "patrones_nombre": [
+            "HABILITACION"
+          ],
           "expandible": true,
           "total_independiente": true,
           "subfilas": [
@@ -301,7 +397,10 @@
               "key": "habilitaciones",
               "label": "HABILITACIONES",
               "tipo": "rango_cuentas",
-              "patrones_nombre": ["HABILITACIONES", "HABILITACIONES GENERALES"]
+              "patrones_nombre": [
+                "HABILITACIONES",
+                "HABILITACIONES GENERALES"
+              ]
             }
           ]
         },
@@ -309,7 +408,9 @@
           "key": "servicio_seguridad",
           "label": "SERVICIO SEGURIDAD",
           "tipo": "rango_mapeado_subitems",
-          "subitems": ["seguridad"],
+          "subitems": [
+            "seguridad"
+          ],
           "expandible": true,
           "total_independiente": true,
           "subfilas": [
@@ -317,8 +418,14 @@
               "key": "servicio_guardias",
               "label": "SERVICIO GUARDIAS",
               "tipo": "rango_mapeado_filtrado",
-              "subitems": ["seguridad"],
-              "patrones_nombre": ["SERVICIO GUARDIAS", "SERVICIOS DE GUARDIAS", "GUARDIAS"]
+              "subitems": [
+                "seguridad"
+              ],
+              "patrones_nombre": [
+                "SERVICIO GUARDIAS",
+                "SERVICIOS DE GUARDIAS",
+                "GUARDIAS"
+              ]
             }
           ]
         }
@@ -366,246 +473,262 @@
           "label": "CUENTAS SERVICIOS",
           "tipo": "cuenta_centro",
           "modo_valor": "rango",
-          "asignaciones": [{}]
-         },
+          "asignaciones": [
+            {}
+          ]
+        },
         {
           "key": "patentes_comerciales",
           "label": "PATENTES COMERCIALES",
           "tipo": "rango_mapeado_subitems",
-          "subitems": ["patentes"]
+          "subitems": [
+            "patentes"
+          ]
         },
         {
           "key": "contribuciones",
           "label": "CONTRIBUCIONES",
           "tipo": "rango_mapeado_filtrado",
-          "subitems": ["impuestos_y_contribuciones"],
-          "excluir_patrones_nombre": ["IMPUESTO A LA RENTA", "SOBRETASA"]
+          "subitems": [
+            "impuestos_y_contribuciones"
+          ],
+          "excluir_patrones_nombre": [
+            "IMPUESTO A LA RENTA",
+            "SOBRETASA"
+          ]
         },
         {
           "key": "sobretasa",
           "label": "SOBRETASA",
           "tipo": "rango_cuentas",
-          "patrones_nombre": ["SOBRETASA"]
+          "patrones_nombre": [
+            "SOBRETASA"
+          ]
         },
         {
           "key": "gastos_administracion",
           "label": "GASTOS ADMINISTRACION",
           "tipo": "cuenta_centro",
-              "modo_valor": "rango",
-              "asignaciones": [
-                {
-                  "cuenta": "5-1-01-07-005",
-                  "centro": "001",
-                  "nombre_centro": "VICENTE VALDES",
-                  "nota": ""
-                },
-                {
-                  "cuenta": "5-1-01-07-005",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": ""
-                },
-                {
-                  "cuenta": "5-2-01-02-003",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": ""
-                },
-                {
-                  "cuenta": "5-2-01-01-008",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": ""
-                },          
-                {
-                  "cuenta": "5-2-01-02-004",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": ""
-                },
-                {
-                  "cuenta": "5-1-01-07-002",
-                  "centro": "100",
-                  "nombre_centro": "LOS MAITENES",
-                  "nota": "INTERNET"
-                },      
-                {
-                  "cuenta": "5-1-01-07-001",
-                  "centro": "100",
-                  "nombre_centro": "LOS MAITENES",
-                  "nota": "TELEFONO"
-                },
-                {
-                  "cuenta": "5-2-01-02-001",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": ""
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "003",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "010",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "029",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "039",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "050",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "080",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "112",
-                  "nombre_centro": "MALBEC 115",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "113",
-                  "nombre_centro": "MALBEC 203",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "114",
-                  "nombre_centro": "MALBEC 607",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "001",
-                  "nombre_centro": "VICENTE VALDES",
-                  "nota": "GASTOS DE REPRESENTACION"
-                },
-                {
-                  "cuenta": "5-1-01-06-003",
-                  "centro": "100",
-                  "nombre_centro": "LOS MAITENES",
-                  "nota": "GASTO COMUN PROPIO"
-                },
-                {
-                  "cuenta": "5-1-01-06-003",
-                  "centro": "111",
-                  "nombre_centro": "DIEGO PORTALES 403",
-                  "nota": "GASTO COMUN PROPIO"
-                },
-                {
-                  "cuenta": "5-1-01-06-003",
-                  "centro": "112",
-                  "nombre_centro": "MALBEC 115",
-                  "nota": "GASTO COMUN PROPIO"
-                },
-                {
-                  "cuenta": "5-1-01-06-003",
-                  "centro": "113",
-                  "nombre_centro": "MALBEC 203",
-                  "nota": "GASTO COMUN PROPIO"
-                },
-                {
-                  "cuenta": "5-1-01-06-003",
-                  "centro": "114",
-                  "nombre_centro": "MALBEC 607",
-                  "nota": "GASTO COMUN PROPIO"
-                },
-                {
-                  "cuenta": "5-1-01-06-003",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "GASTO COMUN PROPIO"
-                },
-                {
-                  "cuenta": "5-2-01-03-006",
-                  "centro": "001",
-                  "nombre_centro": "VICENTE VALDES",
-                  "nota": ""
-                },
-                {
-                  "cuenta": "5-2-01-03-006",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": ""
-                },
-                {
-                  "cuenta": "5-2-01-02-002",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "honorarios servicios legales"
-                },
-                {
-                  "cuenta": "5-2-01-02-002",
-                  "centro": "001",
-                  "nombre_centro": "VICENTE VALDES",
-                  "nota": "honorarios servicios legales"
-                },
-                {
-                  "cuenta": "5-2-01-02-002",
-                  "centro": "010",
-                  "nombre_centro": "RENCA",
-                  "nota": "honorarios servicios legales"
-                },
-                {
-                  "cuenta": "5-2-01-06-001",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "arriendos (bodegas)"
-                },
-                {
-                  "cuenta": "5-2-01-03-002",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "gastos notariales"
-                },
-                {
-                  "cuenta": "5-1-01-05-006",
-                  "centro": "300",
-                  "nombre_centro": "Administracion EWV",
-                  "nota": "combustible"
-                },
-                {
-                  "cuenta": "5-2-01-03-006",
-                  "centro": "301",
-                  "nombre_centro": "OFICINA INV CORP 1",
-                  "nota": "gastos generales"
-                },
-                {
-                  "cuenta": "5-2-01-05-001",
-                  "centro": "301",
-                  "nombre_centro": "OFICINA INV CORP 1",
-                  "nota": "gastos de representación"
-                }
-          
-            ]
-          },
+          "modo_valor": "rango",
+          "asignaciones": [
+            {
+              "cuenta": "5-1-01-07-005",
+              "centro": "001",
+              "nombre_centro": "VICENTE VALDES",
+              "nota": ""
+            },
+            {
+              "cuenta": "5-1-01-07-005",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": ""
+            },
+            {
+              "cuenta": "5-2-01-02-003",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": ""
+            },
+            {
+              "cuenta": "5-2-01-01-008",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": ""
+            },
+            {
+              "cuenta": "5-2-01-02-004",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": ""
+            },
+            {
+              "cuenta": "5-1-01-07-002",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "INTERNET"
+            },
+            {
+              "cuenta": "5-1-01-07-002",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": "INTERNET (como en los informes del dueño)"
+            },
+            {
+              "cuenta": "5-1-01-07-001",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "TELEFONO"
+            },
+            {
+              "cuenta": "5-2-01-02-001",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": ""
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "003",
+              "nombre_centro": "Administracion EWV",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "010",
+              "nombre_centro": "Administracion EWV",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "029",
+              "nombre_centro": "Administracion EWV",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "039",
+              "nombre_centro": "Administracion EWV",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "050",
+              "nombre_centro": "Administracion EWV",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "080",
+              "nombre_centro": "Administracion EWV",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "112",
+              "nombre_centro": "MALBEC 115",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "113",
+              "nombre_centro": "MALBEC 203",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "114",
+              "nombre_centro": "MALBEC 607",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "001",
+              "nombre_centro": "VICENTE VALDES",
+              "nota": "GASTOS DE REPRESENTACION"
+            },
+            {
+              "cuenta": "5-1-01-06-003",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "GASTO COMUN PROPIO"
+            },
+            {
+              "cuenta": "5-1-01-06-003",
+              "centro": "111",
+              "nombre_centro": "DIEGO PORTALES 403",
+              "nota": "GASTO COMUN PROPIO"
+            },
+            {
+              "cuenta": "5-1-01-06-003",
+              "centro": "112",
+              "nombre_centro": "MALBEC 115",
+              "nota": "GASTO COMUN PROPIO"
+            },
+            {
+              "cuenta": "5-1-01-06-003",
+              "centro": "113",
+              "nombre_centro": "MALBEC 203",
+              "nota": "GASTO COMUN PROPIO"
+            },
+            {
+              "cuenta": "5-1-01-06-003",
+              "centro": "114",
+              "nombre_centro": "MALBEC 607",
+              "nota": "GASTO COMUN PROPIO"
+            },
+            {
+              "cuenta": "5-1-01-06-003",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": "GASTO COMUN PROPIO"
+            },
+            {
+              "cuenta": "5-2-01-03-006",
+              "centro": "001",
+              "nombre_centro": "VICENTE VALDES",
+              "nota": ""
+            },
+            {
+              "cuenta": "5-2-01-03-006",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": ""
+            },
+            {
+              "cuenta": "5-2-01-02-002",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": "honorarios servicios legales"
+            },
+            {
+              "cuenta": "5-2-01-02-002",
+              "centro": "001",
+              "nombre_centro": "VICENTE VALDES",
+              "nota": "honorarios servicios legales"
+            },
+            {
+              "cuenta": "5-2-01-02-002",
+              "centro": "010",
+              "nombre_centro": "RENCA",
+              "nota": "honorarios servicios legales"
+            },
+            {
+              "cuenta": "5-2-01-06-001",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": "arriendos (bodegas)"
+            },
+            {
+              "cuenta": "5-2-01-03-002",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": "gastos notariales"
+            },
+            {
+              "cuenta": "5-1-01-05-006",
+              "centro": "300",
+              "nombre_centro": "Administracion EWV",
+              "nota": "combustible"
+            },
+            {
+              "cuenta": "5-2-01-03-006",
+              "centro": "301",
+              "nombre_centro": "OFICINA INV CORP 1",
+              "nota": "gastos generales"
+            },
+            {
+              "cuenta": "5-2-01-05-001",
+              "centro": "301",
+              "nombre_centro": "OFICINA INV CORP 1",
+              "nota": "gastos de representación"
+            }
+          ]
+        },
         {
           "key": "gastos_activos",
           "label": "GASTOS ACTIVOS",
@@ -671,6 +794,30 @@
               "centro": "114",
               "nombre_centro": "MALBEC 607",
               "nota": "gastos generales"
+            },
+            {
+              "cuenta": "5-1-01-04-011",
+              "centro": "111",
+              "nombre_centro": "DIEGO PORTALES 403",
+              "nota": "preventiva (planilla 16-10-2026)"
+            },
+            {
+              "cuenta": "5-1-01-04-011",
+              "centro": "113",
+              "nombre_centro": "MALBEC 203",
+              "nota": "preventiva (planilla 16-10-2026)"
+            },
+            {
+              "cuenta": "5-2-01-03-006",
+              "centro": "111",
+              "nombre_centro": "DIEGO PORTALES 403",
+              "nota": "preventiva (planilla 16-10-2026)"
+            },
+            {
+              "cuenta": "5-2-01-03-006",
+              "centro": "113",
+              "nombre_centro": "MALBEC 203",
+              "nota": "preventiva (planilla 16-10-2026)"
             }
           ]
         },
@@ -678,7 +825,9 @@
           "key": "seguros",
           "label": "SEGUROS",
           "tipo": "rango_mapeado_subitems",
-          "subitems": ["seguros"]
+          "subitems": [
+            "seguros"
+          ]
         },
         {
           "key": "cuenta_luz_maitenes",
@@ -690,8 +839,14 @@
           "key": "gastos_abogados_division",
           "label": "GASTOS ABOGADOS DIVISION",
           "tipo": "rango_mapeado_filtrado",
-          "subitems": ["honorarios", "asesoria"],
-          "patrones_nombre": ["ABOGAD", "DIVISION"]
+          "subitems": [
+            "honorarios",
+            "asesoria"
+          ],
+          "patrones_nombre": [
+            "ABOGAD",
+            "DIVISION"
+          ]
         }
       ]
     },
@@ -702,14 +857,22 @@
       "modo_valor": "rango",
       "expandible": true,
       "total_independiente": true,
-      "excluir_subitems": ["impuestos_y_contribuciones", "patentes"],
+      "excluir_subitems": [
+        "impuestos_y_contribuciones",
+        "patentes"
+      ],
       "subfilas": [
         {
           "key": "impuesto_renta",
           "label": "Impuesto a la Renta",
           "tipo": "rango_mapeado_filtrado",
-          "subitems": ["impuestos_y_contribuciones"],
-          "patrones_nombre": ["IMPUESTO A LA RENTA", "IMPUESTO RENTA"]
+          "subitems": [
+            "impuestos_y_contribuciones"
+          ],
+          "patrones_nombre": [
+            "IMPUESTO A LA RENTA",
+            "IMPUESTO RENTA"
+          ]
         },
         {
           "key": "utilidad_ejercicio",
@@ -725,11 +888,25 @@
       "modo_valor": "rango",
       "expandible": true,
       "total_independiente": true,
-      "prefijos_cuenta": ["2-1-05-", "3-1-02-"],
-      "cuentas_default": ["3-1-01-01-002", "1-1-50-01-006", "1-1-40-01-019"],
-      "excluir_periodos": ["2026-01"],
+      "prefijos_cuenta": [
+        "2-1-05-",
+        "3-1-02-"
+      ],
+      "cuentas_default": [
+        "3-1-01-01-002",
+        "1-1-50-01-006",
+        "1-1-40-01-019"
+      ],
+      "excluir_periodos": [
+        "2026-01"
+      ],
       "nota": "3-1-01-01-002 distribución de dividendos; 1-1-50-01-006 cta. por cobrar Dinamity (mutuos, incluye intereses devengados); 1-1-40-01-019 cta. por cobrar Eric Waghorn Vitar. Se excluye 2026-01: en WCORP ese mes solo tiene el asiento de apertura.",
-      "patrones_nombre": ["MUTUO", "RETIRO SOCIO", "RETIRO DE UTILIDADES", "DIVIDENDO SOCIO"],
+      "patrones_nombre": [
+        "MUTUO",
+        "RETIRO SOCIO",
+        "RETIRO DE UTILIDADES",
+        "DIVIDENDO SOCIO"
+      ],
       "excluir_patrones_nombre": [
         "RETIRO BASURA",
         "PROYECTO RETIRO",
@@ -764,6 +941,18 @@
     {
       "key": "fi_btg_pactual",
       "label": "FI BTG PACTUAL RENTA COMERCIAL",
+      "tipo": "corte_cuentas",
+      "modo_valor": "corte"
+    },
+    {
+      "key": "acciones_cfinrentas",
+      "label": "ACCIONES CFINRENTAS BANCO SANTANDER",
+      "tipo": "corte_cuentas",
+      "modo_valor": "corte"
+    },
+    {
+      "key": "fm_bci_pesos",
+      "label": "FONDOS MUTUOS BCI PESOS",
       "tipo": "corte_cuentas",
       "modo_valor": "corte"
     }
@@ -809,6 +998,20 @@
       "label": "1-1-20-04-004",
       "codigo": "1-1-20-04-004",
       "fila": "fi_btg_pactual",
+      "tipo_valor": "corte"
+    },
+    {
+      "key": "1-1-20-01-003",
+      "label": "1-1-20-01-003",
+      "codigo": "1-1-20-01-003",
+      "fila": "acciones_cfinrentas",
+      "tipo_valor": "corte"
+    },
+    {
+      "key": "1-1-20-01-006",
+      "label": "1-1-20-01-006",
+      "codigo": "1-1-20-01-006",
+      "fila": "fm_bci_pesos",
       "tipo_valor": "corte"
     }
   ],
