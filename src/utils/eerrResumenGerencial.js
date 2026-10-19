@@ -185,6 +185,8 @@ function filaMappedCoincide(row, regla) {
   if (patronesCentro.length && !patronesCentro.some((p) => p && centro.includes(p))) return false;
 
   if (regla.codigos_centro?.length && !regla.codigos_centro.includes(codCentro)) return false;
+  // Centros que se clasifican en otra fila por asignación directa (evita contarlos dos veces).
+  if (regla.excluir_codigos_centro?.includes(codCentro)) return false;
 
   if (patronesNombre.length || patronesCentro.length || regla.codigos_centro?.length) return true;
 

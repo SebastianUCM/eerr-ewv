@@ -172,6 +172,9 @@
               "patrones_nombre": [
                 "CONTROL DE PLAGAS",
                 "CONTROL PLAGAS"
+              ],
+              "excluir_codigos_centro": [
+                "100"
               ]
             },
             {
@@ -319,6 +322,9 @@
                 "GENERAL",
                 "CLIMA",
                 "ELECTRICA CORRECTIVA"
+              ],
+              "excluir_codigos_centro": [
+                "100"
               ]
             },
             {
@@ -379,6 +385,9 @@
               "patrones_nombre": [
                 "MANTENCION ELECTRICA CORRECTIVA",
                 "ELECTRICA CORRECTIVA"
+              ],
+              "excluir_codigos_centro": [
+                "100"
               ]
             }
           ]
@@ -726,6 +735,12 @@
               "centro": "301",
               "nombre_centro": "OFICINA INV CORP 1",
               "nota": "gastos de representación"
+            },
+            {
+              "cuenta": "5-1-01-03-003",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "CONTROL DE PLAGAS; cc 100: criterio supervisora contable 19-10-2026"
             }
           ]
         },
@@ -818,6 +833,24 @@
               "centro": "113",
               "nombre_centro": "MALBEC 203",
               "nota": "preventiva (planilla 16-10-2026)"
+            },
+            {
+              "cuenta": "5-1-01-04-003",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "MANTENCION BOMBAS AP; cc 100: criterio supervisora contable 19-10-2026"
+            },
+            {
+              "cuenta": "5-1-01-04-013",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "MANTENCION ELECTRICA; cc 100: criterio supervisora contable 19-10-2026"
+            },
+            {
+              "cuenta": "5-1-01-04-018",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "MANTENCION ELECTRICA CORRECTIVA; cc 100: criterio supervisora contable 19-10-2026"
             }
           ]
         },
