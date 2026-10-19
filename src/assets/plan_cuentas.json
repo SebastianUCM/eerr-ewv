@@ -1856,6 +1856,14 @@
         "Empresa": "WCORP1"
     },
     {
+        "CodigoCuenta": "1-2-01-01-002",
+        "NombreCuenta": "EQUIPOS COMPUTACIONES                                       ",
+        "NivelCuenta": 5,
+        "LongitudCodigo": 13,
+        "TipoCuenta": "A",
+        "Empresa": "WCORP1"
+    },
+    {
         "CodigoCuenta": "1-2-01-02-000",
         "NombreCuenta": "INSTALACIONES",
         "NivelCuenta": 4,
@@ -2562,6 +2570,14 @@
     {
         "CodigoCuenta": "1-2-02-01-001",
         "NombreCuenta": "DEP. ACUM. MUEBLES Y UTILES",
+        "NivelCuenta": 5,
+        "LongitudCodigo": 13,
+        "TipoCuenta": "A",
+        "Empresa": "WCORP1"
+    },
+    {
+        "CodigoCuenta": "1-2-02-01-002",
+        "NombreCuenta": "DEP. ACUM. EQUIPOS COMPUTACIONALES                          ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "A",
@@ -5241,7 +5257,7 @@
     },
     {
         "CodigoCuenta": "5-1-01-05-006",
-        "NombreCuenta": "COMPRAS PETROLEO GAS BENCINA                                ",
+        "NombreCuenta": "COMBUSTIBLES                                                ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "G",
