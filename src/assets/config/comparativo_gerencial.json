@@ -741,6 +741,12 @@
               "centro": "100",
               "nombre_centro": "LOS MAITENES",
               "nota": "CONTROL DE PLAGAS; cc 100: criterio supervisora contable 19-10-2026"
+            },
+            {
+              "cuenta": "5-1-01-05-006",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "BENCINA; cc 100: criterio supervisora contable 19-10-2026"
             }
           ]
         },
@@ -767,12 +773,6 @@
               "centro": "100",
               "nombre_centro": "LOS MAITENES",
               "nota": "mantención general"
-            },
-            {
-              "cuenta": "5-1-01-05-006",
-              "centro": "100",
-              "nombre_centro": "LOS MAITENES",
-              "nota": "combustible"
             },
             {
               "cuenta": "5-1-01-04-011",
