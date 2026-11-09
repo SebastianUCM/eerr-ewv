@@ -388,10 +388,6 @@ const periodoKey = computed(() => `${filtroAnio.value}-${String(mesHasta.value).
 function ov(tipo) {
   return overrides.value[periodoKey.value]?.[tipo];
 }
-function cajaEnLibros(key) {
-  const f = matrizGerencial.value.filas.find((x) => x.key === key);
-  return f ? -(Number(f.acumulado) || 0) : 0;
-}
 // Banco/Caja como en los informes del dueño: Flujo de caja del período + Flujo de caja
 // acumulado (meses anteriores del año), todo calculado desde Softland.
 const cajaBanco = computed(() => {
@@ -399,14 +395,64 @@ const cajaBanco = computed(() => {
   const hijo = (k) => Number(retiros?.children?.find((ch) => ch.key === k)?.acumulado) || 0;
   return hijo("flujo_caja") + hijo("flujo_caja_acumulado");
 });
-// Inversiones: saldo de cada cuenta en Softland al cierre del período (filas "corte" de
-// comparativo_gerencial.json). Van en el recuadro de cierre y suman a la posición total.
-const INVERSIONES = [
-  { key: "fi_btg_pactual", corto: "btg", label: "*FI BTG Pactual Renta Comercial", titulo: "FI BTG Pactual Renta Comercial", cuenta: "1-1-20-04-004" },
-  { key: "acciones_cfinrentas", corto: "cfin", label: "Acciones CFINRENTAS Banco Santander", titulo: "Acciones CFINRENTAS Banco Santander", cuenta: "1-1-20-01-003" },
-  { key: "fm_bci_pesos", corto: "bci", label: "Fondos Mutuos BCI Pesos", titulo: "Fondos Mutuos BCI Pesos", cuenta: "1-1-20-01-006" },
-];
-const cajaInversiones = computed(() => INVERSIONES.map((inv) => ({ ...inv, monto: cajaEnLibros(inv.key) })));
+// Inversiones: toda cuenta 1-1-20-… con saldo en Softland al cierre del período (saldo
+// desde enero del año, como las filas "corte"). Una inversión nueva registrada en Softland
+// aparece sola. Van en el recuadro de cierre, en las tarjetas y suman a la posición total.
+const PREFIJO_INVERSIONES = "1-1-20-";
+const CUENTA_BTG = "1-1-20-04-004";
+const ORDEN_INVERSIONES = [CUENTA_BTG, "1-1-20-01-003", "1-1-20-01-006"];
+const SIGLAS = new Set(["BTG", "BCI", "DAP", "FI", "FN", "USD", "CLP", "UF", "MBI", "CFINRENTAS", "S.A.", "SA"]);
+const MINUSCULAS = new Set(["de", "del", "en", "y", "la", "el", "por", "a"]);
+/** Nombre de la inversión: el de app_ui.json si existe; si no, el de Softland legible. */
+function nombreInversion(cuenta, nombre) {
+  const fijo = appUi.informeEerr?.nombresInversion?.[cuenta];
+  if (fijo) return fijo;
+  return String(nombre || cuenta).trim().split(/\s+/).map((w, i) => {
+    const u = w.toUpperCase();
+    if (SIGLAS.has(u)) return u;
+    const l = w.toLowerCase();
+    if (i > 0 && MINUSCULAS.has(l)) return l;
+    return l.charAt(0).toUpperCase() + l.slice(1);
+  }).join(" ");
+}
+const memoInversiones = new Map();
+/** Saldo al cierre de (anio, mes) de cada cuenta de inversión, sumando las empresas activas. */
+function saldosInversion(anio, mes) {
+  const emps = empresasActivas.value;
+  const clave = `${anio}|${mes}|${emps.join(",")}`;
+  if (memoInversiones.has(clave)) return memoInversiones.get(clave);
+  const out = {};
+  for (const e of emps) {
+    for (const d of datosEmpresasActivas.value[e] || []) {
+      const cta = String(d.CodigoCuenta).trim();
+      if (!cta.startsWith(PREFIJO_INVERSIONES)) continue;
+      if (normAnio(d.Anio) !== Number(anio) || Number(d.Mes) > Number(mes)) continue;
+      const x = out[cta] || (out[cta] = { monto: 0, nombre: d.NombreCuenta });
+      x.monto -= Number(d.SaldoNeto) || 0;
+    }
+  }
+  memoInversiones.set(clave, out);
+  return out;
+}
+const ordenInversion = (a, b) => {
+  const ia = ORDEN_INVERSIONES.indexOf(a), ib = ORDEN_INVERSIONES.indexOf(b);
+  if (ia !== -1 || ib !== -1) return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  return a.localeCompare(b);
+};
+/** Inversiones con saldo al cierre (y, si se pide, también las que tenían saldo el mes anterior). */
+function inversionesDe(anio, mes, { conMesAnterior = false } = {}) {
+  const act = saldosInversion(anio, mes);
+  const prev = conMesAnterior ? (Number(mes) === 1 ? saldosInversion(anio - 1, 12) : saldosInversion(anio, mes - 1)) : {};
+  const conSaldo = (o, c) => Math.round(o[c]?.monto || 0) !== 0;
+  const ctas = new Set([CUENTA_BTG, ...Object.keys(act).filter((c) => conSaldo(act, c)), ...Object.keys(prev).filter((c) => conSaldo(prev, c))]);
+  return [...ctas].sort(ordenInversion).map((c) => {
+    const label = nombreInversion(c, act[c]?.nombre || prev[c]?.nombre);
+    return { key: c, cuenta: c, label, titulo: label.replace(/^\*/, ""), monto: act[c]?.monto || 0 };
+  });
+}
+const cajaInversiones = computed(() =>
+  inversionesDe(filtroAnio.value, mesHasta.value).filter((i) => i.cuenta === CUENTA_BTG || Math.round(i.monto) !== 0)
+);
 const cajaTotal = computed(() => cajaBanco.value + cajaInversiones.value.reduce((s, x) => s + x.monto, 0));
 const participacion = computed(() => {
   const o = ov("participacion");
@@ -487,10 +533,26 @@ const periodoDe = (anio, mes) => `${anio}-${String(mes).padStart(2, "0")}`;
 const periodosDisponibles = computed(() =>
   Array.from(new Set([...periodosSoftland.value.resultado, ...periodosDueno.value])).sort().reverse()
 );
-// Abre en el último mes con ingresos en Softland (el mes en curso suele tener solo algunos gastos).
-const periodoInicial = computed(
-  () => periodosDisponibles.value.find((p) => periodosSoftland.value.ingresos.has(p)) || periodosDisponibles.value[0] || ""
-);
+// Abre en el último mes con ingresos completos en Softland: el mes en curso suele tener
+// solo algunos gastos o una parte de la facturación. "Completo" = ingresos operacionales
+// de al menos la mitad del mes más alto.
+const periodoInicial = computed(() => {
+  const ing = {};
+  for (const emp of (props.empresasDisponibles || []).filter((e) => EMPRESAS_SOFTLAND.includes(e))) {
+    for (const d of filasPorEmpresa(emp)) {
+      if (!String(d.CodigoCuenta).startsWith("4-1")) continue;
+      const p = `${normAnio(d.Anio)}-${String(Number(d.Mes)).padStart(2, "0")}`;
+      ing[p] = (ing[p] || 0) + (Number(d.SaldoNeto) || 0);
+    }
+  }
+  const max = Math.max(0, ...Object.values(ing));
+  return (
+    periodosDisponibles.value.find((p) => (ing[p] || 0) >= max / 2 && max > 0) ||
+    periodosDisponibles.value.find((p) => periodosSoftland.value.ingresos.has(p)) ||
+    periodosDisponibles.value[0] ||
+    ""
+  );
+});
 
 // Selector de período propio (un <select> no permite marcar meses con un punto de color).
 const selPeriodoAbierto = ref(false);
@@ -510,11 +572,10 @@ const informeDueno = computed(() => datosDueno(periodo.value));
 const inversionesDueno = computed(() => {
   const d = informeDueno.value;
   if (!d) return [];
-  const t = totalesMes(filtroAnio.value, mesHasta.value);
-  return INVERSIONES.map((inv) =>
-    inv.corto === "btg"
+  return inversionesDe(filtroAnio.value, mesHasta.value).map((inv) =>
+    inv.cuenta === CUENTA_BTG
       ? { ...inv, monto: Number(d.btg) || 0, fuente: "previos" }
-      : { ...inv, monto: t[inv.corto], fuente: "softland" }
+      : { ...inv, fuente: "softland" }
   ).filter((inv) => inv.fuente === "previos" || Math.round(inv.monto) !== 0);
 });
 const totalDueno = computed(() => (Number(informeDueno.value?.banco) || 0) + inversionesDueno.value.reduce((s, x) => s + x.monto, 0));
@@ -763,7 +824,8 @@ const TONO_POR_SECCION = {
   resultado_antes_impuestos: "resultado",
   retiros_mutuos: "neutro",
 };
-const SECCIONES_CAJA = new Set(["banco_caja_ewv", ...INVERSIONES.map((inv) => inv.key)]);
+// Filas de saldo (corte) de la configuración: no son secciones del resultado.
+const SECCIONES_CAJA = new Set(["banco_caja_ewv", "fi_btg_pactual", "acciones_cfinrentas", "fm_bci_pesos"]);
 
 function nodoDesdeGerencial(fila, depth) {
   const children = [];
@@ -888,7 +950,6 @@ function calcularMes(anio, mes) {
     const utilidad = res > 0 ? res * (1 - tasaImpuesto.value) : res;
     const retiros = v("retiros_mutuos");
     porEmpresa[e] = {
-      ...Object.fromEntries(INVERSIONES.map((inv) => [inv.corto, -v(inv.key)])),
       ingOp, ingNoOp: v("ingresos_no_operacionales"), gcs: v("gastos_comunes_servicios"), gav: v("gastos_adm_ventas"),
       res, utilidad, retiros, flujo: utilidad + retiros,
     };
@@ -1009,14 +1070,15 @@ function totalesMes(anio, mes) {
   const dueno = datosDueno(periodoDe(anio, mes));
   const calc = calcularMes(anio, mes);
   const suma = (k) => Object.values(calc.porEmpresa).reduce((s, x) => s + (Number(x[k]) || 0), 0);
-  // Saldos de inversiones al cierre (Softland); en meses de informes previos, BTG viene del informe.
-  const inv = Object.fromEntries(INVERSIONES.map((i) => [i.corto, suma(i.corto)]));
+  // Saldos de inversiones al cierre (Softland), por cuenta; en meses de informes previos,
+  // BTG viene del informe.
+  const inv = Object.fromEntries(inversionesDe(anio, mes).map((i) => [i.cuenta, i.monto]));
   const conTotales = (base, banco) => {
-    const totalInv = INVERSIONES.reduce((s, i) => s + (Number(inv[i.corto]) || 0), 0);
-    return { ...base, ...inv, banco, inv: totalInv, total: banco + totalInv };
+    const totalInv = Object.values(inv).reduce((s, x) => s + (Number(x) || 0), 0);
+    return { ...base, ...inv, btg: inv[CUENTA_BTG] || 0, banco, inv: totalInv, total: banco + totalInv };
   };
   if (dueno) {
-    inv.btg = Number(dueno.btg) || 0;
+    inv[CUENTA_BTG] = Number(dueno.btg) || 0;
     return conTotales(dueno.totales, Number(dueno.banco) || 0);
   }
   const banco = Object.values(bancoAlCierre(anio, mes)).reduce((s, x) => s + (Number(x) || 0), 0);
@@ -1036,6 +1098,7 @@ const tarjetas = computed(() => {
     key, titulo, categoria, nota, subeEsBueno, valor: act[key], anterior: prev[key], ...extra,
   });
   const det = (key, label) => ({ key, label, valor: act[key] });
+  const invTarjetas = inversionesDe(anio, mes, { conMesAnterior: true });
   // Fila 1: ingresos, gastos y saldos; fila 2 (anchas): resultado, retiros y posición total.
   return [
     t("ingOp", "Ingresos operacionales", "ingreso", "Arriendos, gastos comunes y consumos"),
@@ -1056,13 +1119,13 @@ const tarjetas = computed(() => {
       ancha: true, destacada: true,
       detalle: [det("banco", 'Banco/CAJA "Sociedad EWV"'), det("inv", "Inversiones")],
     }),
-    // Fila 3: inversiones (saldos de Softland al cierre)
-    ...INVERSIONES.filter((i) => i.corto !== "btg").map((i) =>
-      t(i.corto, i.titulo, "inversion", `Cuenta ${i.cuenta} al cierre (Softland)`, true, { ancha: true })
+    // Fila 3: inversiones con saldo en Softland (este mes o el anterior) y su total
+    ...invTarjetas.filter((i) => i.cuenta !== CUENTA_BTG).map((i) =>
+      t(i.cuenta, i.titulo, "inversion", `Cuenta ${i.cuenta} al cierre (Softland)`)
     ),
-    t("inv", "Total inversiones", "inversion", "FI BTG Pactual + Acciones CFINRENTAS + Fondos Mutuos BCI", true, {
+    t("inv", "Total inversiones", "inversion", "Suma de las cuentas de inversión (1-1-20) con saldo en Softland", true, {
       ancha: true,
-      detalle: INVERSIONES.map((i) => det(i.corto, i.titulo)),
+      detalle: invTarjetas.map((i) => det(i.cuenta, i.titulo)),
     }),
   ];
 });

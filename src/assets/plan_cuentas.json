@@ -1377,7 +1377,7 @@
     },
     {
         "CodigoCuenta": "1-1-50-01-005",
-        "NombreCuenta": "PAGARE POR COBRAR DOLE                                      ",
+        "NombreCuenta": "CUENTA POR COBRAR CAFETERIA FRANCHESCA CARRASCO             ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "A",
@@ -4649,7 +4649,7 @@
     },
     {
         "CodigoCuenta": "4-2-01-01-001",
-        "NombreCuenta": "INTERESES FFMM",
+        "NombreCuenta": "INGRESOS POR INTERES MUTUO DINAMITY                         ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "I",
@@ -4657,7 +4657,7 @@
     },
     {
         "CodigoCuenta": "4-2-01-01-002",
-        "NombreCuenta": "UTILIDADES EN INVERSIONES EERR",
+        "NombreCuenta": "INGRESOS POR INTERES MUTUO CAFETERIA FRANCHESCA CARRASCO    ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "I",

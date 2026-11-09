@@ -7,6 +7,12 @@
   },
   "informeEerr": {
     "empresasSoftland": ["WCORP1", "WCORP2"],
+    "nombresInversion": {
+      "1-1-20-04-004": "*FI BTG Pactual Renta Comercial",
+      "1-1-20-01-003": "Acciones CFINRENTAS Banco Santander",
+      "1-1-20-01-006": "Fondos Mutuos BCI Pesos",
+      "1-1-20-04-013": "Fondo Mutuo BTG Money Market Pesos"
+    },
     "participacion": 28.43,
     "nombresPropiedad": {
       "001": "STRIP CENTER - UNIMARC | VICENTE VALDES 85 | LA FLORIDA",
