@@ -825,7 +825,7 @@
     },
     {
         "CodigoCuenta": "1-1-20-05-001",
-        "NombreCuenta": "INVERSIONES SEGOVIA S.A.",
+        "NombreCuenta": "INVERSIONES LARRAIN VIAL SA CORREDORA DE BOLSA              ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "A",
@@ -833,7 +833,7 @@
     },
     {
         "CodigoCuenta": "1-1-20-05-002",
-        "NombreCuenta": "INVERSIONES LOS LIRIOS S.A.",
+        "NombreCuenta": "FI FALCOM CHILEAN FIXED INCOME - INV LARRAIN                ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "A",
@@ -841,7 +841,7 @@
     },
     {
         "CodigoCuenta": "1-1-20-05-003",
-        "NombreCuenta": "INVERSION CAPITAL RIACHUELOS",
+        "NombreCuenta": "FI MBI DEUDA - INV LARRAIN                                  ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "A",
@@ -849,7 +849,7 @@
     },
     {
         "CodigoCuenta": "1-1-20-05-004",
-        "NombreCuenta": "INVERSIONES ICONO ANTOFAGASTA",
+        "NombreCuenta": "FI BTG PACTUAL DEUDA - INV LARRAIN                          ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "A",
@@ -857,7 +857,7 @@
     },
     {
         "CodigoCuenta": "1-1-20-05-005",
-        "NombreCuenta": "INMOBILIARIA PW75 SPA (MALBEC)",
+        "NombreCuenta": "CUENTAS POR COBRAR POR VENTA DE INVERSIONES                 ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "A",
@@ -1377,7 +1377,7 @@
     },
     {
         "CodigoCuenta": "1-1-50-01-005",
-        "NombreCuenta": "CUENTA POR COBRAR CAFETERIA FRANCHESCA CARRASCO             ",
+        "NombreCuenta": "CXC MUTUO CAFETERIA FRANCHESCA CARRASCO                     ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "A",
@@ -4665,7 +4665,7 @@
     },
     {
         "CodigoCuenta": "4-2-01-01-003",
-        "NombreCuenta": "DIVIDENDOS RIACHUELO                                        ",
+        "NombreCuenta": "GANANCIA POR INVERSIONES FINANCIERAS                        ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "I",
@@ -5993,7 +5993,7 @@
     },
     {
         "CodigoCuenta": "5-3-01-02-006",
-        "NombreCuenta": "GANANCIA (PERDIDA) SWAP",
+        "NombreCuenta": "GANANCIA (PÉRDIDA) INVERSIONES                              ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "G",

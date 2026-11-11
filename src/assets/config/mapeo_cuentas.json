@@ -76,6 +76,12 @@
           "orden": 101,
           "eerr": ["financiero", "contable"]
         },
+        "4-2-01-01-001": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 100,
+          "eerr": ["financiero", "contable"]
+        },
         "4-2-01-01-004": {
           "categoria": "ingreso_financiero",
           "subitem": "intereses",
@@ -813,6 +819,12 @@
           "categoria": "ingreso_financiero",
           "subitem": "intereses",
           "orden": 101,
+          "eerr": ["financiero", "contable"]
+        },
+        "4-2-01-01-001": {
+          "categoria": "ingreso_financiero",
+          "subitem": "intereses",
+          "orden": 100,
           "eerr": ["financiero", "contable"]
         },
         "4-2-01-01-004": {
