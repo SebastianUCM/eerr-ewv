@@ -5921,7 +5921,7 @@
     },
     {
         "CodigoCuenta": "5-3-01-01-005",
-        "NombreCuenta": "GASTOS E INTERESES COMERCIALES",
+        "NombreCuenta": "COMISIONES POR INVERSIONES FINANCIERAS                      ",
         "NivelCuenta": 5,
         "LongitudCodigo": 13,
         "TipoCuenta": "G",
