@@ -208,8 +208,46 @@
 
     <!-- Hoja con el formato de los informes del dueño -->
     <div v-else class="hoja">
+      <!-- Recuadro de cierre por empresa (vista "Por empresa") -->
+      <div v-if="modoCajaEmpresa" class="tabla-wrap caja-wrap">
+        <table class="caja caja-multi">
+          <thead>
+            <tr>
+              <th class="caja-fecha">FECHA CIERRE: {{ mesNombre(mesHasta) }} {{ filtroAnio }}</th>
+              <th v-for="e in cajaPorEmpresa.emps" :key="'ch-' + e" colspan="2" class="caja-col">{{ e }}</th>
+              <th colspan="2" class="caja-col col-total">Sociedad EWV</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="f in cajaPorEmpresa.filas" :key="'cm-' + f.key" :class="{ 'caja-nota': f.tipo === 'nota' }">
+              <td class="caja-label">
+                {{ f.label }}
+                <span v-if="f.tipo === 'banco'" class="tag tag-softland" title="Flujos de caja de cada empresa calculados con Softland">Softland</span>
+                <span v-else-if="f.tipo === 'nota'" class="tag tag-manual" :title="saldoInicial ? `${saldoInicial.fuente}. Softland no tiene este dato.` : ''">Informes previos</span>
+                <span v-else class="tag tag-softland" :title="`Saldo de la cuenta ${f.cuenta} en Softland al cierre del período, por empresa`">Softland</span>
+              </td>
+              <template v-for="e in cajaPorEmpresa.emps" :key="'cm-' + f.key + e">
+                <td class="pesos">{{ f.tipo === 'nota' ? '' : '$' }}</td>
+                <td class="caja-monto">{{ f.tipo === 'nota' ? '' : formatCaja(f.valores[e] || 0) }}</td>
+              </template>
+              <td class="pesos col-total">$</td>
+              <td class="caja-monto col-total">{{ formatCaja(f.total) }}</td>
+            </tr>
+            <tr class="caja-total">
+              <td></td>
+              <template v-for="e in cajaPorEmpresa.emps" :key="'ct-' + e">
+                <td class="pesos">$</td>
+                <td class="caja-monto">{{ formatCaja(cajaPorEmpresa.totales[e]) }}</td>
+              </template>
+              <td class="pesos col-total">$</td>
+              <td class="caja-monto col-total">{{ formatCaja(cajaPorEmpresa.total) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <!-- Recuadro de cierre -->
-      <table class="caja">
+      <table v-else class="caja">
         <tbody>
           <tr><td colspan="3" class="caja-fecha">FECHA CIERRE: {{ mesNombre(mesHasta) }} {{ filtroAnio }}</td></tr>
           <tr>
@@ -289,7 +327,22 @@
       </div>
 
       <!-- Pie: caja otra vez, como en los informes -->
-      <table class="caja caja-pie">
+      <div v-if="modoCajaEmpresa" class="tabla-wrap caja-wrap">
+        <table class="caja caja-pie caja-multi">
+          <tbody>
+            <tr v-for="f in cajaPorEmpresa.filas" :key="'pm-' + f.key" :class="{ 'caja-nota': f.tipo === 'nota' }">
+              <td class="caja-label">{{ f.label }}</td>
+              <template v-for="e in cajaPorEmpresa.emps" :key="'pm-' + f.key + e">
+                <td class="pesos">{{ f.tipo === 'nota' ? '' : '$' }}</td>
+                <td class="caja-monto">{{ f.tipo === 'nota' ? '' : formatCaja(f.valores[e] || 0) }}</td>
+              </template>
+              <td class="pesos col-total">$</td>
+              <td class="caja-monto col-total">{{ formatCaja(f.total) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <table v-else class="caja caja-pie">
         <tbody>
           <tr>
             <td class="caja-label">Banco/CAJA "Sociedad EWV"</td>
@@ -427,8 +480,9 @@ function saldosInversion(anio, mes) {
       const cta = String(d.CodigoCuenta).trim();
       if (!cta.startsWith(PREFIJO_INVERSIONES)) continue;
       if (normAnio(d.Anio) !== Number(anio) || Number(d.Mes) > Number(mes)) continue;
-      const x = out[cta] || (out[cta] = { monto: 0, nombre: d.NombreCuenta });
+      const x = out[cta] || (out[cta] = { monto: 0, nombre: d.NombreCuenta, porEmpresa: {} });
       x.monto -= Number(d.SaldoNeto) || 0;
+      x.porEmpresa[e] = (x.porEmpresa[e] || 0) - (Number(d.SaldoNeto) || 0);
     }
   }
   memoInversiones.set(clave, out);
@@ -447,7 +501,7 @@ function inversionesDe(anio, mes, { conMesAnterior = false } = {}) {
   const ctas = new Set([CUENTA_BTG, ...Object.keys(act).filter((c) => conSaldo(act, c)), ...Object.keys(prev).filter((c) => conSaldo(prev, c))]);
   return [...ctas].sort(ordenInversion).map((c) => {
     const label = nombreInversion(c, act[c]?.nombre || prev[c]?.nombre);
-    return { key: c, cuenta: c, label, titulo: label.replace(/^\*/, ""), monto: act[c]?.monto || 0 };
+    return { key: c, cuenta: c, label, titulo: label.replace(/^\*/, ""), monto: act[c]?.monto || 0, porEmpresa: act[c]?.porEmpresa || {} };
   });
 }
 const cajaInversiones = computed(() =>
@@ -990,6 +1044,44 @@ function bancoAlCierre(anio, mes) {
   }
   return out;
 }
+
+// Recuadro de cierre en la vista "Por empresa": Banco/Caja e inversiones de cada empresa.
+// El saldo inicial de Banco/Caja viene de los informes previos como total de la sociedad,
+// así que no se reparte: va en su propia línea y solo suma en la columna Sociedad EWV.
+const modoCajaEmpresa = computed(() => modo.value === "empresa" && !informeDueno.value);
+const cajaPorEmpresa = computed(() => {
+  const emps = empresasActivas.value;
+  const anio = filtroAnio.value;
+  const mes = mesHasta.value;
+  const banco = { ...bancoAlCierre(anio, mes) };
+  const si = saldoInicial.value;
+  let siMonto = 0;
+  if (si && indicePeriodo(anio, mes) >= indicePeriodo(si.periodo.slice(0, 4), si.periodo.slice(5, 7))) {
+    const emp = emps.includes(si.empresa) ? si.empresa : emps[0];
+    if (emp) {
+      banco[emp] = (Number(banco[emp]) || 0) - Number(si.monto);
+      siMonto = Number(si.monto);
+    }
+  }
+  const sumar = (o) => emps.reduce((s, e) => s + (Number(o[e]) || 0), 0);
+  const filas = [{ key: "banco", label: 'Banco/CAJA "Sociedad EWV"', tipo: "banco", valores: banco, total: sumar(banco) + siMonto }];
+  if (siMonto) {
+    filas.push({
+      key: "saldo-inicial",
+      label: `Incluye saldo inicial ${etiquetaPeriodo(si.periodo)} (no separado por empresa)`,
+      tipo: "nota",
+      valores: {},
+      total: siMonto,
+    });
+  }
+  for (const inv of cajaInversiones.value) {
+    filas.push({ key: inv.key, label: inv.label, cuenta: inv.cuenta, tipo: "inversion", valores: inv.porEmpresa || {}, total: inv.monto });
+  }
+  const totales = {};
+  emps.forEach((e) => (totales[e] = filas.reduce((s, f) => s + (Number(f.valores[e]) || 0), 0)));
+  // La línea de saldo inicial es informativa: ese monto ya está dentro del total de Banco/Caja.
+  return { emps, filas, totales, total: filas.filter((f) => f.tipo !== "nota").reduce((s, f) => s + f.total, 0) };
+});
 
 const tituloBanco = computed(() =>
   saldoInicial.value
@@ -1594,6 +1686,21 @@ html.dark .hoja {
 .caja-total .caja-monto, .caja-total .pesos { font-weight: 400; font-size: 15px; }
 .caja-input { width: 100%; text-align: right; font: inherit; border: 1px solid var(--azul-claro); background: transparent; color: inherit; padding: 1px 4px; }
 .caja-pie { margin: 30px 0 0; border-width: 0; }
+/* Recuadro de cierre por empresa: una columna por empresa + total Sociedad EWV. */
+.caja-wrap { margin-bottom: 26px; }
+.caja-wrap .caja { margin-bottom: 0; }
+.caja-wrap .caja-pie { margin-top: 30px; }
+.caja-multi { min-width: 760px; }
+.caja-multi th { border-bottom: 1px solid var(--borde); padding: 3px 6px; text-align: right; font-size: 11px; font-weight: 700; color: var(--suave); white-space: nowrap; }
+.caja-multi th.caja-fecha { text-align: left; font-size: 15px; font-weight: 400; }
+.caja-multi .caja-label { font-size: 13px; }
+.caja-multi .caja-monto, .caja-multi .pesos { font-size: 14px; }
+.caja-multi .pesos { width: 14px; padding-right: 0; }
+.caja-multi .caja-monto { width: 118px; }
+.caja-multi .col-total { background: rgba(74, 127, 193, 0.08); }
+.caja-multi th.col-total { color: var(--azul); }
+.caja-multi .caja-nota .caja-label { font-weight: 400; font-style: italic; font-size: 12px; padding-left: 18px; }
+.caja-multi .caja-nota .caja-monto, .caja-multi .caja-nota .pesos { font-weight: 400; font-size: 13px; }
 .caja-pie tr { border-top: 1px solid var(--borde); }
 .caja-pie td { padding: 4px 6px; }
 
