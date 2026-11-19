@@ -821,6 +821,18 @@
             },
             {
               "cuenta": "5-1-01-04-011",
+              "centro": "010",
+              "nombre_centro": "RENCA",
+              "nota": "mantención general; criterio contadora 19-11-2026"
+            },
+            {
+              "cuenta": "5-2-01-03-006",
+              "centro": "100",
+              "nombre_centro": "LOS MAITENES",
+              "nota": "gastos generales; criterio contadora 19-11-2026"
+            },
+            {
+              "cuenta": "5-1-01-04-011",
               "centro": "111",
               "nombre_centro": "DIEGO PORTALES 403",
               "nota": "preventiva (planilla 16-10-2026)"
